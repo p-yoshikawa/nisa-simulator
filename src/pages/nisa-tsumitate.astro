@@ -1,6 +1,7 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import CalculatorForm from '../components/CalculatorForm.tsx';
+import AffiliateSection from '../components/AffiliateSection.astro';
 ---
 
 <Layout 
@@ -17,4 +18,5 @@ import CalculatorForm from '../components/CalculatorForm.tsx';
 	<!-- client:load を使用して即時インタラクティブに。グラフ自体は内部でReact.lazyによる遅延ロードが行われます -->
 	<CalculatorForm mode="tsumitate" client:load />
 
+	<AffiliateSection />
 </Layout>

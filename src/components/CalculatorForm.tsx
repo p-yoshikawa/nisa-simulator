@@ -233,6 +233,20 @@ export default function CalculatorForm({ mode }: CalculatorFormProps) {
                     <ResultChart labels={chartData.labels} datasets={chartData.datasets} />
                 </div>
             )}
+
+            {finalResult && (
+                <div className="card" style={{ textAlign: 'center', marginTop: '2rem', padding: '2rem', background: 'linear-gradient(to right bottom, #f8fafc, #f1f5f9)', border: '1px solid #e2e8f0' }}>
+                    <h2 style={{ fontSize: '1.5rem', color: 'var(--text-main)', marginBottom: '1rem' }}>次の一歩：新NISAを始めましょう</h2>
+                    <p style={{ color: 'var(--text-muted)', marginBottom: '1.5rem', lineHeight: '1.6' }}>
+                        シミュレーション結果を踏まえ、<br />
+                        実際に新NISAを始めるには証券口座の開設が必要です。<br />
+                        手数料や特徴を比較して、自分に合った証券会社を選びましょう。
+                    </p>
+                    <a href="#affiliate-section" style={{ display: 'inline-block', backgroundColor: 'var(--primary)', color: 'white', padding: '1rem 2rem', borderRadius: '8px', fontWeight: 'bold', textDecoration: 'none', boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.1)' }}>
+                        証券口座を比較する
+                    </a>
+                </div>
+            )}
         </div>
     );
 }
