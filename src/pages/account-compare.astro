@@ -72,8 +72,14 @@ import AffiliateSection from '../components/AffiliateSection.astro';
 	<AffiliateSection placement="compare_page" />
 
     <script type="module">
-        import { trackEvent } from '../lib/tracking';
         import { affiliates } from '../lib/affiliates';
+
+        function trackEvent(name, params = {}) {
+            try {
+                const gtag = globalThis.gtag;
+                if (typeof gtag === "function") gtag("event", name, params);
+            } catch (e) {}
+        }
 
         // Instead of DOMContentLoaded, Astro script tags are executed when loaded.
         // But to be safe if Astro bundles this or defers it, we can wrap the init logic.
@@ -88,7 +94,7 @@ import AffiliateSection from '../components/AffiliateSection.astro';
             if (!quizContainer) return;
 
             quizContainer.addEventListener('click', (e) => {
-                const btn = (e.target as HTMLElement).closest('.quiz-btn');
+                const btn = e.target.closest('.quiz-btn');
                 if (!btn) return;
 
                 const scoreKey = btn.getAttribute('data-score');
@@ -103,7 +109,7 @@ import AffiliateSection from '../components/AffiliateSection.astro';
                 // Hide current question
                 const currentQuestion = btn.closest('.quiz-question');
                 if (currentQuestion) {
-                    (currentQuestion as HTMLElement).style.display = 'none';
+                    currentQuestion.style.display = 'none';
                 }
 
                 if (targetId === 'result') {
@@ -118,31 +124,31 @@ import AffiliateSection from '../components/AffiliateSection.astro';
                 const recoBroker = scores.sbi >= scores.matsui ? sbiBroker : matsuiBroker;
                 const altBroker = scores.sbi >= scores.matsui ? matsuiBroker : sbiBroker;
 
-                document.getElementById('reco-name')!.textContent = recoBroker!.name;
-                document.getElementById('alt-name')!.textContent = altBroker!.name;
+                document.getElementById('reco-name').textContent = recoBroker.name;
+                document.getElementById('alt-name').textContent = altBroker.name;
 
-                const reason = recoBroker!.id === 'sbi-neotrade' 
+                const reason = recoBroker.id === 'sbi-neotrade' 
                     ? "低コストで取引可能なので、手数料を重視してアクティブに投資したい方に最適です。"
                     : "充実したサポート体制と高齢期に向けた機能が揃っており、安心して長期運用したい方に最適です。";
-                document.getElementById('reco-reason')!.textContent = reason;
+                document.getElementById('reco-reason').textContent = reason;
 
-                const recoCta = document.getElementById('reco-cta') as HTMLAnchorElement;
-                recoCta.href = recoBroker!.status === 'active' && recoBroker!.applyUrl ? recoBroker!.applyUrl : recoBroker!.officialUrl;
-                recoCta.textContent = recoBroker!.status === 'active' ? '口座開設ページへ進む' : '公式サイトで確認';
+                const recoCta = document.getElementById('reco-cta');
+                recoCta.href = recoBroker.status === 'active' && recoBroker.applyUrl ? recoBroker.applyUrl : recoBroker.officialUrl;
+                recoCta.textContent = recoBroker.status === 'active' ? '口座開設ページへ進む' : '公式サイトで確認';
 
-                const recoAlt = document.getElementById('reco-alt') as HTMLAnchorElement;
-                recoAlt.href = altBroker!.status === 'active' && altBroker!.applyUrl ? altBroker!.applyUrl : altBroker!.officialUrl;
+                const recoAlt = document.getElementById('reco-alt');
+                recoAlt.href = altBroker.status === 'active' && altBroker.applyUrl ? altBroker.applyUrl : altBroker.officialUrl;
 
-                document.getElementById('quiz-result')!.style.display = 'block';
+                document.getElementById('quiz-result').style.display = 'block';
 
-                trackEvent('account_compare_reco_shown', { reco: recoBroker!.id });
+                trackEvent('account_compare_reco_shown', { reco: recoBroker.id });
 
                 recoCta.addEventListener('click', () => {
-                    trackEvent('account_compare_cta_click', { reco: recoBroker!.id, broker: recoBroker!.id });
+                    trackEvent('account_compare_cta_click', { reco: recoBroker.id, broker: recoBroker.id });
                 });
 
                 recoAlt.addEventListener('click', () => {
-                    trackEvent('account_compare_alt_click', { broker: altBroker!.id });
+                    trackEvent('account_compare_alt_click', { broker: altBroker.id });
                 });
             }
         }

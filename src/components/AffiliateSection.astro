@@ -52,7 +52,12 @@ const { placement = "home" } = Astro.props;
 </section>
 
 <script type="module">
-  import { trackEvent } from "../lib/tracking";
+  function trackEvent(name, params = {}) {
+    try {
+      const gtag = globalThis.gtag;
+      if (typeof gtag === "function") gtag("event", name, params);
+    } catch (e) {}
+  }
 
   document.addEventListener("DOMContentLoaded", () => {
     const section = document.getElementById("affiliate-section");

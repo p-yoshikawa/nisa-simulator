@@ -1,9 +1,14 @@
 import React, { useState, useMemo } from 'react';
 import '../lib/chart';
 import { calcTsumitate, calcWithdraw, calcTaxCompare } from '../lib/calc';
-import { trackEvent } from '../lib/tracking';
-
 import AssetChart from './AssetChart';
+
+function trackEvent(name: string, params: Record<string, any> = {}) {
+    try {
+        const gtag = (globalThis as any).gtag;
+        if (typeof gtag === "function") gtag("event", name, params);
+    } catch (e) { }
+}
 
 interface CalculatorFormProps {
     mode: 'tsumitate' | 'withdraw' | 'tax-compare';
