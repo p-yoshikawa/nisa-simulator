@@ -1,0 +1,30 @@
+---
+import Layout from '../layouts/Layout.astro';
+import AffiliateSection from '../components/AffiliateSection.astro';
+---
+
+<Layout 
+	title="新NISA 口座比較" 
+	description="新NISA向けの証券口座を比較します。手数料や特徴から自分に合った証券会社を選びましょう。"
+>
+	<div style="margin-bottom: 2rem;">
+		<h2>新NISA 口座比較</h2>
+		<p class="subtitle">
+			シミュレーション結果をもとに、実際に新NISAを始めるための証券口座を選びましょう。<br/>
+			各社の特徴を比較し、ご自身の投資スタイルに合った口座を見つけてください。
+		</p>
+	</div>
+
+    <div class="card" style="margin-bottom: 2rem;">
+        <h3 style="font-size: 1.25rem; margin-bottom: 1rem; color: var(--text-main);">主要な証券会社の特徴</h3>
+        <ul style="list-style-type: disc; padding-left: 1.5rem; color: var(--text-muted); line-height: 1.8;">
+            <li><strong style="color: var(--text-main);">SBIネオトレード証券</strong>：手数料の安さが魅力。これから投資を始める初心者におすすめです。</li>
+            <li><strong style="color: var(--text-main);">松井証券</strong>：iDeCoや長期投資向けサービスが充実しており、老後資産形成に強みを持ちます。</li>
+        </ul>
+        <p style="margin-top: 1rem; font-size: 0.85rem; color: var(--text-muted);">
+            ※当サイトの比較情報は参考情報であり、投資助言を目的としたものではありません。投資に関する最終決定は、ご自身のご判断にてお願いいたします。
+        </p>
+    </div>
+
+	<AffiliateSection placement="compare_page" />
+</Layout>

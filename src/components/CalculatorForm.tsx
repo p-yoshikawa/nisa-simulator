@@ -238,7 +238,7 @@ export default function CalculatorForm({ mode }: CalculatorFormProps) {
             {finalResult && (() => {
                 // 将来提携URLが発行されたら、ここにURLを設定するだけで直接遷移に切り替わります
                 const affiliateUrl = "";
-                const ctaLink = affiliateUrl ? affiliateUrl : "#affiliate-section";
+                const ctaLink = affiliateUrl ? affiliateUrl : "/account-compare";
 
                 return (
                     <div className="card" style={{ textAlign: 'center', marginTop: '2rem', padding: '2rem', background: 'linear-gradient(to right bottom, #f8fafc, #f1f5f9)', border: '1px solid #e2e8f0' }}>
@@ -271,7 +271,7 @@ export default function CalculatorForm({ mode }: CalculatorFormProps) {
                             className="cta-button"
                             target={affiliateUrl ? "_blank" : undefined}
                             rel={affiliateUrl ? "noopener noreferrer" : undefined}
-                            onClick={() => trackEvent('nisa_cta_click', { mode })}
+                            onClick={() => trackEvent('cta_primary_click', { page: mode, target: 'account-compare' })}
                         >
                             今すぐ新NISAを始める
                         </a>

@@ -4,9 +4,15 @@
  * Temporary safe frontmatter for build recovery
  */
 import { affiliates } from '../lib/affiliates';
+
+interface Props {
+  placement?: string;
+}
+
+const { placement = "home" } = Astro.props;
 ---
 
-<section id="affiliate-section" class="affiliate-section card" style="margin-top: 4rem; text-align: center; border: 1px solid var(--border-color); box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1);">
+<section id="affiliate-section" data-placement={placement} class="affiliate-section card" style="margin-top: 4rem; text-align: center; border: 1px solid var(--border-color); box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1);">
   <h2 style="font-size: 1.5rem; margin-bottom: 1rem; color: var(--text-main);">新NISAを始めるには証券口座が必要です</h2>
   <p style="color: var(--text-muted); margin-bottom: 2rem; line-height: 1.6;">
     新NISAを活用するには、専用の証券口座を開設する必要があります。<br />
@@ -49,11 +55,14 @@ import { affiliates } from '../lib/affiliates';
   import { trackEvent } from "../lib/tracking";
 
   document.addEventListener("DOMContentLoaded", () => {
+    const section = document.getElementById("affiliate-section");
+    const placement = section ? section.getAttribute("data-placement") : "unknown";
+
     const links = document.querySelectorAll(".track-affiliate");
     links.forEach((link) => {
       link.addEventListener("click", () => {
         const broker = link.getAttribute("data-broker") || "unknown";
-        trackEvent("affiliate_card_click", { broker });
+        trackEvent("affiliate_click", { broker, placement });
       });
     });
   });
