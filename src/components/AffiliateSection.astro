@@ -1,0 +1,62 @@
+---
+// src/components/AffiliateSection.astro
+
+interface AffiliateProps {
+  name: string;
+  features: string;
+  target: string;
+  applyUrl?: string; // 将来リンクを入れる想定
+}
+
+const affiliates: AffiliateProps[] = [
+  {
+    name: "SBIネオトレード証券",
+    features: "低コストで取引可能",
+    target: "これから投資を始める方向け",
+  },
+  {
+    name: "松井証券",
+    features: "iDeCoや長期投資向けサービスが充実",
+    target: "積立・老後資産形成向け",
+  }
+];
+---
+
+<section class="affiliate-section card" style="margin-top: 4rem; text-align: center; border: 1px solid var(--border-color); box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1);">
+  <h2 style="font-size: 1.5rem; margin-bottom: 1rem; color: var(--text-main);">新NISAを始めるには証券口座が必要です</h2>
+  <p style="color: var(--text-muted); margin-bottom: 2rem; line-height: 1.6;">
+    新NISAを活用するには、専用の証券口座を開設する必要があります。<br />
+    手数料の安さや提供サービスなど、ご自身の投資スタイルに合った証券会社を選びましょう。
+  </p>
+
+  <div class="affiliate-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; text-align: left;">
+    {affiliates.map((affiliate) => (
+      <div class="affiliate-card" style="border: 1px solid var(--border-color); border-radius: 8px; padding: 1.5rem; background: white; display: flex; flex-direction: column;">
+        <h3 style="font-size: 1.25rem; margin-bottom: 1rem; color: var(--text-main); border-bottom: 2px solid var(--bg-body); padding-bottom: 0.5rem;">
+          {affiliate.name}
+        </h3>
+        
+        <div style="flex-grow: 1; margin-bottom: 1.5rem;">
+          <p style="margin-bottom: 0.75rem; font-size: 0.95rem;">
+            <strong style="color: var(--text-muted); font-size: 0.85rem; display: block; margin-bottom: 0.25rem;">✨ 特徴</strong>
+            {affiliate.features}
+          </p>
+          <p style="font-size: 0.95rem;">
+            <strong style="color: var(--text-muted); font-size: 0.85rem; display: block; margin-bottom: 0.25rem;">🎯 こんな方におすすめ</strong>
+            {affiliate.target}
+          </p>
+        </div>
+
+        {affiliate.applyUrl ? (
+          <a href={affiliate.applyUrl} target="_blank" rel="noopener noreferrer" class="nav-link" style="background-color: var(--primary); color: white; text-align: center; padding: 0.75rem; border-radius: 8px; font-weight: bold; text-decoration: none;">
+            口座開設ページへ進む
+          </a>
+        ) : (
+          <button disabled style="background-color: #e5e7eb; color: #9ca3af; text-align: center; padding: 0.75rem; border-radius: 8px; font-weight: bold; border: none; width: 100%; cursor: not-allowed;">
+            現在提携審査中
+          </button>
+        )}
+      </div>
+    ))}
+  </div>
+</section>
