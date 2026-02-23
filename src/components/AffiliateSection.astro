@@ -46,15 +46,14 @@ import { affiliates } from '../lib/affiliates';
 </section>
 
 <script type="module">
-  import { trackEvent } from '../lib/tracking';
+  import { trackEvent } from "../lib/tracking";
 
-  // Wait for DOM to be ready
-  document.addEventListener('DOMContentLoaded', () => {
-    const affiliateLinks = document.querySelectorAll('.track-affiliate');
-    affiliateLinks.forEach(link => {
-      link.addEventListener('click', (e) => {
-        const broker = link.getAttribute('data-broker');
-        trackEvent('affiliate_card_click', { broker });
+  document.addEventListener("DOMContentLoaded", () => {
+    const links = document.querySelectorAll(".track-affiliate");
+    links.forEach((link) => {
+      link.addEventListener("click", () => {
+        const broker = link.getAttribute("data-broker") || "unknown";
+        trackEvent("affiliate_card_click", { broker });
       });
     });
   });
