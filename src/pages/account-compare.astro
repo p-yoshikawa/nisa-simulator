@@ -15,6 +15,49 @@ import AffiliateSection from '../components/AffiliateSection.astro';
 		</p>
 	</div>
 
+    <!-- Recommendation Engine -->
+    <div class="card" id="reco-quiz" style="margin-bottom: 2rem; background-color: #f0fdf4; border-color: #bbf7d0;">
+        <h3 style="font-size: 1.25rem; margin-bottom: 1rem; color: var(--text-main); text-align: center;">あなたにぴったりの証券会社は？ 簡易診断</h3>
+        
+        <div id="quiz-q1" class="quiz-question" style="text-align: center;">
+            <p style="font-weight: bold; margin-bottom: 1rem;">Q1. あなたの投資経験は？</p>
+            <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+                <button class="quiz-btn" data-target="q2" data-score="sbi" style="padding: 0.75rem 1.5rem; border-radius: 8px; border: 1px solid var(--primary); background: white; cursor: pointer; color: var(--primary); font-weight: bold;">初心者</button>
+                <button class="quiz-btn" data-target="q2" data-score="matsui" style="padding: 0.75rem 1.5rem; border-radius: 8px; border: 1px solid var(--primary); background: white; cursor: pointer; color: var(--primary); font-weight: bold;">ある程度経験あり</button>
+            </div>
+        </div>
+
+        <div id="quiz-q2" class="quiz-question" style="display: none; text-align: center;">
+            <p style="font-weight: bold; margin-bottom: 1rem;">Q2. メインで考えている投資対象は？</p>
+            <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+                <button class="quiz-btn" data-target="q3" data-score="matsui" style="padding: 0.75rem 1.5rem; border-radius: 8px; border: 1px solid var(--primary); background: white; cursor: pointer; color: var(--primary); font-weight: bold;">つみたて中心</button>
+                <button class="quiz-btn" data-target="q3" data-score="sbi" style="padding: 0.75rem 1.5rem; border-radius: 8px; border: 1px solid var(--primary); background: white; cursor: pointer; color: var(--primary); font-weight: bold;">個別株等も積極的に</button>
+            </div>
+        </div>
+
+        <div id="quiz-q3" class="quiz-question" style="display: none; text-align: center;">
+            <p style="font-weight: bold; margin-bottom: 1rem;">Q3. 証券会社選びで一番重視するのは？</p>
+            <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+                <button class="quiz-btn" data-target="result" data-score="sbi" style="padding: 0.75rem 1.5rem; border-radius: 8px; border: 1px solid var(--primary); background: white; cursor: pointer; color: var(--primary); font-weight: bold;">とにかく手数料の安さ</button>
+                <button class="quiz-btn" data-target="result" data-score="matsui" style="padding: 0.75rem 1.5rem; border-radius: 8px; border: 1px solid var(--primary); background: white; cursor: pointer; color: var(--primary); font-weight: bold;">使いやすさ・サポート</button>
+            </div>
+        </div>
+
+        <div id="quiz-result" class="quiz-question" style="display: none; text-align: center;">
+            <p style="font-weight: bold; margin-bottom: 1rem; color: var(--text-muted);">診断結果</p>
+            <h4 style="font-size: 1.5rem; color: var(--primary); margin-bottom: 1rem;">おすすめ：<span id="reco-name">---</span></h4>
+            <p id="reco-reason" style="margin-bottom: 1.5rem; color: var(--text-main);"></p>
+            
+            <a id="reco-cta" href="#" target="_blank" rel="noopener noreferrer" style="display: inline-block; background-color: var(--primary); color: white; padding: 1rem 2rem; border-radius: 8px; font-weight: bold; text-decoration: none; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1); margin-bottom: 1rem;">
+                今すぐ口座開設へ進む
+            </a>
+            <br/>
+            <a id="reco-alt" href="#" style="color: var(--text-muted); text-decoration: underline; font-size: 0.9rem;">
+                もう一つのおすすめ（<span id="alt-name">---</span>）も確認する
+            </a>
+        </div>
+    </div>
+
     <div class="card" style="margin-bottom: 2rem;">
         <h3 style="font-size: 1.25rem; margin-bottom: 1rem; color: var(--text-main);">主要な証券会社の特徴</h3>
         <ul style="list-style-type: disc; padding-left: 1.5rem; color: var(--text-muted); line-height: 1.8;">
@@ -27,4 +70,67 @@ import AffiliateSection from '../components/AffiliateSection.astro';
     </div>
 
 	<AffiliateSection placement="compare_page" />
+
+    <script type="module">
+        import { trackEvent } from '../lib/tracking';
+        import { affiliates } from '../lib/affiliates';
+
+        document.addEventListener("DOMContentLoaded", () => {
+            let scores = { sbi: 0, matsui: 0 };
+            const sbiBroker = affiliates.find(a => a.id === 'sbi-neotrade');
+            const matsuiBroker = affiliates.find(a => a.id === 'matsui');
+
+            const quizBtns = document.querySelectorAll('.quiz-btn');
+            quizBtns.forEach(btn => {
+                btn.addEventListener('click', (e) => {
+                    const scoreKey = e.target.getAttribute('data-score');
+                    const targetId = e.target.getAttribute('data-target');
+                    
+                    if (scoreKey === 'sbi') scores.sbi++;
+                    if (scoreKey === 'matsui') scores.matsui++;
+
+                    // Hide current question
+                    e.target.closest('.quiz-question').style.display = 'none';
+
+                    if (targetId === 'result') {
+                        showResult();
+                    } else {
+                        document.getElementById('quiz-' + targetId).style.display = 'block';
+                    }
+                });
+            });
+
+            function showResult() {
+                const recoBroker = scores.sbi >= scores.matsui ? sbiBroker : matsuiBroker;
+                const altBroker = scores.sbi >= scores.matsui ? matsuiBroker : sbiBroker;
+
+                document.getElementById('reco-name').textContent = recoBroker.name;
+                document.getElementById('alt-name').textContent = altBroker.name;
+
+                const reason = recoBroker.id === 'sbi-neotrade' 
+                    ? "低コストで取引可能なので、手数料を重視してアクティブに投資したい方に最適です。"
+                    : "充実したサポート体制と高齢期に向けた機能が揃っており、安心して長期運用したい方に最適です。";
+                document.getElementById('reco-reason').textContent = reason;
+
+                const recoCta = document.getElementById('reco-cta');
+                recoCta.href = recoBroker.status === 'active' && recoBroker.applyUrl ? recoBroker.applyUrl : recoBroker.officialUrl;
+                recoCta.textContent = recoBroker.status === 'active' ? '口座開設ページへ進む' : '公式サイトで確認';
+
+                const recoAlt = document.getElementById('reco-alt');
+                recoAlt.href = altBroker.status === 'active' && altBroker.applyUrl ? altBroker.applyUrl : altBroker.officialUrl;
+
+                document.getElementById('quiz-result').style.display = 'block';
+
+                trackEvent('account_compare_reco_shown', { reco: recoBroker.id });
+
+                recoCta.addEventListener('click', () => {
+                    trackEvent('account_compare_cta_click', { reco: recoBroker.id, broker: recoBroker.id });
+                });
+
+                recoAlt.addEventListener('click', () => {
+                    trackEvent('account_compare_alt_click', { broker: altBroker.id });
+                });
+            }
+        });
+    </script>
 </Layout>
