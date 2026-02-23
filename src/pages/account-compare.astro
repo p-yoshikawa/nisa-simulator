@@ -1,6 +1,7 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import AffiliateSection from '../components/AffiliateSection.astro';
+import RelatedLinks from '../components/RelatedLinks.astro';
 import { getBrokerUrl } from '../lib/affiliates';
 
 const isAffiliateMode = import.meta.env.PUBLIC_AFFILIATE_MODE === 'on';
@@ -75,6 +76,7 @@ const matsuiUrl = getBrokerUrl('matsui');
     </div>
 
 	<AffiliateSection placement="compare_page" />
+    <RelatedLinks />
 
     <script is:inline define:vars={{ sbiUrl, matsuiUrl, isAffiliateMode }}>
         function trackEvent(name, params = {}) {
