@@ -1,0 +1,20 @@
+---
+import Layout from '../layouts/Layout.astro';
+import CalculatorForm from '../components/CalculatorForm.tsx';
+---
+
+<Layout 
+	title="つみたてNISAシミュレーター" 
+	description="つみたてNISAで毎月いくら積み立てると将来いくらになるか、複利効果を計算・グラフ化する無料シミュレーターです。"
+>
+	<div style="margin-bottom: 2rem;">
+		<h2>つみたてNISA（積立投資）シミュレーター</h2>
+		<p class="subtitle">
+			毎月の積立額、想定利回り、積立期間を入力して、将来の資産形成をシミュレーションしましょう。
+		</p>
+	</div>
+
+	<!-- client:load を使用して即時インタラクティブに。グラフ自体は内部でReact.lazyによる遅延ロードが行われます -->
+	<CalculatorForm mode="tsumitate" client:load />
+
+</Layout>

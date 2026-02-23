@@ -1,0 +1,19 @@
+---
+import Layout from '../layouts/Layout.astro';
+import CalculatorForm from '../components/CalculatorForm.tsx';
+---
+
+<Layout 
+	title="課税口座・NISA比較表" 
+	description="新NISA口座と通常の特定口座（課税口座）で運用した場合の手取り金額の違いを明確に比較するシミュレーターです。"
+>
+	<div style="margin-bottom: 2rem;">
+		<h2>NISA vs 課税口座 比較シミュレーター</h2>
+		<p class="subtitle">
+			NISA口座（非課税）で運用した場合と、課税口座（税率20.315%）で運用し売却した場合の「手取り額」の差額を計算します。
+		</p>
+	</div>
+
+	<CalculatorForm mode="tax-compare" client:load />
+
+</Layout>

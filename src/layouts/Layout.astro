@@ -1,0 +1,57 @@
+---
+import '../styles/index.css';
+
+interface Props {
+	title: string;
+	description?: string;
+}
+
+const { title, description = "新NISAに向けたシミュレーター。完全無料で高速に計算結果を表示します。" } = Astro.props;
+---
+
+<!doctype html>
+<html lang="ja">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="description" content={description} />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<meta name="generator" content={Astro.generator} />
+		<title>{title === 'ホーム' ? '新NISAシミュレーター｜積立・取り崩し・課税比較対応' : `${title} | 新NISAシミュレーター｜積立・取り崩し・課税比較対応`}</title>
+		
+		<!-- Open Graph Tags -->
+		<meta property="og:title" content={title === 'ホーム' ? '新NISAシミュレーター｜積立・取り崩し・課税比較対応' : `${title} | 新NISAシミュレーター｜積立・取り崩し・課税比較対応`} />
+		<meta property="og:description" content={description} />
+		<meta property="og:type" content="website" />
+		<!-- Google Fonts for modern typography -->
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+	</head>
+	<body>
+		<main class="container">
+			<header>
+				<a href="/" style="text-decoration: none;">
+					<h1>新NISAシミュレーター</h1>
+				</a>
+				<p class="subtitle">積立・取り崩し・課税口座比較に対応した資産計算ツール</p>
+			</header>
+
+			<nav class="nav-links">
+				<a href="/nisa-tsumitate" class={`nav-link ${Astro.url.pathname.includes('tsumitate') ? 'active' : ''}`}>つみたてシミュレーション</a>
+				<a href="/nisa-withdraw" class={`nav-link ${Astro.url.pathname.includes('withdraw') ? 'active' : ''}`}>取り崩しシミュレーション</a>
+				<a href="/nisa-tax-compare" class={`nav-link ${Astro.url.pathname.includes('tax-compare') ? 'active' : ''}`}>課税口座・NISA比較</a>
+			</nav>
+
+			<slot />
+
+			<footer style="margin-top: 4rem; padding-top: 2rem; border-top: 1px solid var(--border-color); text-align: center; color: var(--text-muted); font-size: 0.9rem; padding-bottom: 2rem;">
+				<div style="display: flex; justify-content: center; gap: 1.5rem; margin-bottom: 1rem;">
+					<a href="/privacy" style="color: var(--text-muted); text-decoration: none;">プライバシーポリシー</a>
+					<a href="/disclaimer" style="color: var(--text-muted); text-decoration: none;">免責事項</a>
+				</div>
+				<p>&copy; {new Date().getFullYear()} 新NISAシミュレーター All Rights Reserved.</p>
+			</footer>
+		</main>
+	</body>
+</html>

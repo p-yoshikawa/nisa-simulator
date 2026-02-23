@@ -1,0 +1,24 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout title="ホーム">
+	<div class="card" style="text-align: center; padding: 4rem 2rem;">
+		<h2>新NISA対応 高速シミュレーター</h2>
+		<p class="subtitle" style="margin-bottom: 2rem;">
+			完全無料で即時計算。あなたの資産形成をサポートします。
+		</p>
+		
+		<div style="display: flex; flex-direction: column; gap: 1rem; max-width: 400px; margin: 0 auto;">
+			<a href="/nisa-tsumitate" class="nav-link" style="background-color: var(--primary); color: white;">
+				つみたてシミュレーションを始める
+			</a>
+			<a href="/nisa-withdraw" class="nav-link" style="border: 1px solid var(--primary); color: var(--primary);">
+				取り崩しシミュレーションを始める
+			</a>
+			<a href="/nisa-tax-compare" class="nav-link" style="border: 1px solid var(--primary); color: var(--primary);">
+				課税口座との比較を始める
+			</a>
+		</div>
+	</div>
+</Layout>

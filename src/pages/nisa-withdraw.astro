@@ -1,0 +1,19 @@
+---
+import Layout from '../layouts/Layout.astro';
+import CalculatorForm from '../components/CalculatorForm.tsx';
+---
+
+<Layout 
+	title="取り崩しシミュレーター" 
+	description="FIRE後や老後の資産運用における、毎月の想定取り崩し額と運用利回りによる資産寿命の推移を計算します。"
+>
+	<div style="margin-bottom: 2rem;">
+		<h2>資産取り崩し（出口戦略）シミュレーター</h2>
+		<p class="subtitle">
+			運用しながら毎月定額を取り崩した場合、資産が何年持つかをシミュレーションします。
+		</p>
+	</div>
+
+	<CalculatorForm mode="withdraw" client:load />
+
+</Layout>

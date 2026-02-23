@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://nisa-calc-mvp.example.com/sitemap-index.xml
