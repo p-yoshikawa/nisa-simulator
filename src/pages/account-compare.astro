@@ -1,7 +1,11 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import AffiliateSection from '../components/AffiliateSection.astro';
-import { BROKER_LINKS } from '../lib/links';
+import { getBrokerUrl } from '../lib/affiliates';
+
+const isAffiliateMode = import.meta.env.PUBLIC_AFFILIATE_MODE === 'on';
+const sbiUrl = getBrokerUrl('sbi-neotrade');
+const matsuiUrl = getBrokerUrl('matsui');
 ---
 
 <Layout 
@@ -72,7 +76,7 @@ import { BROKER_LINKS } from '../lib/links';
 
 	<AffiliateSection placement="compare_page" />
 
-    <script is:inline define:vars={{ BROKER_LINKS }}>
+    <script is:inline define:vars={{ sbiUrl, matsuiUrl, isAffiliateMode }}>
         function trackEvent(name, params = {}) {
             try {
                 const gtag = window.gtag;
@@ -89,15 +93,15 @@ import { BROKER_LINKS } from '../lib/links';
                     id: 'sbi-neotrade',
                     name: 'SBIネオトレード証券',
                     reason: '低コストで取引可能なので、手数料を重視してアクティブに投資したい方に最適です。',
-                    active: false,
-                    url: BROKER_LINKS.sbi.url
+                    active: isAffiliateMode,
+                    url: sbiUrl
                 },
                 'matsui': {
                     id: 'matsui',
                     name: '松井証券',
                     reason: '充実したサポート体制と高齢期に向けた機能が揃っており、安心して長期運用したい方に最適です。',
-                    active: false,
-                    url: BROKER_LINKS.matsui.url
+                    active: isAffiliateMode,
+                    url: matsuiUrl
                 }
             };
 

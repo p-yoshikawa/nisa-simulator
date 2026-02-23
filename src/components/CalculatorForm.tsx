@@ -1,4 +1,4 @@
-import React, { useState, useMemo } from 'react';
+import React, { useState, useMemo, useEffect } from 'react';
 import '../lib/chart';
 import { calcTsumitate, calcWithdraw, calcTaxCompare } from '../lib/calc';
 import AssetChart from './AssetChart';
@@ -38,6 +38,14 @@ export default function CalculatorForm({ mode }: CalculatorFormProps) {
             default:
                 return [];
         }
+    }, [mode, amount, returnRate, years, monthlyWithdraw]);
+
+    // Send tracking event without spamming (debounced)
+    useEffect(() => {
+        const timer = setTimeout(() => {
+            trackEvent('sim_calculated', { page: mode });
+        }, 1500);
+        return () => clearTimeout(timer);
     }, [mode, amount, returnRate, years, monthlyWithdraw]);
 
     // グラフ用データ成形

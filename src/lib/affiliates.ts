@@ -1,14 +1,11 @@
 // src/lib/affiliates.ts
 
-export type AffiliateStatus = "pending" | "active";
-
 export interface Affiliate {
     id: string;
     name: string;
     features: string[];
     recommendedFor: string[];
-    status: AffiliateStatus;
-    applyUrl?: string; // 提携審査通過後の専用URL
+    affiliateUrl: string; // 提携審査通過後の専用アフィリエイトURL
     officialUrl: string; // 審査中の遷移先（公式サイト）
 }
 
@@ -18,17 +15,24 @@ export const affiliates: Affiliate[] = [
         name: "SBIネオトレード証券",
         features: ["低コストで取引可能"],
         recommendedFor: ["これから投資を始める方向け", "手数料を重視する方"],
-        status: "pending",
-        // applyUrl: "https://www.sbisec.co.jp/", // 審査通過後に専用URLを設定し、statusを"active"に変更する
-        officialUrl: "https://www.sbineotrade.jp/", // TODO: 正確な公式サイトURLに差し替え
+        affiliateUrl: "https://www.sbisec.co.jp/", // TODO: 正確なアフィリエイトURLに差し替え
+        officialUrl: "https://www.sbineotrade.jp/",
     },
     {
         id: "matsui",
         name: "松井証券",
         features: ["iDeCoや長期投資向けサービスが充実", "手厚いサポート体制"],
         recommendedFor: ["積立・老後資産形成向け", "サポート・使いやすさ重視の方"],
-        status: "pending",
-        // applyUrl: "https://www.matsui.co.jp/",
-        officialUrl: "https://www.matsui.co.jp/", // TODO: 正確な公式サイトURLに差し替え
+        affiliateUrl: "https://www.matsui.co.jp/", // TODO: 正確なアフィリエイトURLに差し替え
+        officialUrl: "https://www.matsui.co.jp/",
     }
 ];
+
+export function getBrokerUrl(brokerId: string): string {
+    const broker = affiliates.find(a => a.id === brokerId);
+    if (!broker) return "#"; // fallback
+
+    // PUBLIC_AFFILIATE_MODE=on なら affiliateUrl を優先
+    const isAffiliateMode = import.meta.env.PUBLIC_AFFILIATE_MODE === 'on';
+    return isAffiliateMode ? broker.affiliateUrl : broker.officialUrl;
+}
