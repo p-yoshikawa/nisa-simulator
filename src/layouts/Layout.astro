@@ -41,15 +41,54 @@ const safeTitle = title;
 		<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 	</head>
 	<body>
+		<style>
+			.header-container {
+				display: flex;
+				justify-content: space-between;
+				align-items: flex-start;
+				gap: 1rem;
+				flex-wrap: wrap;
+				margin-bottom: 2rem;
+			}
+			.header-title-area {
+				flex: 1;
+			}
+			.header-back-btn {
+				padding: 0.5rem 1rem;
+				font-size: 0.85rem;
+				border: 1px solid var(--border-color);
+				border-radius: 4px;
+				color: var(--text-main);
+				text-decoration: none;
+				white-space: nowrap;
+				transition: background-color 0.2s;
+			}
+			.header-back-btn:hover {
+				background-color: var(--border-color);
+			}
+			@media (max-width: 640px) {
+				.header-container {
+					flex-direction: column;
+					align-items: center;
+					text-align: center;
+				}
+				.header-title-area {
+					width: 100%;
+				}
+				.header-back-btn {
+					margin-top: 0.5rem;
+				}
+			}
+		</style>
 		<main class="container">
-			<header style="display: flex; justify-content: space-between; align-items: flex-start; gap: 1rem; flex-wrap: wrap;">
-				<div style="flex: 1;">
+			<header class="header-container">
+				<div class="header-title-area">
 					<a href="/" style="text-decoration: none;">
 						<h1>新NISAシミュレーター</h1>
 					</a>
 					<p class="subtitle">積立・取り崩し・課税口座比較に対応した資産計算ツール</p>
 				</div>
-				<a href="/" style="padding: 0.5rem 1rem; font-size: 0.85rem; border: 1px solid var(--border-color); border-radius: 4px; color: var(--text-main); text-decoration: none; white-space: nowrap;">TOPへ戻る</a>
+				<a href="/" class="header-back-btn">TOPへ戻る</a>
 			</header>
 
 			<nav class="nav-links">

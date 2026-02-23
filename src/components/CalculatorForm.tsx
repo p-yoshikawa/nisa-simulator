@@ -135,6 +135,11 @@ export default function CalculatorForm({ mode }: CalculatorFormProps) {
     // 結果のサマリー取得
     const finalResult = results[results.length - 1] as any;
 
+    // スナップショット用（3, 5, 10, 20, 30, 40年など、および最終年を追加）
+    const targetYears = [3, 5, 10, 20, 30, 40];
+    const unsortedSnapshots = results.filter((r: any) => targetYears.includes(r.year) || r.year === Number(years));
+    const snapshots = unsortedSnapshots.filter((v: any, i: number, a: any[]) => a.findIndex(t => (t.year === v.year)) === i).sort((a: any, b: any) => a.year - b.year);
+
     return (
         <div>
             <div className="calculator-grid">
@@ -237,6 +242,65 @@ export default function CalculatorForm({ mode }: CalculatorFormProps) {
                                 ※課税口座は、最終売却時に利益部分へ税率20.315％が課税される前提で試算しています。
                             </div>
                         </>
+                    )}
+
+                    {/* スナップショットテーブル */}
+                    {snapshots.length > 0 && (
+                        <div style={{ marginTop: '2.5rem', paddingTop: '1.5rem', borderTop: '1px solid var(--border-color)' }}>
+                            <h3 style={{ fontSize: '1.1rem', marginBottom: '1rem', color: 'var(--text-main)', textAlign: 'center' }}>経過年数ごとの資産推移</h3>
+                            <div style={{ overflowX: 'auto' }}>
+                                <table style={{ width: '100%', borderCollapse: 'collapse', fontSize: '0.9rem', textAlign: 'right' }}>
+                                    <thead>
+                                        <tr style={{ borderBottom: '2px solid var(--border-color)', color: 'var(--text-muted)' }}>
+                                            <th style={{ padding: '0.5rem', textAlign: 'left' }}>経過年</th>
+                                            {mode === 'withdraw' ? (
+                                                <>
+                                                    <th style={{ padding: '0.5rem' }}>資産残高</th>
+                                                    <th style={{ padding: '0.5rem' }}>累計取崩額</th>
+                                                </>
+                                            ) : mode === 'tax-compare' ? (
+                                                <>
+                                                    <th style={{ padding: '0.5rem' }}>投資元本</th>
+                                                    <th style={{ padding: '0.5rem' }}>NISA手取り</th>
+                                                    <th style={{ padding: '0.5rem' }}>課税手取り</th>
+                                                </>
+                                            ) : (
+                                                <>
+                                                    <th style={{ padding: '0.5rem' }}>累計元本</th>
+                                                    <th style={{ padding: '0.5rem' }}>総資産額</th>
+                                                    <th style={{ padding: '0.5rem' }}>運用益</th>
+                                                </>
+                                            )}
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        {snapshots.map((snap: any, index: number) => (
+                                            <tr key={snap.year} style={{ borderBottom: '1px solid var(--border-color)', backgroundColor: index % 2 === 0 ? 'transparent' : 'var(--bg-body)' }}>
+                                                <td style={{ padding: '0.75rem 0.5rem', textAlign: 'left', fontWeight: 'bold', color: 'var(--text-main)' }}>{snap.year}年</td>
+                                                {mode === 'withdraw' ? (
+                                                    <>
+                                                        <td style={{ padding: '0.75rem 0.5rem', color: 'var(--text-main)' }}>{Math.round(snap.balance / 10000).toLocaleString('ja-JP')}万円</td>
+                                                        <td style={{ padding: '0.75rem 0.5rem', color: '#f59e0b' }}>{Math.round(snap.withdrawn / 10000).toLocaleString('ja-JP')}万円</td>
+                                                    </>
+                                                ) : mode === 'tax-compare' ? (
+                                                    <>
+                                                        <td style={{ padding: '0.75rem 0.5rem', color: 'var(--text-muted)' }}>{Math.round(snap.principal / 10000).toLocaleString('ja-JP')}万円</td>
+                                                        <td style={{ padding: '0.75rem 0.5rem', color: '#10b981', fontWeight: 'bold' }}>{Math.round(snap.nisaTotal / 10000).toLocaleString('ja-JP')}万円</td>
+                                                        <td style={{ padding: '0.75rem 0.5rem', color: '#ef4444' }}>{Math.round(snap.taxableTotal / 10000).toLocaleString('ja-JP')}万円</td>
+                                                    </>
+                                                ) : (
+                                                    <>
+                                                        <td style={{ padding: '0.75rem 0.5rem', color: 'var(--text-muted)' }}>{Math.round(snap.principal / 10000).toLocaleString('ja-JP')}万円</td>
+                                                        <td style={{ padding: '0.75rem 0.5rem', fontWeight: 'bold', color: 'var(--text-main)' }}>{Math.round(snap.total / 10000).toLocaleString('ja-JP')}万円</td>
+                                                        <td style={{ padding: '0.75rem 0.5rem', color: '#10b981' }}>+{Math.round(snap.interest / 10000).toLocaleString('ja-JP')}万円</td>
+                                                    </>
+                                                )}
+                                            </tr>
+                                        ))}
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
                     )}
                 </div>
             </div>
