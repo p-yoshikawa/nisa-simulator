@@ -13,7 +13,7 @@ const {
 	image = "/ogp-image.jpg" // 暫定画像パス
 } = Astro.props;
 const canonicalURL = new URL(Astro.url.pathname, Astro.site || 'https://nisa-calc-mvp.example.com');
-const safeTitle = title === 'ホーム' ? '新NISAシミュレーター｜積立・取り崩し・課税比較対応' : `${title} | 新NISAシミュレーター｜積立・取り崩し・課税比較対応`;
+const safeTitle = title;
 ---
 
 <!doctype html>
