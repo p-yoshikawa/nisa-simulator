@@ -1,25 +1,8 @@
 ---
 // src/components/AffiliateSection.astro
+import { affiliates } from '../lib/affiliates';
 
-interface AffiliateProps {
-  name: string;
-  features: string;
-  target: string;
-  applyUrl?: string; // 将来リンクを入れる想定
-}
-
-const affiliates: AffiliateProps[] = [
-  {
-    name: "SBIネオトレード証券",
-    features: "低コストで取引可能",
-    target: "これから投資を始める方向け",
-  },
-  {
-    name: "松井証券",
-    features: "iDeCoや長期投資向けサービスが充実",
-    target: "積立・老後資産形成向け",
-  }
-];
+// Client-side tracking logic will be injected via <script> tag below
 ---
 
 <section id="affiliate-section" class="affiliate-section card" style="margin-top: 4rem; text-align: center; border: 1px solid var(--border-color); box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1);">
@@ -37,18 +20,18 @@ const affiliates: AffiliateProps[] = [
         </h3>
         
         <div style="flex-grow: 1; margin-bottom: 1.5rem;">
-          <p style="margin-bottom: 0.75rem; font-size: 0.95rem;">
+          <ul style="list-style: none; padding: 0; margin-bottom: 0.75rem; font-size: 0.95rem;">
             <strong style="color: var(--text-muted); font-size: 0.85rem; display: block; margin-bottom: 0.25rem;">✨ 特徴</strong>
-            {affiliate.features}
-          </p>
-          <p style="font-size: 0.95rem;">
+            {affiliate.features.map(f => <li>・{f}</li>)}
+          </ul>
+          <ul style="list-style: none; padding: 0; font-size: 0.95rem;">
             <strong style="color: var(--text-muted); font-size: 0.85rem; display: block; margin-bottom: 0.25rem;">🎯 こんな方におすすめ</strong>
-            {affiliate.target}
-          </p>
+            {affiliate.recommendedFor.map(r => <li>・{r}</li>)}
+          </ul>
         </div>
 
-        {affiliate.applyUrl ? (
-          <a href={affiliate.applyUrl} target="_blank" rel="noopener noreferrer" class="nav-link" style="background-color: var(--primary); color: white; text-align: center; padding: 0.75rem; border-radius: 8px; font-weight: bold; text-decoration: none;">
+        {affiliate.status === "active" && affiliate.applyUrl ? (
+          <a href={affiliate.applyUrl} target="_blank" rel="noopener noreferrer" class="nav-link track-affiliate" data-broker={affiliate.id} style="background-color: var(--primary); color: white; text-align: center; padding: 0.75rem; border-radius: 8px; font-weight: bold; text-decoration: none;">
             口座開設ページへ進む
           </a>
         ) : (
@@ -60,3 +43,18 @@ const affiliates: AffiliateProps[] = [
     ))}
   </div>
 </section>
+
+<script>
+  import { trackEvent } from '../lib/tracking';
+
+  // Wait for DOM to be ready
+  document.addEventListener('DOMContentLoaded', () => {
+    const affiliateLinks = document.querySelectorAll('.track-affiliate');
+    affiliateLinks.forEach(link => {
+      link.addEventListener('click', (e) => {
+        const broker = link.getAttribute('data-broker');
+        trackEvent('affiliate_card_click', { broker });
+      });
+    });
+  });
+</script>

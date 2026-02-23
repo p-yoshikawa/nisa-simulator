@@ -1,6 +1,7 @@
 import React, { useState, useMemo } from 'react';
 import '../lib/chart';
 import { calcTsumitate, calcWithdraw, calcTaxCompare } from '../lib/calc';
+import { trackEvent } from '../lib/tracking';
 
 import ResultChart from './ResultChart';
 
@@ -270,6 +271,7 @@ export default function CalculatorForm({ mode }: CalculatorFormProps) {
                             className="cta-button"
                             target={affiliateUrl ? "_blank" : undefined}
                             rel={affiliateUrl ? "noopener noreferrer" : undefined}
+                            onClick={() => trackEvent('nisa_cta_click', { mode })}
                         >
                             今すぐ新NISAを始める
                         </a>
