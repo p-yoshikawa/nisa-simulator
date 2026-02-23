@@ -3,7 +3,7 @@ import '../lib/chart';
 import { calcTsumitate, calcWithdraw, calcTaxCompare } from '../lib/calc';
 import { trackEvent } from '../lib/tracking';
 
-import ResultChart from './ResultChart';
+import AssetChart from './AssetChart';
 
 interface CalculatorFormProps {
     mode: 'tsumitate' | 'withdraw' | 'tax-compare';
@@ -231,7 +231,7 @@ export default function CalculatorForm({ mode }: CalculatorFormProps) {
             {Number(years) > 1 && (
                 <div className="card">
                     <h2>資産推移グラフ</h2>
-                    <ResultChart labels={chartData.labels} datasets={chartData.datasets} />
+                    <AssetChart labels={chartData.labels} datasets={chartData.datasets} />
                 </div>
             )}
 
