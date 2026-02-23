@@ -22,24 +22,24 @@ import AffiliateSection from '../components/AffiliateSection.astro';
         <div id="quiz-q1" class="quiz-question" style="text-align: center;">
             <p style="font-weight: bold; margin-bottom: 1rem;">Q1. あなたの投資経験は？</p>
             <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
-                <button class="quiz-btn" data-target="q2" data-score="sbi" style="padding: 0.75rem 1.5rem; border-radius: 8px; border: 1px solid var(--primary); background: white; cursor: pointer; color: var(--primary); font-weight: bold;">初心者</button>
-                <button class="quiz-btn" data-target="q2" data-score="matsui" style="padding: 0.75rem 1.5rem; border-radius: 8px; border: 1px solid var(--primary); background: white; cursor: pointer; color: var(--primary); font-weight: bold;">ある程度経験あり</button>
+                <button type="button" class="quiz-btn" data-target="q2" data-score="sbi" style="padding: 0.75rem 1.5rem; border-radius: 8px; border: 1px solid var(--primary); background: white; cursor: pointer; color: var(--primary); font-weight: bold;">初心者</button>
+                <button type="button" class="quiz-btn" data-target="q2" data-score="matsui" style="padding: 0.75rem 1.5rem; border-radius: 8px; border: 1px solid var(--primary); background: white; cursor: pointer; color: var(--primary); font-weight: bold;">ある程度経験あり</button>
             </div>
         </div>
 
         <div id="quiz-q2" class="quiz-question" style="display: none; text-align: center;">
             <p style="font-weight: bold; margin-bottom: 1rem;">Q2. メインで考えている投資対象は？</p>
             <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
-                <button class="quiz-btn" data-target="q3" data-score="matsui" style="padding: 0.75rem 1.5rem; border-radius: 8px; border: 1px solid var(--primary); background: white; cursor: pointer; color: var(--primary); font-weight: bold;">つみたて中心</button>
-                <button class="quiz-btn" data-target="q3" data-score="sbi" style="padding: 0.75rem 1.5rem; border-radius: 8px; border: 1px solid var(--primary); background: white; cursor: pointer; color: var(--primary); font-weight: bold;">個別株等も積極的に</button>
+                <button type="button" class="quiz-btn" data-target="q3" data-score="matsui" style="padding: 0.75rem 1.5rem; border-radius: 8px; border: 1px solid var(--primary); background: white; cursor: pointer; color: var(--primary); font-weight: bold;">つみたて中心</button>
+                <button type="button" class="quiz-btn" data-target="q3" data-score="sbi" style="padding: 0.75rem 1.5rem; border-radius: 8px; border: 1px solid var(--primary); background: white; cursor: pointer; color: var(--primary); font-weight: bold;">個別株等も積極的に</button>
             </div>
         </div>
 
         <div id="quiz-q3" class="quiz-question" style="display: none; text-align: center;">
             <p style="font-weight: bold; margin-bottom: 1rem;">Q3. 証券会社選びで一番重視するのは？</p>
             <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
-                <button class="quiz-btn" data-target="result" data-score="sbi" style="padding: 0.75rem 1.5rem; border-radius: 8px; border: 1px solid var(--primary); background: white; cursor: pointer; color: var(--primary); font-weight: bold;">とにかく手数料の安さ</button>
-                <button class="quiz-btn" data-target="result" data-score="matsui" style="padding: 0.75rem 1.5rem; border-radius: 8px; border: 1px solid var(--primary); background: white; cursor: pointer; color: var(--primary); font-weight: bold;">使いやすさ・サポート</button>
+                <button type="button" class="quiz-btn" data-target="result" data-score="sbi" style="padding: 0.75rem 1.5rem; border-radius: 8px; border: 1px solid var(--primary); background: white; cursor: pointer; color: var(--primary); font-weight: bold;">とにかく手数料の安さ</button>
+                <button type="button" class="quiz-btn" data-target="result" data-score="matsui" style="padding: 0.75rem 1.5rem; border-radius: 8px; border: 1px solid var(--primary); background: white; cursor: pointer; color: var(--primary); font-weight: bold;">使いやすさ・サポート</button>
             </div>
         </div>
 
@@ -75,62 +75,79 @@ import AffiliateSection from '../components/AffiliateSection.astro';
         import { trackEvent } from '../lib/tracking';
         import { affiliates } from '../lib/affiliates';
 
-        document.addEventListener("DOMContentLoaded", () => {
+        // Instead of DOMContentLoaded, Astro script tags are executed when loaded.
+        // But to be safe if Astro bundles this or defers it, we can wrap the init logic.
+        function initQuiz() {
             let scores = { sbi: 0, matsui: 0 };
             const sbiBroker = affiliates.find(a => a.id === 'sbi-neotrade');
             const matsuiBroker = affiliates.find(a => a.id === 'matsui');
 
-            const quizBtns = document.querySelectorAll('.quiz-btn');
-            quizBtns.forEach(btn => {
-                btn.addEventListener('click', (e) => {
-                    const scoreKey = e.target.getAttribute('data-score');
-                    const targetId = e.target.getAttribute('data-target');
-                    
-                    if (scoreKey === 'sbi') scores.sbi++;
-                    if (scoreKey === 'matsui') scores.matsui++;
+            if (!sbiBroker || !matsuiBroker) return; // safety
 
-                    // Hide current question
-                    e.target.closest('.quiz-question').style.display = 'none';
+            const quizContainer = document.getElementById('reco-quiz');
+            if (!quizContainer) return;
 
-                    if (targetId === 'result') {
-                        showResult();
-                    } else {
-                        document.getElementById('quiz-' + targetId).style.display = 'block';
-                    }
-                });
+            quizContainer.addEventListener('click', (e) => {
+                const btn = (e.target as HTMLElement).closest('.quiz-btn');
+                if (!btn) return;
+
+                const scoreKey = btn.getAttribute('data-score');
+                const targetId = btn.getAttribute('data-target');
+                
+                if (scoreKey === 'sbi') scores.sbi++;
+                if (scoreKey === 'matsui') scores.matsui++;
+
+                // Visual feedback (optional)
+                btn.classList.add('active');
+
+                // Hide current question
+                const currentQuestion = btn.closest('.quiz-question');
+                if (currentQuestion) {
+                    (currentQuestion as HTMLElement).style.display = 'none';
+                }
+
+                if (targetId === 'result') {
+                    showResult();
+                } else {
+                    const nextQ = document.getElementById('quiz-' + targetId);
+                    if (nextQ) nextQ.style.display = 'block';
+                }
             });
 
             function showResult() {
                 const recoBroker = scores.sbi >= scores.matsui ? sbiBroker : matsuiBroker;
                 const altBroker = scores.sbi >= scores.matsui ? matsuiBroker : sbiBroker;
 
-                document.getElementById('reco-name').textContent = recoBroker.name;
-                document.getElementById('alt-name').textContent = altBroker.name;
+                document.getElementById('reco-name')!.textContent = recoBroker!.name;
+                document.getElementById('alt-name')!.textContent = altBroker!.name;
 
-                const reason = recoBroker.id === 'sbi-neotrade' 
+                const reason = recoBroker!.id === 'sbi-neotrade' 
                     ? "低コストで取引可能なので、手数料を重視してアクティブに投資したい方に最適です。"
                     : "充実したサポート体制と高齢期に向けた機能が揃っており、安心して長期運用したい方に最適です。";
-                document.getElementById('reco-reason').textContent = reason;
+                document.getElementById('reco-reason')!.textContent = reason;
 
-                const recoCta = document.getElementById('reco-cta');
-                recoCta.href = recoBroker.status === 'active' && recoBroker.applyUrl ? recoBroker.applyUrl : recoBroker.officialUrl;
-                recoCta.textContent = recoBroker.status === 'active' ? '口座開設ページへ進む' : '公式サイトで確認';
+                const recoCta = document.getElementById('reco-cta') as HTMLAnchorElement;
+                recoCta.href = recoBroker!.status === 'active' && recoBroker!.applyUrl ? recoBroker!.applyUrl : recoBroker!.officialUrl;
+                recoCta.textContent = recoBroker!.status === 'active' ? '口座開設ページへ進む' : '公式サイトで確認';
 
-                const recoAlt = document.getElementById('reco-alt');
-                recoAlt.href = altBroker.status === 'active' && altBroker.applyUrl ? altBroker.applyUrl : altBroker.officialUrl;
+                const recoAlt = document.getElementById('reco-alt') as HTMLAnchorElement;
+                recoAlt.href = altBroker!.status === 'active' && altBroker!.applyUrl ? altBroker!.applyUrl : altBroker!.officialUrl;
 
-                document.getElementById('quiz-result').style.display = 'block';
+                document.getElementById('quiz-result')!.style.display = 'block';
 
-                trackEvent('account_compare_reco_shown', { reco: recoBroker.id });
+                trackEvent('account_compare_reco_shown', { reco: recoBroker!.id });
 
                 recoCta.addEventListener('click', () => {
-                    trackEvent('account_compare_cta_click', { reco: recoBroker.id, broker: recoBroker.id });
+                    trackEvent('account_compare_cta_click', { reco: recoBroker!.id, broker: recoBroker!.id });
                 });
 
                 recoAlt.addEventListener('click', () => {
-                    trackEvent('account_compare_alt_click', { broker: altBroker.id });
+                    trackEvent('account_compare_alt_click', { broker: altBroker!.id });
                 });
             }
-        });
+        }
+
+        // execute
+        initQuiz();
     </script>
 </Layout>
