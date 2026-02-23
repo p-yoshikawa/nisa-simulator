@@ -1,4 +1,5 @@
 import React, { useState, useMemo } from 'react';
+import '../lib/chart';
 import { calcTsumitate, calcWithdraw, calcTaxCompare } from '../lib/calc';
 
 import ResultChart from './ResultChart';
