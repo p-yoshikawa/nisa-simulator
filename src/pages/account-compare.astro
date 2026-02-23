@@ -1,6 +1,7 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import AffiliateSection from '../components/AffiliateSection.astro';
+import { BROKER_LINKS } from '../lib/links';
 ---
 
 <Layout 
@@ -52,7 +53,7 @@ import AffiliateSection from '../components/AffiliateSection.astro';
                 今すぐ口座開設へ進む
             </a>
             <br/>
-            <a id="reco-alt" href="#" style="color: var(--text-muted); text-decoration: underline; font-size: 0.9rem;">
+            <a id="reco-alt" href="#" target="_blank" rel="noopener noreferrer" style="color: var(--text-muted); text-decoration: underline; font-size: 0.9rem;">
                 もう一つのおすすめ（<span id="alt-name">---</span>）も確認する
             </a>
         </div>
@@ -71,7 +72,7 @@ import AffiliateSection from '../components/AffiliateSection.astro';
 
 	<AffiliateSection placement="compare_page" />
 
-    <script is:inline>
+    <script is:inline define:vars={{ BROKER_LINKS }}>
         function trackEvent(name, params = {}) {
             try {
                 const gtag = window.gtag;
@@ -88,15 +89,15 @@ import AffiliateSection from '../components/AffiliateSection.astro';
                     id: 'sbi-neotrade',
                     name: 'SBIネオトレード証券',
                     reason: '低コストで取引可能なので、手数料を重視してアクティブに投資したい方に最適です。',
-                    active: true,
-                    url: 'https://sbisec-apply.example.com/' // replace with valid fallback or read from DOM
+                    active: false,
+                    url: BROKER_LINKS.sbi.url
                 },
                 'matsui': {
                     id: 'matsui',
                     name: '松井証券',
                     reason: '充実したサポート体制と高齢期に向けた機能が揃っており、安心して長期運用したい方に最適です。',
                     active: false,
-                    url: 'https://www.matsui.co.jp/'
+                    url: BROKER_LINKS.matsui.url
                 }
             };
 
