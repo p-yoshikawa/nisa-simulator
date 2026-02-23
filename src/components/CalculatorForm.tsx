@@ -234,19 +234,48 @@ export default function CalculatorForm({ mode }: CalculatorFormProps) {
                 </div>
             )}
 
-            {finalResult && (
-                <div className="card" style={{ textAlign: 'center', marginTop: '2rem', padding: '2rem', background: 'linear-gradient(to right bottom, #f8fafc, #f1f5f9)', border: '1px solid #e2e8f0' }}>
-                    <h2 style={{ fontSize: '1.5rem', color: 'var(--text-main)', marginBottom: '1rem' }}>次の一歩：新NISAを始めましょう</h2>
-                    <p style={{ color: 'var(--text-muted)', marginBottom: '1.5rem', lineHeight: '1.6' }}>
-                        シミュレーション結果を踏まえ、<br />
-                        実際に新NISAを始めるには証券口座の開設が必要です。<br />
-                        手数料や特徴を比較して、自分に合った証券会社を選びましょう。
-                    </p>
-                    <a href="#affiliate-section" style={{ display: 'inline-block', backgroundColor: 'var(--primary)', color: 'white', padding: '1rem 2rem', borderRadius: '8px', fontWeight: 'bold', textDecoration: 'none', boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.1)' }}>
-                        証券口座を比較する
-                    </a>
-                </div>
-            )}
+            {finalResult && (() => {
+                // 将来提携URLが発行されたら、ここにURLを設定するだけで直接遷移に切り替わります
+                const affiliateUrl = "";
+                const ctaLink = affiliateUrl ? affiliateUrl : "#affiliate-section";
+
+                return (
+                    <div className="card" style={{ textAlign: 'center', marginTop: '2rem', padding: '2rem', background: 'linear-gradient(to right bottom, #f8fafc, #f1f5f9)', border: '1px solid #e2e8f0' }}>
+                        <h2 style={{ fontSize: '1.5rem', color: 'var(--text-main)', marginBottom: '1rem' }}>次の一歩：新NISAを始めましょう</h2>
+
+                        {mode === 'tsumitate' && (
+                            <p style={{ fontWeight: 'bold', fontSize: '1.2rem', color: 'var(--primary)', marginBottom: '1rem' }}>
+                                このまま積立を始めれば、<br />あなたは{Math.round(finalResult.total / 10000).toLocaleString('ja-JP')}万円を目指せます。
+                            </p>
+                        )}
+                        {mode === 'withdraw' && (
+                            <p style={{ fontWeight: 'bold', fontSize: '1.2rem', color: 'var(--primary)', marginBottom: '1rem' }}>
+                                このまま運用を継続すれば、<br />{years}年後でも{Math.round(finalResult.balance / 10000).toLocaleString('ja-JP')}万円の残高維持を目指せます。
+                            </p>
+                        )}
+                        {mode === 'tax-compare' && (
+                            <p style={{ fontWeight: 'bold', fontSize: '1.2rem', color: 'var(--primary)', marginBottom: '1rem' }}>
+                                新NISAを活用して積立を始めれば、<br />あなたは{Math.round(finalResult.nisaTotal / 10000).toLocaleString('ja-JP')}万円を目指せます。
+                            </p>
+                        )}
+
+                        <p style={{ color: 'var(--text-muted)', marginBottom: '1.5rem', lineHeight: '1.6' }}>
+                            シミュレーション結果を踏まえ、<br />
+                            実際に新NISAを始めるには証券口座の開設が必要です。<br />
+                            手数料や特徴を比較して、自分に合った証券会社を選びましょう。
+                        </p>
+
+                        <a
+                            href={ctaLink}
+                            className="cta-button"
+                            target={affiliateUrl ? "_blank" : undefined}
+                            rel={affiliateUrl ? "noopener noreferrer" : undefined}
+                        >
+                            今すぐ新NISAを始める
+                        </a>
+                    </div>
+                );
+            })()}
         </div>
     );
 }
