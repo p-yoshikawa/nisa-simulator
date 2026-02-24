@@ -25,7 +25,7 @@ export const affiliates: Affiliate[] = [
         features: ["新NISAに対応", "長期積立に向いたシンプル設計", "初心者でも始めやすいサポート体制"],
         recommendedFor: ["新NISAで積立投資を始めたい方", "投資初心者の方"],
         affiliateUrl: "https://px.a8.net/svt/ejp?a8mat=4AXI0D+EEKKOI+3XCC+BXQOI",
-        officialUrl: "https://www.matsui.co.jp/",
+        officialUrl: "https://px.a8.net/svt/ejp?a8mat=4AXI0D+EEKKOI+3XCC+BXQOI", // 常にA8リンクを経由させる
         customCtaLabel: "松井証券で新NISAを始める",
     }
 ];
