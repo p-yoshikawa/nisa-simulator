@@ -7,6 +7,7 @@ export interface Affiliate {
     recommendedFor: string[];
     affiliateUrl: string; // 提携審査通過後の専用アフィリエイトURL
     officialUrl: string; // 審査中の遷移先（公式サイト）
+    customCtaLabel?: string; // カスタムCTAボタンラベル（任意）
 }
 
 export const affiliates: Affiliate[] = [
@@ -21,10 +22,11 @@ export const affiliates: Affiliate[] = [
     {
         id: "matsui",
         name: "松井証券",
-        features: ["iDeCoや長期投資向けサービスが充実", "手厚いサポート体制"],
-        recommendedFor: ["積立・老後資産形成向け", "サポート・使いやすさ重視の方"],
-        affiliateUrl: "https://www.matsui.co.jp/", // TODO: 正確なアフィリエイトURLに差し替え
+        features: ["新NISAに対応", "長期積立に向いたシンプル設計", "初心者でも始めやすいサポート体制"],
+        recommendedFor: ["新NISAで積立投資を始めたい方", "投資初心者の方"],
+        affiliateUrl: "https://px.a8.net/svt/ejp?a8mat=4AXI0D+EEKKOI+3XCC+BXQOI",
         officialUrl: "https://www.matsui.co.jp/",
+        customCtaLabel: "松井証券で新NISAを始める",
     }
 ];
 

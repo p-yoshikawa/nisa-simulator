@@ -38,9 +38,10 @@ const isAffiliateMode = import.meta.env.PUBLIC_AFFILIATE_MODE === 'on';
           </ul>
         </div>
 
-        <a href={getBrokerUrl(affiliate.id)} target="_blank" rel="noopener noreferrer" class="nav-link track-affiliate" data-broker={affiliate.id} style={isAffiliateMode ? "background-color: var(--primary); color: white; text-align: center; padding: 0.75rem; border-radius: 8px; font-weight: bold; text-decoration: none;" : "background-color: var(--border-color); color: var(--text-main); text-align: center; padding: 0.75rem; border-radius: 8px; font-weight: bold; text-decoration: none;"}>
-          {isAffiliateMode ? '口座開設ページへ進む' : '公式サイトで確認'}
+        <a href={getBrokerUrl(affiliate.id)} target="_blank" rel={isAffiliateMode ? "nofollow noopener noreferrer" : "noopener noreferrer"} class="nav-link track-affiliate" data-broker={affiliate.id} style={isAffiliateMode ? "background-color: var(--primary); color: white; text-align: center; padding: 0.75rem; border-radius: 8px; font-weight: bold; text-decoration: none;" : "background-color: var(--border-color); color: var(--text-main); text-align: center; padding: 0.75rem; border-radius: 8px; font-weight: bold; text-decoration: none;"}>
+          {isAffiliateMode ? (affiliate.customCtaLabel || '口座開設ページへ進む') : '公式サイトで確認'}
         </a>
+        <p style="font-size: 0.8rem; color: var(--text-muted); text-align: center; margin-top: 0.5rem; margin-bottom: 0;">※口座開設は無料で行えます。</p>
       </div>
     ))}
   </div>
