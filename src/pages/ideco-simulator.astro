@@ -121,13 +121,10 @@ const description =
       <AffiliateSection placement="ideco_simulator" />
     </div>
 
-    <!-- 
-      Astroのモジュールスクリプト
-      `Chart`のインポートを含むため、ビルド時にViteが解決します。
-    -->
-    <script type="module">
-      import Chart from "chart.js/auto";
+    <!-- CDNからChart.jsを読み込む（Viteバンドルエラー回避策） -->
+    <script is:inline src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
+    <script type="module">
       const el = (id) => document.getElementById(id);
 
       const fmtJPY = (n) => {
