@@ -1,0 +1,274 @@
+---
+import Layout from '../layouts/Layout.astro';
+import AffiliateSection from '../components/AffiliateSection.astro';
+import RelatedLinks from '../components/RelatedLinks.astro';
+
+const title = "iDeCo シミュレーター｜将来資産と節税効果（概算）";
+const description =
+  "毎月の掛金・運用利回り・期間からiDeCoの将来資産を試算。実効税率を入力すると節税額も概算できます（参考値）。";
+---
+
+<Layout title={title} description={description}>
+    <div style="margin-bottom: 2rem;">
+      <h1 style="font-size: 1.8rem; font-weight: 800; margin: 0 0 8px; color: var(--text-main);">iDeCo シミュレーター</h1>
+      <p style="margin: 0 0 16px; line-height: 1.6; color: var(--text-muted); font-size: 0.95rem;">
+        毎月の掛金・想定利回り・期間から、将来の評価額をシミュレーションします。
+        実効税率（所得税＋住民税の目安）を入力すると、掛金の所得控除による節税額を<strong>参考値として</strong>概算します。
+      </p>
+
+      <section style="border: 1px solid var(--border-color); border-radius: 12px; padding: 1.5rem; margin-bottom: 1.5rem; background-color: white; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);">
+        <h2 style="font-size: 1.2rem; font-weight: 700; margin: 0 0 1rem; color: var(--primary);">入力</h2>
+
+        <div style="display: grid; gap: 1rem; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));">
+          <label style="display: block;">
+            <div style="font-weight: 600; margin-bottom: 6px; font-size: 0.9rem; color: var(--text-main);">毎月の掛金（円）</div>
+            <input id="monthly" type="number" inputmode="numeric" min="0" step="1000" value="23000"
+              style="width: 100%; padding: 0.75rem; border: 1px solid var(--border-color); border-radius: 8px; box-sizing: border-box; font-size: 1rem;" />
+            <div style="font-size: 0.75rem; color: var(--text-muted); margin-top: 6px;">
+              ※ iDeCoの上限は職業等で異なります
+            </div>
+          </label>
+
+          <label style="display: block;">
+            <div style="font-weight: 600; margin-bottom: 6px; font-size: 0.9rem; color: var(--text-main);">運用期間（年）</div>
+            <input id="years" type="number" inputmode="numeric" min="1" max="60" step="1" value="20"
+              style="width: 100%; padding: 0.75rem; border: 1px solid var(--border-color); border-radius: 8px; box-sizing: border-box; font-size: 1rem;" />
+          </label>
+
+          <label style="display: block;">
+            <div style="font-weight: 600; margin-bottom: 6px; font-size: 0.9rem; color: var(--text-main);">想定年利（%）</div>
+            <input id="rate" type="number" inputmode="decimal" min="-50" max="50" step="0.1" value="4.0"
+              style="width: 100%; padding: 0.75rem; border: 1px solid var(--border-color); border-radius: 8px; box-sizing: border-box; font-size: 1rem;" />
+            <div style="font-size: 0.75rem; color: var(--text-muted); margin-top: 6px;">
+              ※ 年利は将来を保証するものではありません
+            </div>
+          </label>
+
+          <label style="display: block;">
+            <div style="font-weight: 600; margin-bottom: 6px; font-size: 0.9rem; color: var(--text-main);">手数料等（年率・%）</div>
+            <input id="fee" type="number" inputmode="decimal" min="0" max="5" step="0.01" value="0.20"
+              style="width: 100%; padding: 0.75rem; border: 1px solid var(--border-color); border-radius: 8px; box-sizing: border-box; font-size: 1rem;" />
+            <div style="font-size: 0.75rem; color: var(--text-muted); margin-top: 6px;">
+              ※ 信託報酬等の概算
+            </div>
+          </label>
+
+          <label style="display: block;">
+            <div style="font-weight: 600; margin-bottom: 6px; font-size: 0.9rem; color: var(--text-main);">実効税率（%・任意）</div>
+            <input id="taxRate" type="number" inputmode="decimal" min="0" max="60" step="0.5" value="20"
+              style="width: 100%; padding: 0.75rem; border: 1px solid var(--border-color); border-radius: 8px; box-sizing: border-box; font-size: 1rem;" />
+            <div style="font-size: 0.75rem; color: var(--text-muted); margin-top: 6px;">
+              ※ 所得控除による節税を概算します
+            </div>
+          </label>
+
+          <div style="display:flex; align-items:end; gap: 10px;">
+            <button id="calcBtn"
+              style="width: 100%; padding: 0.75rem 1rem; border-radius: 8px; border: none; background-color: var(--primary); color: white; font-weight: bold; cursor: pointer; font-size: 1rem; transition: transform 0.2s;" onmouseover="this.style.transform='scale(1.02)'" onmouseout="this.style.transform='scale(1)'">
+              計算する
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <section style="display:grid; gap: 1rem; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); margin-bottom: 1.5rem;">
+        <div style="border: 1px solid var(--border-color); border-radius: 12px; padding: 1.25rem; background-color: white; box-shadow: 0 2px 4px -1px rgba(0, 0, 0, 0.05);">
+          <div style="font-size: 0.85rem; color:var(--text-muted); font-weight: bold;">将来評価額（概算）</div>
+          <div id="fv" style="font-size: 1.5rem; font-weight: 800; margin-top: 0.5rem; color: var(--primary);">-</div>
+        </div>
+        <div style="border: 1px solid var(--border-color); border-radius: 12px; padding: 1.25rem; background-color: white; box-shadow: 0 2px 4px -1px rgba(0, 0, 0, 0.05);">
+          <div style="font-size: 0.85rem; color:var(--text-muted); font-weight: bold;">拠出総額</div>
+          <div id="contrib" style="font-size: 1.5rem; font-weight: 800; margin-top: 0.5rem; color: var(--text-main);">-</div>
+        </div>
+        <div style="border: 1px solid var(--border-color); border-radius: 12px; padding: 1.25rem; background-color: white; box-shadow: 0 2px 4px -1px rgba(0, 0, 0, 0.05);">
+          <div style="font-size: 0.85rem; color:var(--text-muted); font-weight: bold;">運用益（概算）</div>
+          <div id="gain" style="font-size: 1.5rem; font-weight: 800; margin-top: 0.5rem; color: #10b981;">-</div>
+        </div>
+        <div style="border: 1px solid var(--border-color); border-radius: 12px; padding: 1.25rem; background-color: white; box-shadow: 0 2px 4px -1px rgba(0, 0, 0, 0.05);">
+          <div style="font-size: 0.85rem; color:var(--text-muted); font-weight: bold;">節税額（概算・累計）</div>
+          <div id="taxSave" style="font-size: 1.5rem; font-weight: 800; margin-top: 0.5rem; color: #f59e0b;">-</div>
+          <div style="font-size: 0.75rem; color:var(--text-muted); margin-top: 0.5rem;">
+            ※ 掛金×実効税率で単純計算
+          </div>
+        </div>
+      </section>
+
+      <section style="border: 1px solid var(--border-color); border-radius: 12px; padding: 1.5rem; margin-bottom: 2rem; background-color: white; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);">
+        <h2 style="font-size: 1.2rem; font-weight: 700; margin: 0 0 1rem; color: var(--text-main);">資産推移（年末時点）</h2>
+        <div style="position: relative; height: 300px; width: 100%;">
+            <canvas id="chart"></canvas>
+        </div>
+        <div style="font-size: 0.8rem; color:var(--text-muted); margin-top: 1rem;">
+          ※ iDeCoは原則60歳まで引き出し制限があります。制度・商品・手数料等は加入先により異なります。
+        </div>
+      </section>
+
+      <section style="border: 1px solid var(--border-color); background:var(--bg-body); border-radius: 12px; padding: 1.25rem; margin-bottom: 2rem;">
+        <h2 style="font-size: 1rem; font-weight: 800; margin: 0 0 8px; color: var(--text-main);">免責事項</h2>
+        <p style="margin:0; font-size: 0.85rem; line-height: 1.6; color:var(--text-muted);">
+          本ページの計算結果は概算・参考値です。将来の運用成果や節税額を保証するものではありません。
+          税制・制度は変更される可能性があります。最終判断は公式情報・専門家等をご確認ください。
+        </p>
+      </section>
+
+      <div style="text-align: center; margin-bottom: 3rem;">
+        <a href="#affiliate-section" style="display: inline-block; background-color: var(--primary); color: white; padding: 1rem 2.5rem; border-radius: 8px; font-weight: bold; text-decoration: none; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1); font-size: 1.1rem; transition: transform 0.2s;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
+          証券口座を比較する
+        </a>
+      </div>
+
+      <RelatedLinks />
+      <AffiliateSection placement="ideco_simulator" />
+    </div>
+
+    <!-- 
+      Astroのモジュールスクリプト
+      `Chart`のインポートを含むため、ビルド時にViteが解決します。
+    -->
+    <script type="module">
+      import Chart from "chart.js/auto";
+
+      const el = (id) => document.getElementById(id);
+
+      const fmtJPY = (n) => {
+        if (!Number.isFinite(n)) return "-";
+        return new Intl.NumberFormat("ja-JP", { style: "currency", currency: "JPY", maximumFractionDigits: 0 }).format(n);
+      };
+
+      const clamp = (n, min, max) => Math.min(Math.max(n, min), max);
+
+      function calcIdeco({ monthly, years, ratePct, feePct }) {
+        const months = years * 12;
+        const r = (ratePct - feePct) / 100 / 12; // 月次の実質利回り（概算）
+        let balance = 0;
+
+        const points = [];
+        for (let m = 1; m <= months; m++) {
+          // 月初に拠出 → 月末に運用
+          balance += monthly;
+          balance *= (1 + r);
+
+          // 年末のみプロット
+          if (m % 12 === 0) {
+            points.push(Math.max(balance, 0));
+          }
+        }
+
+        const contrib = monthly * months;
+        const fv = Math.max(balance, 0);
+        const gain = fv - contrib;
+
+        return { fv, contrib, gain, points };
+      }
+
+      function calcTaxSave({ monthly, years, taxRatePct }) {
+        // 掛金（年間）×実効税率（%）×年数
+        const annual = monthly * 12;
+        const taxRate = clamp(taxRatePct, 0, 60) / 100;
+        return annual * years * taxRate;
+      }
+
+      let chart;
+
+      function render() {
+        const monthlyBtn = el("monthly");
+        if (!monthlyBtn) return; // 保護コード
+
+        const monthly = Number(monthlyBtn.value || 0);
+        const years = Number(el("years").value || 0);
+        const ratePct = Number(el("rate").value || 0);
+        const feePct = Number(el("fee").value || 0);
+        const taxRatePct = Number(el("taxRate").value || 0);
+
+        const safeMonthly = clamp(monthly, 0, 200000);
+        const safeYears = clamp(years, 1, 60);
+        const safeRate = clamp(ratePct, -50, 50);
+        const safeFee = clamp(feePct, 0, 5);
+
+        const { fv, contrib, gain, points } = calcIdeco({
+          monthly: safeMonthly,
+          years: safeYears,
+          ratePct: safeRate,
+          feePct: safeFee
+        });
+
+        const taxSave = calcTaxSave({
+          monthly: safeMonthly,
+          years: safeYears,
+          taxRatePct
+        });
+
+        el("fv").textContent = fmtJPY(fv);
+        el("contrib").textContent = fmtJPY(contrib);
+        el("gain").textContent = fmtJPY(gain);
+        el("taxSave").textContent = fmtJPY(taxSave);
+
+        const labels = Array.from({ length: points.length }, (_, i) => `${i + 1}年`);
+
+        const ctx = el("chart").getContext("2d");
+        if (chart) chart.destroy();
+
+        chart = new Chart(ctx, {
+          type: "line",
+          data: {
+            labels,
+            datasets: [
+              {
+                label: "資産残高（年末）",
+                data: points,
+                borderColor: "#2563eb",
+                backgroundColor: "rgba(37, 99, 235, 0.1)",
+                tension: 0.1,
+                fill: true,
+                pointRadius: points.length <= 20 ? 4 : 2,
+                pointHoverRadius: 6,
+              }
+            ]
+          },
+          options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            plugins: {
+              legend: { display: true },
+              tooltip: {
+                callbacks: {
+                  label: (item) => `${item.dataset.label}: ${fmtJPY(item.parsed.y)}`
+                }
+              }
+            },
+            scales: {
+              y: {
+                beginAtZero: true,
+                ticks: {
+                  callback: (v) => {
+                    const n = Number(v);
+                    if (!Number.isFinite(n)) return v;
+                    if (n >= 1e8) return `${Math.round(n / 1e8)}億円`;
+                    if (n >= 1e4) return `${Math.round(n / 1e4)}万円`;
+                    return `${Math.round(n)}円`;
+                  }
+                }
+              }
+            }
+          }
+        });
+      }
+
+      const calcBtn = el("calcBtn");
+      if (calcBtn) {
+          calcBtn.addEventListener("click", render);
+      }
+      
+      // 入力時に自動計算するためのイベント（UX向上）
+      const inputs = ["monthly", "years", "rate", "fee", "taxRate"];
+      inputs.forEach(id => {
+          const inputEl = el(id);
+          if (inputEl) {
+              inputEl.addEventListener("change", render);
+          }
+      });
+
+      // 初期表示
+      render();
+    </script>
+</Layout>
