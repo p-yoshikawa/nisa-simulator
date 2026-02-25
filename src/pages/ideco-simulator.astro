@@ -16,6 +16,11 @@ const description =
         実効税率（所得税＋住民税の目安）を入力すると、掛金の所得控除による節税額を<strong>参考値として</strong>概算します。
       </p>
 
+      <div style="margin-bottom: 1.5rem; padding: 1rem; background-color: #f0fdf4; border-radius: 8px; border-left: 4px solid #10b981; font-size: 0.9rem;">
+        <p style="margin: 0 0 0.5rem; font-weight: bold; color: var(--text-main);">💡 まずはどう入力すればいい？</p>
+        <p style="margin: 0; color: var(--text-muted);">迷ったら <strong>掛金 23,000円 / 運用期間 20年 / 想定年利 4.0%</strong> で試算してみてください。<br/>※ iDeCoは原則60歳まで引き出し制限があります。</p>
+      </div>
+
       <section style="border: 1px solid var(--border-color); border-radius: 12px; padding: 1.5rem; margin-bottom: 1.5rem; background-color: white; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);">
         <h2 style="font-size: 1.2rem; font-weight: 700; margin: 0 0 1rem; color: var(--primary);">入力</h2>
 
@@ -85,6 +90,11 @@ const description =
           <div id="gain" style="font-size: 1.5rem; font-weight: 800; margin-top: 0.5rem; color: #10b981;">-</div>
         </div>
         <div style="border: 1px solid var(--border-color); border-radius: 12px; padding: 1.25rem; background-color: white; box-shadow: 0 2px 4px -1px rgba(0, 0, 0, 0.05);">
+          <div style="font-size: 0.85rem; color:var(--text-muted); font-weight: bold;">運用益率（概算）</div>
+          <div id="gainRate" style="font-size: 1.5rem; font-weight: 800; margin-top: 0.5rem; color: #10b981;">-</div>
+          <div style="font-size: 0.75rem; color:var(--text-muted); margin-top: 0.5rem;">※ 各年の利回りではありません</div>
+        </div>
+        <div style="border: 1px solid var(--border-color); border-radius: 12px; padding: 1.25rem; background-color: white; box-shadow: 0 2px 4px -1px rgba(0, 0, 0, 0.05);">
           <div style="font-size: 0.85rem; color:var(--text-muted); font-weight: bold;">節税額（概算・累計）</div>
           <div id="taxSave" style="font-size: 1.5rem; font-weight: 800; margin-top: 0.5rem; color: #f59e0b;">-</div>
           <div style="font-size: 0.75rem; color:var(--text-muted); margin-top: 0.5rem;">
@@ -112,8 +122,12 @@ const description =
       </section>
 
       <div style="text-align: center; margin-bottom: 3rem;">
-        <a href="#affiliate-section" style="display: inline-block; background-color: var(--primary); color: white; padding: 1rem 2.5rem; border-radius: 8px; font-weight: bold; text-decoration: none; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1); font-size: 1.1rem; transition: transform 0.2s;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
+        <a href="#affiliate-section" style="display: inline-block; background-color: var(--primary); color: white; padding: 1rem 2.5rem; border-radius: 8px; font-weight: bold; text-decoration: none; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1); font-size: 1.1rem; transition: transform 0.2s; margin-bottom: 1.5rem;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
           証券口座を比較する
+        </a>
+        <br/>
+        <a href="/nisa-tax-compare" style="color: var(--primary); font-weight: bold; text-decoration: underline; font-size: 0.95rem;">
+            新NISA（つみたて）も同条件で比較できます → 課税比較シミュレーターへ
         </a>
       </div>
 
@@ -138,24 +152,28 @@ const description =
         const months = years * 12;
         const r = (ratePct - feePct) / 100 / 12; // 月次の実質利回り（概算）
         let balance = 0;
+        let cumulativeContrib = 0;
 
         const points = [];
+        const contribPoints = [];
         for (let m = 1; m <= months; m++) {
           // 月初に拠出 → 月末に運用
+          cumulativeContrib += monthly;
           balance += monthly;
           balance *= (1 + r);
 
           // 年末のみプロット
           if (m % 12 === 0) {
             points.push(Math.max(balance, 0));
+            contribPoints.push(cumulativeContrib);
           }
         }
 
-        const contrib = monthly * months;
+        const contrib = cumulativeContrib;
         const fv = Math.max(balance, 0);
         const gain = fv - contrib;
 
-        return { fv, contrib, gain, points };
+        return { fv, contrib, gain, points, contribPoints };
       }
 
       function calcTaxSave({ monthly, years, taxRatePct }) {
@@ -182,7 +200,7 @@ const description =
         const safeRate = clamp(ratePct, -50, 50);
         const safeFee = clamp(feePct, 0, 5);
 
-        const { fv, contrib, gain, points } = calcIdeco({
+        const { fv, contrib, gain, points, contribPoints } = calcIdeco({
           monthly: safeMonthly,
           years: safeYears,
           ratePct: safeRate,
@@ -198,6 +216,10 @@ const description =
         el("fv").textContent = fmtJPY(fv);
         el("contrib").textContent = fmtJPY(contrib);
         el("gain").textContent = fmtJPY(gain);
+        
+        const gainRateVal = contrib > 0 ? (gain / contrib) * 100 : 0;
+        el("gainRate").textContent = contrib > 0 ? gainRateVal.toFixed(1) + "%" : "-";
+        
         el("taxSave").textContent = fmtJPY(taxSave);
 
         const labels = Array.from({ length: points.length }, (_, i) => `${i + 1}年`);
@@ -219,6 +241,19 @@ const description =
                 fill: true,
                 pointRadius: points.length <= 20 ? 4 : 2,
                 pointHoverRadius: 6,
+                order: 1
+              },
+              {
+                label: "拠出累計（元本）",
+                data: contribPoints,
+                borderColor: "#64748b",
+                backgroundColor: "transparent",
+                borderDash: [5, 5],
+                tension: 0.1,
+                fill: false,
+                pointRadius: points.length <= 20 ? 4 : 2,
+                pointHoverRadius: 6,
+                order: 2
               }
             ]
           },

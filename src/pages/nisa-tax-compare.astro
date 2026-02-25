@@ -19,6 +19,19 @@ import FAQSection from '../components/FAQSection.astro';
 
 	<CalculatorForm mode="tax-compare" client:load />
 
+	<section class="card" style="margin-top: 3rem; margin-bottom: 2rem; border-color: rgba(37, 99, 235, 0.2); background-color: #f8fafc;">
+		<h3 style="font-size: 1.25rem; margin-bottom: 1rem; color: var(--text-main);">さらなる節税なら「iDeCo」も比較できます</h3>
+		<p style="color: var(--text-muted); margin-bottom: 1.5rem; line-height: 1.6;">
+			NISAは利益そのものが非課税になる仕組みですが、iDeCoはそれに加えて<strong>掛金が全額所得控除（税金が安くなる）</strong>になる強力な節税メリットがあります。<br/>
+			ご自身の年収や掛金でどのくらいの節税効果があるか試算してみましょう。
+		</p>
+		<div style="text-align: center;">
+			<a href="/ideco-simulator/" class="nav-link track-nav" data-nav="ideco_cta" style="display: inline-block; background-color: var(--primary); color: white; padding: 1rem 2rem; border-radius: 8px; font-weight: bold; text-decoration: none; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);">
+				iDeCoの効果をシミュレーションする
+			</a>
+		</div>
+	</section>
+
     <AffiliateSection placement="tax-compare" />
 	<RelatedLinks />
 	<FAQSection />
