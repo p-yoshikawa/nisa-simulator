@@ -20,8 +20,12 @@ const buildDate = new Date().toLocaleDateString('ja-JP', { timeZone: 'Asia/Tokyo
     <div style="margin-bottom: 2.5rem;">
       <h1 style="font-size: 1.8rem; font-weight: 800; margin: 0 0 0.5rem; color: var(--text-main);">iDeCo（イデコ）節税シミュレーター</h1>
 
-      <div style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 1.5rem; display: flex; align-items: center; gap: 0.25rem;">
+      <div style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 1rem; display: flex; align-items: center; gap: 0.25rem;">
           <span>🔄 最終更新日: {buildDate}</span>
+      </div>
+      
+      <div style="font-size: 0.95rem; margin-bottom: 1.5rem;">
+          💡 <a href="/new-nisa-guide/" class="track-nav" data-nav="ideco_guide" style="color: var(--primary); font-weight: bold; text-decoration: underline;">制度の詳細はこちら → 新NISA完全ガイド</a>
       </div>
       <p style="margin: 0 0 16px; line-height: 1.8; color: var(--text-muted); font-size: 0.95rem;">
         iDeCo（個人型確定拠出年金）制度を利用した場合の、将来の資産推移と掛金拠出による毎年の「所得控除（概算節税額）」を同時に計算できる無料シミュレーションツールです。

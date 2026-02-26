@@ -1,0 +1,146 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import RelatedLinks from '../../components/RelatedLinks.astro';
+import AffiliateSection from '../../components/AffiliateSection.astro';
+import FAQSection from '../../components/FAQSection.astro';
+
+const title = "新NISA完全ガイド：メリット・注意点からシミュレーション活用法まで";
+const description = "新NISA（ニーサ）の基本から、20代・30代・40代といった年齢別の活用戦略、非課税メリットを最大限引き出すための方法を初心者にも分かりやすく解説した網羅的ガイドです。各種シミュレーションを用いて将来の資産形成を具体的にイメージしましょう。";
+const buildDate = new Date().toLocaleDateString('ja-JP', { timeZone: 'Asia/Tokyo' });
+
+const faqs = [
+  { q: "そもそも新NISAとは何ですか？", a: "新NISAは、投資で得た利益（運用益や配当金など）を特定の限度額まで非課税（税率ゼロ）で受け取ることができる政府の資産形成支援制度です。" },
+  { q: "新NISAを始めるのに最適な年齢はありますか？", a: "運用期間が長いほど複利の効果を受けやすいため、できるだけ早く始めるのが有利とされていますが、30代や40代、50代からでも老後に向けた資産形成ツールとして十分に機能します。" },
+  { q: "どのシミュレーターから使えばいいか迷います。", a: "まずは「つみたてシミュレーター」を使って、毎月無理なく積み立てられる金額が将来どのくらいの規模を目指せるのか試算してみるのがおすすめです。" }
+];
+---
+
+<Layout title={title} description={description}>
+    <div style="margin-bottom: 2.5rem; max-width: 800px; margin: 0 auto;">
+        
+        <div style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 1rem; display: flex; align-items: center; gap: 0.25rem;">
+            <span>🔄 最終更新日: {buildDate}</span>
+        </div>
+        
+        <h1 style="font-size: 1.8rem; font-weight: 800; margin: 0 0 1.5rem; color: var(--text-main); line-height: 1.4;">
+            新NISA（ニーサ）完全ガイド：<br/>メリット・注意点からシミュレーター活用戦略まで
+        </h1>
+
+        <!-- 第1章: 新NISAとは -->
+        <section class="card" style="margin-bottom: 2.5rem; background-color: white; border: 1px solid var(--border-color);">
+            <h2 style="font-size: 1.4rem; font-weight: 700; margin-bottom: 1rem; color: var(--text-main); border-bottom: 2px solid var(--primary); padding-bottom: 0.5rem; display: inline-block;">
+                1. 新NISAとは？ なぜ注目されているのか
+            </h2>
+            <p style="line-height: 1.8; color: var(--text-muted); font-size: 1rem; margin-bottom: 1.5rem;">
+                新NISAは、2024年に大幅に拡充された日本の少額投資非課税制度です。本来、株式や投資信託で出た利益や配当金には約20%の税金がかかりますが、新NISAの口座（非課税枠）を通して行う一定額までの投資に対しては、この利益にかかる税金が「生涯にわたって無期限で無料（非課税）」になります。<br/><br/>
+                制度は「つみたて投資枠（年間120万円）」と「成長投資枠（年間240万円）」に分かれており、合計で生涯最大1,800万円まで投資元本を非課税で運用することが可能です。長期・分散・積立投資の強みを最も活かすことができる国主導の資産形成支援制度として、多くの人に選ばれています。
+            </p>
+        </section>
+
+        <!-- 第2章: メリットと注意点 -->
+        <section class="card" style="margin-bottom: 2.5rem; background-color: white; border: 1px solid var(--border-color);">
+            <h2 style="font-size: 1.4rem; font-weight: 700; margin-bottom: 1rem; color: var(--text-main); border-bottom: 2px solid var(--primary); padding-bottom: 0.5rem; display: inline-block;">
+                2. 新NISAを利用するメリット・注意点
+            </h2>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem;">
+                <!-- メリット -->
+                <div style="background-color: #f0fdf4; border: 1px solid #bbf7d0; border-radius: 8px; padding: 1.5rem;">
+                    <h3 style="font-size: 1.1rem; font-weight: bold; color: #15803d; margin: 0 0 0.75rem;">代表的なメリット</h3>
+                    <ul style="margin: 0; padding-left: 1.25rem; line-height: 1.7; color: var(--text-muted); font-size: 0.95rem;">
+                        <li><strong>運用益が恒久的に非課税</strong>：期間制限なく、増えた資産をそのまま手元に残せます。</li>
+                        <li><strong>いつでも引き出し可能</strong>：要件を満たせば、結婚、マイホーム、教育など必要なタイミングで途中で柔軟に資金を引き出せます（iDeCoにはない利点）。</li>
+                        <li><strong>売却した枠の再利用</strong>：商品を売却すると、その元本分の非課税枠が翌年以降に復活します。</li>
+                    </ul>
+                </div>
+
+                <!-- 注意点 -->
+                <div style="background-color: #fef2f2; border: 1px solid #fecaca; border-radius: 8px; padding: 1.5rem;">
+                    <h3 style="font-size: 1.1rem; font-weight: bold; color: #b91c1c; margin: 0 0 0.75rem;">気をつけたい注意点</h3>
+                    <ul style="margin: 0; padding-left: 1.25rem; line-height: 1.7; color: var(--text-muted); font-size: 0.95rem;">
+                        <li><strong>元本割れのリスク</strong>：投資である以上、相場変動により投資元本を下回る期間が存在する可能性があります。</li>
+                        <li><strong>損益通算ができない</strong>：新NISA口座での損失と、他口座での利益を相殺することはルール上できません。</li>
+                        <li><strong>余剰資金で行う</strong>：生活防衛資金は現金の手元に残し、当面使わないお金で無理なく始めることが推奨されています。</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- 第3章: 年齢別活用戦略 -->
+        <section class="card" style="margin-bottom: 2.5rem; background-color: white; border: 1px solid var(--border-color);">
+            <h2 style="font-size: 1.4rem; font-weight: 700; margin-bottom: 1rem; color: var(--text-main); border-bottom: 2px solid var(--primary); padding-bottom: 0.5rem; display: inline-block;">
+                3. 【年代別】考え方と資産形成のアプローチ
+            </h2>
+            <p style="line-height: 1.8; color: var(--text-muted); font-size: 0.95rem; margin-bottom: 1.5rem;">世代によってライフステージや資産規模、リスク許容度が異なります。ご自身に近い年代のアプローチを参考にしてください。</p>
+            
+            <div style="margin-bottom: 1.5rem;">
+                <h3 style="font-size: 1.15rem; font-weight: bold; color: var(--text-main); margin-bottom: 0.5rem; border-left: 4px solid var(--primary); padding-left: 0.75rem;">20代の考え方</h3>
+                <p style="line-height: 1.6; color: var(--text-muted); font-size: 0.95rem;">
+                    最も強力な武器は「時間」です。1000円〜1万円等のごく少額からでも「つみたて投資」を開始し、経済と複利の動きに慣れることが重要とされています。少しずつ長期で株式に投資することで雪だるま式に資産が増えやすくなります。
+                </p>
+            </div>
+
+            <div style="margin-bottom: 1.5rem;">
+                <h3 style="font-size: 1.15rem; font-weight: bold; color: var(--text-main); margin-bottom: 0.5rem; border-left: 4px solid var(--primary); padding-left: 0.75rem;">30代の考え方</h3>
+                <p style="line-height: 1.6; color: var(--text-muted); font-size: 0.95rem;">
+                    結婚、住宅費、教育費などの出費が重なるため、家計管理が一層重要になります。「途中で引き出しが可能」な新NISAの特性を活かし、将来のまとまったイベントに向けた備えとして積立額を無理のない範囲で増強していくフェーズです。
+                </p>
+            </div>
+
+            <div style="margin-bottom: 1.5rem;">
+                <h3 style="font-size: 1.15rem; font-weight: bold; color: var(--text-main); margin-bottom: 0.5rem; border-left: 4px solid var(--primary); padding-left: 0.75rem;">40代・50代の考え方</h3>
+                <p style="line-height: 1.6; color: var(--text-muted); font-size: 0.95rem;">
+                    老後資金（退職後）を見据えた中盤戦です。収入に余裕が出てくる分、成長投資枠も用いて枠を早めに埋めるなど資産スピードを加速させる選択肢もあります。リスクを取りすぎず、手元の預金とのバランス（資産配分）を保守的に見直すことが推奨されています。
+                </p>
+            </div>
+        </section>
+
+        <!-- 第4章: シミュレーター -->
+        <section class="card" style="margin-bottom: 2.5rem; background-color: var(--bg-body); border: none;">
+            <h2 style="font-size: 1.4rem; font-weight: 700; margin-bottom: 1rem; color: var(--text-main); border-bottom: 2px solid var(--primary); padding-bottom: 0.5rem; display: inline-block;">
+                4. 当サイトのシミュレーター活用術
+            </h2>
+            <p style="line-height: 1.8; color: var(--text-muted); font-size: 0.95rem; margin-bottom: 1.5rem;">
+                新NISAのポテンシャルをイメージするには、具体的な数字を見ることが近道です。当サイトのツール群を順に活用することで、目標金額の把握から口座選びまでを直感的に進めることができます。
+            </p>
+
+            <div style="display: grid; gap: 1rem;">
+                <!-- リンク1 -->
+                <a href="/nisa-tsumitate" style="display: block; padding: 1.25rem; background-color: white; border: 1px solid var(--border-color); border-left: 4px solid #3b82f6; border-radius: 6px; text-decoration: none; color: inherit; transition: transform 0.2s; box-shadow: 0 2px 4px rgba(0,0,0,0.02);" onmouseover="this.style.transform='translateX(4px)'" onmouseout="this.style.transform='translateX(0)'">
+                    <div style="font-weight: bold; font-size: 1.1rem; color: var(--text-main); margin-bottom: 0.25rem;">① 新NISA つみたてシミュレーター</div>
+                    <div style="font-size: 0.9rem; color: var(--text-muted);">毎月いくら積み立てれば目標額に届くか予測します。まずはここから始めましょう。</div>
+                </a>
+
+                <!-- リンク2 -->
+                <a href="/nisa-tax-compare" style="display: block; padding: 1.25rem; background-color: white; border: 1px solid var(--border-color); border-left: 4px solid #10b981; border-radius: 6px; text-decoration: none; color: inherit; transition: transform 0.2s; box-shadow: 0 2px 4px rgba(0,0,0,0.02);" onmouseover="this.style.transform='translateX(4px)'" onmouseout="this.style.transform='translateX(0)'">
+                    <div style="font-weight: bold; font-size: 1.1rem; color: var(--text-main); margin-bottom: 0.25rem;">② 新NISA 課税比較シミュレーター</div>
+                    <div style="font-size: 0.9rem; color: var(--text-muted);">普通の課税口座と比較して、「非課税だとどれだけ得をするのか」税金差額を視覚化します。</div>
+                </a>
+
+                <!-- リンク3 -->
+                <a href="/ideco-simulator" style="display: block; padding: 1.25rem; background-color: white; border: 1px solid var(--border-color); border-left: 4px solid #f59e0b; border-radius: 6px; text-decoration: none; color: inherit; transition: transform 0.2s; box-shadow: 0 2px 4px rgba(0,0,0,0.02);" onmouseover="this.style.transform='translateX(4px)'" onmouseout="this.style.transform='translateX(0)'">
+                    <div style="font-weight: bold; font-size: 1.1rem; color: var(--text-main); margin-bottom: 0.25rem;">③ iDeCo（イデコ）節税シミュレーター</div>
+                    <div style="font-size: 0.9rem; color: var(--text-muted);">併用されやすい「iDeCo」の将来金額と、毎年の所得税・住民税の節税額も確認してみましょう。</div>
+                </a>
+
+                <!-- リンク4 -->
+                <a href="/nisa-withdraw" style="display: block; padding: 1.25rem; background-color: white; border: 1px solid var(--border-color); border-left: 4px solid #8b5cf6; border-radius: 6px; text-decoration: none; color: inherit; transition: transform 0.2s; box-shadow: 0 2px 4px rgba(0,0,0,0.02);" onmouseover="this.style.transform='translateX(4px)'" onmouseout="this.style.transform='translateX(0)'">
+                    <div style="font-weight: bold; font-size: 1.1rem; color: var(--text-main); margin-bottom: 0.25rem;">④ 新NISA 取り崩しシミュレーター</div>
+                    <div style="font-size: 0.9rem; color: var(--text-muted);">老後を迎えた際、運用しながら引き出すことで「資産寿命がどれくらい延びるか」を試算します。</div>
+                </a>
+            </div>
+        </section>
+
+        <div style="text-align: center; margin-bottom: 3.5rem;">
+            <p style="font-size: 1rem; color: var(--text-main); margin-bottom: 1rem; font-weight: bold;">
+                制度の違いを理解したら、口座選びも重要です。主要ネット証券の比較はこちら。
+            </p>
+            <a href="/account-compare" style="background-color: var(--primary); color: white; padding: 0.75rem 1.5rem; border-radius: 8px; font-weight: bold; text-decoration: none; display: inline-block; transition: background-color 0.2s;">
+                おすすめ証券口座比較を見る
+            </a>
+        </div>
+
+        <AffiliateSection placement="guide_page" />
+        <FAQSection faqs={faqs} />
+        <RelatedLinks />
+    </div>
+</Layout>
