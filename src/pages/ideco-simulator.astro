@@ -1,6 +1,5 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import AffiliateSection from '../components/AffiliateSection.astro';
 import RelatedLinks from '../components/RelatedLinks.astro';
 
 const title = "iDeCo シミュレーター｜将来資産と節税効果（概算）";
@@ -113,6 +112,61 @@ const description =
         </div>
       </section>
 
+      <section style="border: 1px solid var(--border-color); border-radius: 12px; padding: 1.5rem; margin-bottom: 2rem; background-color: white; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);">
+        <h2 style="font-size: 1.25rem; font-weight: 700; margin: 0 0 1rem; color: var(--text-main);">この試算結果の見方</h2>
+        <p style="margin: 0 0 1rem; line-height: 1.6; color: var(--text-muted); font-size: 0.95rem;">
+          この試算は一定の前提に基づく参考値です。将来の運用成果を保証するものではありません。<br/>
+          iDeCoは掛金が所得控除の対象となるため、条件によっては実質負担を抑えながら老後資金準備に役立つ場合があります。
+        </p>
+
+        <div style="overflow-x: auto; margin-bottom: 0.5rem;">
+          <table style="width: 100%; min-width: 450px; border-collapse: collapse; font-size: 0.9rem; text-align: left;">
+            <thead>
+              <tr style="background-color: var(--bg-body); border-bottom: 2px solid var(--border-color);">
+                <th style="padding: 0.75rem; font-weight: bold; color: var(--text-main);">項目</th>
+                <th style="padding: 0.75rem; font-weight: bold; color: var(--text-main);">iDeCo</th>
+                <th style="padding: 0.75rem; font-weight: bold; color: var(--text-main);">新NISA</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr style="border-bottom: 1px solid var(--border-color);">
+                <td style="padding: 0.75rem; color: var(--text-muted); font-weight: bold; white-space: nowrap;">税制メリット</td>
+                <td style="padding: 0.75rem; color: var(--text-main);">掛金が所得控除の対象<br/><span style="font-size:0.8rem; color:var(--text-muted);">（条件あり）</span></td>
+                <td style="padding: 0.75rem; color: var(--text-main);">運用益が非課税<br/><span style="font-size:0.8rem; color:var(--text-muted);">（条件あり）</span></td>
+              </tr>
+              <tr>
+                <td style="padding: 0.75rem; color: var(--text-muted); font-weight: bold; white-space: nowrap;">引き出し</td>
+                <td style="padding: 0.75rem; color: var(--text-main);">原則60歳以降</td>
+                <td style="padding: 0.75rem; color: var(--text-main);">原則いつでも</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div style="font-size: 0.8rem; color: var(--text-muted);">
+          ※制度詳細は各社および公的情報でご確認ください。
+        </div>
+      </section>
+
+      <section style="border: 1px solid var(--border-color); border-radius: 12px; padding: 1.5rem; margin-bottom: 2rem; background-color: white; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);">
+        <h2 style="font-size: 1.25rem; font-weight: 700; margin: 0 0 1.25rem; color: var(--text-main);">iDeCo口座を選ぶときのチェックポイント</h2>
+        <ul style="margin: 0 0 1.5rem; padding-left: 1.5rem; line-height: 1.8; color: var(--text-muted); font-size: 0.95rem;">
+          <li><strong>手数料</strong>（口座管理や商品コストが抑えられているか）</li>
+          <li><strong>取扱商品</strong>（自身の投資目的に合った投信ラインナップがあるか）</li>
+          <li><strong>使いやすさ</strong>（スマホUIや各種サポート体制が充実しているか）</li>
+        </ul>
+
+        <div style="border: 2px solid #e2e8f0; border-radius: 8px; padding: 1.5rem; background-color: #f8fafc; text-align: center;">
+          <h3 style="font-size: 1.25rem; font-weight: bold; margin: 0 0 1rem; color: var(--text-main);">松井証券</h3>
+          <p style="font-size: 0.95rem; color: var(--text-muted); margin: 0 0 1.5rem; line-height: 1.6;">
+            創業100年以上の歴史を持ち、サポート体制も充実。シンプルな画面設計で初心者の方にも選ばれています。
+          </p>
+          <a href="https://px.a8.net/svt/ejp?a8mat=4AXI0D+EEKKOI+3XCC+BXQOI" target="_blank" rel="nofollow noopener noreferrer" class="track-affiliate" data-broker="matsui_ideco" style="display: inline-block; width: 100%; max-width: 320px; background-color: var(--primary); color: white; padding: 1rem; border-radius: 8px; font-weight: bold; text-decoration: none; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1); font-size: 1.05rem; transition: transform 0.2s;" onmouseover="this.style.transform='scale(1.02)'" onmouseout="this.style.transform='scale(1)'">
+            松井証券でiDeCoを詳しく見る
+          </a>
+          <div style="font-size: 0.75rem; color: var(--text-muted); margin-top: 0.75rem;">PR</div>
+        </div>
+      </section>
+
       <section style="border: 1px solid var(--border-color); background:var(--bg-body); border-radius: 12px; padding: 1.25rem; margin-bottom: 2rem;">
         <h2 style="font-size: 1rem; font-weight: 800; margin: 0 0 8px; color: var(--text-main);">免責事項</h2>
         <p style="margin:0; font-size: 0.85rem; line-height: 1.6; color:var(--text-muted);">
@@ -122,18 +176,46 @@ const description =
       </section>
 
       <div style="text-align: center; margin-bottom: 3rem;">
-        <a href="#affiliate-section" style="display: inline-block; background-color: var(--primary); color: white; padding: 1rem 2.5rem; border-radius: 8px; font-weight: bold; text-decoration: none; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1); font-size: 1.1rem; transition: transform 0.2s; margin-bottom: 1.5rem;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
-          証券口座を比較する
-        </a>
-        <br/>
         <a href="/nisa-tax-compare" style="color: var(--primary); font-weight: bold; text-decoration: underline; font-size: 0.95rem;">
             新NISA（つみたて）も同条件で比較できます → 課税比較シミュレーターへ
         </a>
       </div>
 
       <RelatedLinks />
-      <AffiliateSection placement="ideco_simulator" />
     </div>
+
+    <!-- Mobile Sticky CTA for iDeCo -->
+    <div class="mobile-sticky-cta">
+      <div style="font-size: 0.9rem; font-weight: bold; color: var(--text-main);">iDeCoを始めるなら</div>
+      <a href="https://px.a8.net/svt/ejp?a8mat=4AXI0D+EEKKOI+3XCC+BXQOI" target="_blank" rel="nofollow noopener noreferrer" class="track-affiliate" data-broker="matsui_ideco_sticky" style="background-color: var(--primary); color: white; padding: 0.6rem 1rem; border-radius: 8px; font-weight: bold; text-decoration: none; font-size: 0.9rem;">
+        松井証券で詳しく見る
+      </a>
+    </div>
+
+    <style is:global>
+      .mobile-sticky-cta {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        background-color: white;
+        box-shadow: 0 -2px 10px rgba(0,0,0,0.1);
+        padding: 0.75rem 1rem;
+        display: none;
+        align-items: center;
+        justify-content: space-between;
+        z-index: 50;
+        box-sizing: border-box;
+      }
+      @media (max-width: 768px) {
+        .mobile-sticky-cta {
+          display: flex;
+        }
+        body {
+          padding-bottom: 70px !important;
+        }
+      }
+    </style>
 
     <!-- CDNからChart.jsを読み込む（Viteバンドルエラー回避策） -->
     <script is:inline src="https://cdn.jsdelivr.net/npm/chart.js"></script>
@@ -302,5 +384,18 @@ const description =
 
       // 初期表示
       render();
+
+      // トラッキング処理
+      const links = document.querySelectorAll(".track-affiliate");
+      links.forEach((link) => {
+        link.addEventListener("click", () => {
+          const broker = link.getAttribute("data-broker") || "unknown";
+          try {
+            if (typeof globalThis.gtag === "function") {
+              globalThis.gtag("event", "affiliate_click", { broker, placement: "ideco_simulator" });
+            }
+          } catch (e) {}
+        });
+      });
     </script>
 </Layout>
