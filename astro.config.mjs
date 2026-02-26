@@ -7,6 +7,6 @@ import sitemap from '@astrojs/sitemap';
 // https://astro.build/config
 export default defineConfig({
   output: 'static',
-  site: 'https://nisa-simulator.pages.dev/',
+  site: 'https://newnisa-simulator.com',
   integrations: [react(), sitemap()]
 });
