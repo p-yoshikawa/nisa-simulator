@@ -21,6 +21,32 @@ export default function CalculatorForm({ mode }: CalculatorFormProps) {
     const [years, setYears] = useState<string>('20'); // 期間
     const [monthlyWithdraw, setMonthlyWithdraw] = useState<string>('100000'); // 毎月の取り崩し額
 
+    // URLパラメータ（プリセット）の読み取り
+    useEffect(() => {
+        if (typeof window !== 'undefined') {
+            const params = new URLSearchParams(window.location.search);
+            const model = params.get('model');
+
+            if (model === '20s' && mode === 'tsumitate') {
+                setAmount('30000');
+                setReturnRate('5.0');
+                setYears('40');
+            } else if (model === '30s' && mode === 'tsumitate') {
+                setAmount('30000');
+                setReturnRate('5.0');
+                setYears('30');
+            } else if (model === '40s' && mode === 'tsumitate') {
+                setAmount('40000');
+                setReturnRate('4.0');
+                setYears('20');
+            } else if (model === '50s' && mode === 'tsumitate') {
+                setAmount('50000');
+                setReturnRate('3.0');
+                setYears('10');
+            }
+        }
+    }, [mode]);
+
     // 計算処理
     const results = useMemo(() => {
         const numAmount = Number(amount) || 0;

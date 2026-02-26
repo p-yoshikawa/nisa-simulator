@@ -16,26 +16,38 @@ const buildDate = new Date().toLocaleDateString('ja-JP', { timeZone: 'Asia/Tokyo
 	description="新NISAの積立利益や取り崩しを無料で即時計算。課税口座やiDeCoとの比較にも対応した資産形成シミュレーターです。口座情報や登録不要でスマホからすぐにご利用いただけます。"
 >
 	<div class="card" style="text-align: center; padding: 4rem 2rem;">
-		<h1 style="font-size: 2rem; font-weight: 800; margin-bottom: 0.5rem; color: var(--primary);">新NISAシミュレーター</h1>
+		<h1 style="font-size: 1.8rem; font-weight: 800; margin-bottom: 0.5rem; color: var(--text-main); line-height: 1.4;">新NISAシミュレーター【無料】<br/><span style="font-size: 1.4rem; color: var(--primary);">将来いくら？積立・取り崩し・課税比較対応</span></h1>
 		
         <div style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 1rem; display: flex; align-items: center; justify-content: center; gap: 0.25rem;">
             <span>🔄 最終更新日: {buildDate}</span>
         </div>
 		
-        <div style="font-size: 0.95rem; margin-bottom: 1.5rem; text-align: center;">
+        <div style="font-size: 0.95rem; margin-bottom: 2rem; text-align: center;">
             💡 <a href="/new-nisa-guide/" class="track-nav" data-nav="top_guide" style="color: var(--primary); font-weight: bold; text-decoration: underline;">制度の詳細はこちら → 新NISA完全ガイド</a>
         </div>
 		
-		<p style="text-align: left; margin: 0 auto 2.5rem; line-height: 1.8; color: var(--text-muted); font-size: 0.95rem; max-width: 600px;">
-			本サイトは、新NISA制度を活用した将来の資産推移をブラウザ上でシミュレーションできる無料ツール群です。
+		<p style="text-align: left; margin: 0 auto 1.5rem; line-height: 1.8; color: var(--text-muted); font-size: 0.95rem; max-width: 600px;">
+			本サイトは、新NISA制度を活用して「将来いくらになるのか」をブラウザ上で簡単にシミュレーション・計算できる無料ツール群です。
 			毎月の積立額や想定利回りを入力するだけで、数十年にわたる複利による資産成長の様子を即座にグラフ化します。
 			また、資産形成期だけでなく、セカンドライフに向けた「資産の取り崩しシミュレーション」や、
 			従来の特定口座（課税口座）との「手取り額の違い（節税効果の比較）」、
-			さらには「iDeCo（個人型確定拠出年金）」を併用した場合の概算まで、幅広い目的に合わせた計算機能を備えています。<br/>
-			※各シミュレーターの結果は一定の計算式に基づいた参考値であり、将来の運用成果を約束・保証するものではありません。
+			さらには「iDeCo（個人型確定拠出年金）」を併用した場合の概算まで、年齢別・目的別に合わせた計算機能を備えています。<br/>
+			※各シミュレーターの結果は一定の計算式に基づいた参考値であり、将来の運用成果を約束・保証するものではありません。<br/><br/>
+            <strong>登録や個人情報の入力は不要で、ブラウザ上で完結します。</strong>
 		</p>
+        
+        <!-- こんな方におすすめ セクション -->
+        <div style="max-width: 500px; margin: 0 auto 2.5rem; text-align: left; background-color: var(--bg-body); border-radius: 8px; padding: 1.5rem; border: 1px solid var(--border-color);">
+            <h3 style="font-size: 1.1rem; font-weight: bold; margin-bottom: 1rem; color: var(--text-main); text-align: center;">💡 こんな方におすすめ</h3>
+            <ul style="margin: 0; padding-left: 1.5rem; color: var(--text-muted); font-size: 0.95rem; line-height: 1.8;">
+                <li>毎月いくら積み立てれば将来いくらになるか知りたい</li>
+                <li>老後資金の目安を試算したい</li>
+                <li>新NISAと課税口座の違いを比較したい</li>
+                <li>iDeCoとの併用を検討している</li>
+            </ul>
+        </div>
 		
-		<div style="display: flex; flex-direction: column; gap: 1rem; max-width: 400px; margin: 0 auto;">
+		<div style="display: flex; flex-direction: column; gap: 1rem; max-width: 400px; margin: 0 auto; margin-bottom: 2.5rem;">
 			<a href="/nisa-tsumitate" class="nav-link" style="background-color: var(--primary); color: white;">
 				つみたてシミュレーションを始める
 			</a>
@@ -49,13 +61,65 @@ const buildDate = new Date().toLocaleDateString('ja-JP', { timeZone: 'Asia/Tokyo
 				iDeCoのシミュレーションを始める
 			</a>
 		</div>
+
+        <!-- 年齢別導線 -->
+        <div style="font-size: 0.95rem; color: var(--text-main); margin-bottom: 2rem;">
+            <p style="font-weight: bold; margin-bottom: 0.5rem;">年齢別のシミュレーション戦略を見る</p>
+            <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+                <a href="/nisa-tsumitate?model=20s" style="color: var(--primary); text-decoration: underline;">20代モデル</a>
+                <span style="color: var(--border-color);">|</span>
+                <a href="/nisa-tsumitate?model=30s" style="color: var(--primary); text-decoration: underline;">30代モデル</a>
+                <span style="color: var(--border-color);">|</span>
+                <a href="/nisa-tsumitate?model=40s" style="color: var(--primary); text-decoration: underline;">40代モデル</a>
+                <span style="color: var(--border-color);">|</span>
+                <a href="/nisa-tsumitate?model=50s" style="color: var(--primary); text-decoration: underline;">50代モデル</a>
+            </div>
+        </div>
 	</div>
 
     <section class="card" style="margin-bottom: 2.5rem; background-color: white; border: 1px solid var(--border-color);">
         <h2 style="font-size: 1.4rem; font-weight: 700; margin-bottom: 1rem; color: var(--text-main);">新NISAシミュレーションで将来いくらになるかを確認しよう</h2>
         <p style="line-height: 1.8; color: var(--text-muted); font-size: 0.95rem; margin: 0;">
-            2024年から始まった新しいNISA制度は、生涯で最大1,800万円までの投資が非課税になる強力な資産形成の枠組みです。しかし、「毎月いくら積み立てればいいのか」「自分の目標利回りで将来いくらになるのか」といった具体的なイメージを持つのはなかなか難しいものです。当サイトの各種シミュレーターを活用することで、ご自身のライフプランに合わせた積立金額や想定利回りから、数十年にわたる投資信託などの資産推移を簡単に棒グラフ・折れ線グラフ化できます。まずは少額からでも、ご自身が設定可能な無理のない範囲でシミュレーションを行い、教育資金や老後資金に向けた長期計画の第一歩を踏み出すツールとしてご活用ください。
+            2024年から始まった新しいNISA制度は、生涯で最大1,800万円までの投資が非課税になる強力な資産形成の枠組みです。しかし、「毎月いくら積み立てればいいのか」「自分の目標利回りで計算すると将来いくらになるのか」といった具体的なイメージを持つのはなかなか難しいものです。当サイトの各種シミュレーターを活用することで、ご自身のライフプランに合わせた積立金額や想定利回りから、数十年にわたる投資信託などの資産推移を簡単に棒グラフ・折れ線グラフ化できます。まずは少額からでも、年齢別・目的に合わせた無理のない範囲でシミュレーションを行い、教育資金や老後資金に向けた長期計画の第一歩を踏み出すツールとしてご活用ください。
         </p>
+    </section>
+
+    <!-- 利回り別ミニ比較表 -->
+    <section class="card" style="margin-bottom: 2.5rem; background-color: var(--bg-body); border: none;">
+        <h3 style="font-size: 1.25rem; font-weight: 700; margin-bottom: 1rem; color: var(--text-main); text-align: center;">利回り別に将来資産を計算・比較してみましょう</h3>
+        <p style="font-size: 0.9rem; color: var(--text-muted); text-align: center; margin-bottom: 1.5rem;">※毎月5万円を20年間積み立てた場合（合計元本: 1,200万円）の一般的な想定例です。</p>
+        
+        <div style="overflow-x: auto;">
+            <table style="width: 100%; min-width: 500px; border-collapse: collapse; text-align: center; background-color: white; border: 1px solid var(--border-color); border-radius: 8px;">
+                <thead>
+                    <tr style="background-color: #f8fafc; border-bottom: 2px solid var(--border-color);">
+                        <th style="padding: 1rem; color: var(--text-main);">想定利回り</th>
+                        <th style="padding: 1rem; color: var(--text-main);">最終積立金額</th>
+                        <th style="padding: 1rem; color: var(--primary);">利益分（非課税）</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr style="border-bottom: 1px solid var(--border-color);">
+                        <td style="padding: 1rem; font-weight: bold; color: var(--text-main);">年利 3%</td>
+                        <td style="padding: 1rem; font-weight: bold;">約 1,641 万円</td>
+                        <td style="padding: 1rem; color: var(--primary);">+ 約 441 万円</td>
+                    </tr>
+                    <tr style="border-bottom: 1px solid var(--border-color);">
+                        <td style="padding: 1rem; font-weight: bold; color: var(--text-main);">年利 5%</td>
+                        <td style="padding: 1rem; font-weight: bold;">約 2,055 万円</td>
+                        <td style="padding: 1rem; color: var(--primary);">+ 約 855 万円</td>
+                    </tr>
+                    <tr>
+                        <td style="padding: 1rem; font-weight: bold; color: var(--text-main);">年利 7%</td>
+                        <td style="padding: 1rem; font-weight: bold;">約 2,604 万円</td>
+                        <td style="padding: 1rem; color: var(--primary);">+ 約 1,404 万円</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div style="text-align: center; margin-top: 1.5rem;">
+            <a href="/nisa-tsumitate" style="font-weight: bold; color: var(--primary); text-decoration: underline;">👉 ご自身の金額で詳しくシミュレーションする</a>
+        </div>
     </section>
 
 	<FAQSection faqs={faqs} />
