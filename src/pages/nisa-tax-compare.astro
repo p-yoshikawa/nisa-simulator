@@ -9,6 +9,8 @@ const faqs = [
   { q: "複数の証券会社で新NISA口座を持つことはできますか？", a: "新NISA口座は原則として1人1口座しか開設できません。金融機関の変更は年ごとに可能ですが、口座の併用は不可となります。" },
   { q: "iDeCoと新NISAは併用できますか？", a: "はい、可能です。iDeCoは掛金自体が所得控除の対象となるため税効果はさらに高まりますが、60歳までの引き出し制限があります。目的に応じて使い分けてください。" }
 ];
+
+const buildDate = new Date().toLocaleDateString('ja-JP', { timeZone: 'Asia/Tokyo' });
 ---
 
 <Layout 
@@ -16,7 +18,11 @@ const faqs = [
 	description="新NISA（非課税）と特定口座（課税口座）の手取り額の違いを無料でシミュレーション。約20%の税金分がどれほど有利になるかグラフで比較します。"
 >
 	<div style="margin-bottom: 2.5rem;">
-		<h1 style="font-size: 1.8rem; font-weight: 800; margin: 0 0 1rem; color: var(--text-main);">NISA vs 課税口座 比較シミュレーター</h1>
+		<h1 style="font-size: 1.8rem; font-weight: 800; margin: 0 0 0.5rem; color: var(--text-main);">NISA vs 課税口座 比較シミュレーター</h1>
+
+        <div style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 1.5rem; display: flex; align-items: center; gap: 0.25rem;">
+            <span>🔄 最終更新日: {buildDate}</span>
+        </div>
 		<p style="margin: 0 0 1rem; line-height: 1.8; color: var(--text-muted); font-size: 0.95rem;">
 			同じ金額・利回りで運用した際に、利益に税金がかからない「新NISA口座」と、売却益に約20.315%の税金がかかる「通常の課税口座（特定口座など）」での手取り額の差を算出する無料ツールです。
 			長期運用における節税効果の大きさを棒グラフで視覚的に比較できるため、NISA制度を利用するメリットを具体的な数値感として把握できます。
@@ -39,6 +45,13 @@ const faqs = [
 			</a>
 		</div>
 	</section>
+
+    <section class="card" style="margin-bottom: 2.5rem; background-color: white; border: 1px solid var(--border-color);">
+        <h2 style="font-size: 1.4rem; font-weight: 700; margin-bottom: 1rem; color: var(--text-main);">新NISAと特定口座（課税口座）はどっちがいい？税金の違いを比較</h2>
+        <p style="line-height: 1.8; color: var(--text-muted); font-size: 0.95rem; margin: 0;">
+            資産運用を始める際、「新NISA」と「特定口座（課税口座）」のどちらを利用すべきか迷う方は少なくありません。結論から言えば、まずは利益に一切の税金がかからない新NISA口座の非課税枠（最大1,800万円）を最優先で活用するのが資産形成のセオリーとされています。特定口座では、投資信託の売却益や配当金に対して常に約20.315%の税金が差し引かれます。当シミュレーターで計算してみると分かりますが、長期にわたって複利で運用を続けた場合、この約20%の課税の有無が最終的な手取り額に数百万円以上の差を生むことも珍しくありません。新NISAの生涯投資枠をすべて使い切ってしまった場合や、損益通算を行いたい特別な理由がある場合に限り、特定口座の併用を検討するのが一般的なアプローチです。
+        </p>
+    </section>
 
 	<RelatedLinks />
 	<FAQSection faqs={faqs} />

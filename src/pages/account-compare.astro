@@ -14,6 +14,8 @@ const faqs = [
   { q: "複数の証券口座で新NISAを同時に利用できますか？", a: "新NISA口座は1年に1つの金融機関でしか利用・開設できません。通常の課税口座は複数社で同時に開設可能です。" },
   { q: "初心者にはどのような証券会社がおすすめですか？", a: "投資信託の取扱数が多いこと、取引手数料（売買コスト）が無料であること、少額（100円等）から積立設定ができるネット証券が初心者にとって一般的におすすめです。" }
 ];
+
+const buildDate = new Date().toLocaleDateString('ja-JP', { timeZone: 'Asia/Tokyo' });
 ---
 
 <Layout 
@@ -21,8 +23,13 @@ const faqs = [
 	description="新NISA口座選びの参考になる証券会社の比較情報です。取扱商品数や手数料の観点から各社のおすすめポイントを整理しました。"
 >
 	<div style="margin-bottom: 2.5rem;">
-		<h1 style="font-size: 1.8rem; font-weight: 800; margin: 0 0 1rem; color: var(--text-main);">新NISA口座選び・証券会社比較</h1>
-		<p style="font-size: 0.8rem; color: var(--text-muted); margin: 0.5rem 0 1rem 0;">※本ページにはプロモーションが含まれます。</p>
+		<h1 style="font-size: 1.8rem; font-weight: 800; margin: 0 0 0.5rem; color: var(--text-main);">新NISA口座選び・証券会社比較</h1>
+
+        <div style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 1rem; display: flex; align-items: center; gap: 0.25rem;">
+            <span>🔄 最終更新日: {buildDate}</span>
+        </div>
+
+		<p style="font-size: 0.8rem; color: var(--text-muted); margin: 0 0 1rem 0;">※本ページにはプロモーションが含まれます。</p>
 		<p style="margin: 0 0 1rem; line-height: 1.8; color: var(--text-muted); font-size: 0.95rem;">
 			これから新NISAやiDeCoを始める方に向け、取引手数料が無料で投資信託の取扱数が多い代表的なネット証券のサービス内容をまとめた比較情報です。
 			証券口座を開設維持し資金を運用する際にかかるコスト体系や、取り扱っている金融商品の充実度、スマートフォンでの操作性やポイント還元などの付加価値を軸に紹介しています。
@@ -121,12 +128,19 @@ const faqs = [
         </p>
     </div>
 
-    <div style="margin-bottom: 2rem; text-align: center;">
+    <div style="margin-bottom: 2.5rem; text-align: center;">
         <p style="font-size: 0.95rem; color: var(--text-main); margin-bottom: 0.5rem; font-weight: bold;">💡 NISAと並行して人気の「iDeCo」の将来資産も試算できます</p>
         <a href="/ideco-simulator/" class="track-nav" data-nav="ideco_compare" style="color: var(--primary); text-decoration: underline; font-weight: bold;">
             iDeCoシミュレーターへ
         </a>
     </div>
+
+    <section class="card" style="margin-bottom: 2.5rem; background-color: white; border: 1px solid var(--border-color);">
+        <h2 style="font-size: 1.4rem; font-weight: 700; margin-bottom: 1rem; color: var(--text-main);">新NISA口座のおすすめ証券会社の選び方とネット証券のメリット</h2>
+        <p style="line-height: 1.8; color: var(--text-muted); font-size: 0.95rem; margin: 0;">
+            新NISAの口座は1人につき1つの金融機関でしか開設できないため、どこを選ぶかは非常に迷うポイントです。初心者の方をはじめ、長期的な資産形成を目指す多くの方におすすめされているのが「ネット証券」です。ネット証券は実店舗を持たないため運営コストが低く、投資信託の買付手数料が無料（ノーロード）であったり、保有期間中にかかる信託報酬が業界最安水準の優良ファンドを多数取り扱っていたりするという大きな強みがあります。また、スマートフォン一つで口座開設から積立設定まで完結し、画面も見やすく設計されています。当ページで比較している証券会社を中心に、ご自身の投資スタイルや目的（とにかく手数料を抑えたい、初心者向けのサポート体制を重視したい等）に合わせて、最適なネット証券を探してみてください。
+        </p>
+    </section>
 
 	<AffiliateSection placement="compare_page" />
     <RelatedLinks />

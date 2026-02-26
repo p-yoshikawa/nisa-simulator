@@ -9,6 +9,8 @@ const faqs = [
   { q: "想定利回りは何％で計算するのが現実的ですか？", a: "投資対象によりますが、全世界株式などに連動するインデックス・ファンドに長期で積立投資する場合、年率3〜7％程度で試算されることが多いです。生活の目的に応じて設定してください。" },
   { q: "途中で積立金額を変更、またはやめることはできますか？", a: "はい、新NISAでの積立設定は途中で自由に金額を変更したり、一時停止・解約したりすることが可能です。" }
 ];
+
+const buildDate = new Date().toLocaleDateString('ja-JP', { timeZone: 'Asia/Tokyo' });
 ---
 
 <Layout 
@@ -16,7 +18,11 @@ const faqs = [
 	description="新NISA（つみたて投資枠）で毎月積立をした場合の将来資産を無料で即時計算。複利効果による増え方を利回り・期間ごとにグラフで可視化するシミュレーターです。"
 >
 	<div style="margin-bottom: 2.5rem;">
-		<h1 style="font-size: 1.8rem; font-weight: 800; margin: 0 0 1rem; color: var(--text-main);">つみたてNISA（積立投資）シミュレーター</h1>
+		<h1 style="font-size: 1.8rem; font-weight: 800; margin: 0 0 0.5rem; color: var(--text-main);">つみたてNISA（積立投資）シミュレーター</h1>
+
+        <div style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 1.5rem; display: flex; align-items: center; gap: 0.25rem;">
+            <span>🔄 最終更新日: {buildDate}</span>
+        </div>
 		<p style="margin: 0 0 1rem; line-height: 1.8; color: var(--text-muted); font-size: 0.95rem;">
 			「毎月の積立金額」「想定される年利（利回り）」「運用期間」の3つの項目を入力するだけで、長期間運用を継続した場合の資産合計額をシミュレーションします。
 			新NISAの「つみたて投資枠」を利用して毎月コツコツと均等額で投資信託などを買い付けた場合、
@@ -42,6 +48,13 @@ const faqs = [
 			</a>
 		</div>
 	</section>
+
+    <section class="card" style="margin-bottom: 2.5rem; background-color: white; border: 1px solid var(--border-color);">
+        <h2 style="font-size: 1.4rem; font-weight: 700; margin-bottom: 1rem; color: var(--text-main);">新NISAのつみたて投資枠は毎月いくら設定するのがおすすめ？</h2>
+        <p style="line-height: 1.8; color: var(--text-muted); font-size: 0.95rem; margin: 0;">
+            新NISAの「つみたて投資枠」を利用して資産運用を始める際、多くの方が悩むのが「毎月いくら積み立てるべきか」という設定金額です。つみたて投資の基本は、ご自身の収入と毎月の固定費を見直した上で「相場が下落したとしても無理なく長期間続けられる余剰資金」を設定することにあります。例えば、毎月3万円であっても、年利5%（仮定）で20年間運用し続ければ、複利効果によって元本を大きく上回る評価額になる可能性があることが当シミュレーターから確認できます。早く非課税枠を埋めることにとらわれず、ご自身のペースで将来予測を立てながら、ライフステージの変化に合わせて積立金額を柔軟に見直していくことが大切です。
+        </p>
+    </section>
 
 	<RelatedLinks />
 	<FAQSection faqs={faqs} />

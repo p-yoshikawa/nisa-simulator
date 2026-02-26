@@ -9,6 +9,8 @@ const faqs = [
   { q: "資産寿命を延ばすためのポイントは何ですか？", a: "引き出し額を完全に固定するのではなく、運用利回りより少ない金額（例: 資産残高の4%など）を取り崩すことで、資産が枯渇するスピードを一定に抑えられやすくなります。" },
   { q: "想定利回りをマイナスに設定することは可能ですか？", a: "ツール上はマイナス利回りでの計算にも対応しています。相場下落リスクを考慮した悲観シナリオとして活用いただけます。" }
 ];
+
+const buildDate = new Date().toLocaleDateString('ja-JP', { timeZone: 'Asia/Tokyo' });
 ---
 
 <Layout 
@@ -16,7 +18,11 @@ const faqs = [
 	description="FIREや老後生活に向けて運用しながら毎月定額を取り崩した場合の資産寿命を無料で即時計算。運用利回りと引出額から推移をグラフ化します。"
 >
 	<div style="margin-bottom: 2.5rem;">
-		<h1 style="font-size: 1.8rem; font-weight: 800; margin: 0 0 1rem; color: var(--text-main);">資産取り崩し（出口戦略）シミュレーター</h1>
+		<h1 style="font-size: 1.8rem; font-weight: 800; margin: 0 0 0.5rem; color: var(--text-main);">資産取り崩し（出口戦略）シミュレーター</h1>
+
+        <div style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 1.5rem; display: flex; align-items: center; gap: 0.25rem;">
+            <span>🔄 最終更新日: {buildDate}</span>
+        </div>
 		<p style="margin: 0 0 1rem; line-height: 1.8; color: var(--text-muted); font-size: 0.95rem;">
 			すでに形成した資産を運用しながら毎月一定額を取り崩していく「出口戦略」のための無料シミュレーターです。
 			現在の資産額、想定される運用利回り、そして毎月の目標引き出し額を入力することで、資産が底をつくまでの期間（資産寿命）や推移をグラフ上で可視化します。
@@ -27,6 +33,13 @@ const faqs = [
 	</div>
 
 	<CalculatorForm mode="withdraw" client:load />
+
+    <section class="card" style="margin-top: 3rem; margin-bottom: 2.5rem; background-color: white; border: 1px solid var(--border-color);">
+        <h2 style="font-size: 1.4rem; font-weight: 700; margin-bottom: 1rem; color: var(--text-main);">老後資金の新NISA取り崩しと「4%ルール」の考え方</h2>
+        <p style="line-height: 1.8; color: var(--text-muted); font-size: 0.95rem; margin: 0;">
+            長年の積立投資によって形成した資産を、退職後やFIRE（早期リタイア）後にどのように生活費として引き出していくかは「出口戦略」と呼ばれる非常に重要なテーマです。有名な研究事例である「4%ルール」では、運用利回りと物価上昇率を考慮し、資産額の一定割合を毎年取り崩し続けた場合でも、長期にわたり資産が枯渇しない確率が高いとされています。新NISA口座は非課税期間が恒久化されたため、売却時にかかる約20%の税金が免除されるという恩恵を老後まで引き継げるのが大きな強みです。本シミュレーターを通じて、ご自身の資産額から「毎月定額いくらを取り崩すと何年持つのか（資産寿命）」を視覚的に把握し、ゆとりある老後設計の参考にしてください。
+        </p>
+    </section>
 
 	<RelatedLinks />
 	<FAQSection faqs={faqs} />

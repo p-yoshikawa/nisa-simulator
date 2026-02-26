@@ -1,0 +1,65 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout title="運営者情報・当サイトについて" description="新NISAシミュレーターの運営目的やツール開発の背景、および金融機関等からの参照情報について記載しています。">
+    <div class="card" style="max-width: 800px; margin: 0 auto; padding: 2.5rem 2rem; border-radius: 12px; background: white; border: 1px solid var(--border-color); box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05);">
+        <h1 style="font-size: 1.8rem; font-weight: 800; margin-bottom: 2rem; color: var(--text-main); border-bottom: 2px solid var(--primary); padding-bottom: 0.5rem;">運営者情報・当サイトについて</h1>
+        
+        <div style="line-height: 1.8; color: var(--text-main); font-size: 0.95rem;">
+            
+            <h2 style="font-size: 1.3rem; margin: 2rem 0 1rem; color: var(--primary);">当サイトの目的と開発背景</h2>
+            <p style="margin-bottom: 1.5rem;">
+                「新NISAシミュレーター（newnisa-simulator.com）」は、2024年より新しくなったNISA制度（少額投資非課税制度）や、iDeCo（個人型確定拠出年金）といった資産形成制度の仕組みを、誰もが視覚的かつ直感的に理解できるよう支援することを目的として開発・運営されている無料の学習用ツール群です。<br/>
+                将来のための資産形成に関心が高まる一方で、「複利効果が数十年のスパンでどれほどのものになるのか」「特定口座（課税口座）と比較してどれほどの税金が免除されるのか」といった具体的な数値感は、暗算や電卓だけで把握することが困難です。<br/>
+                当サイトは、ユーザー自身が任意の「毎月の積立額」や「想定利回り」を入力することで、将来の資産推移や手取り額の違いをブラウザ上で即座にグラフ化し、ライフプランニングや長期的な資金計画を検討するための「第一歩」を提供することを目指しています。
+            </p>
+
+            <h2 style="font-size: 1.3rem; margin: 2rem 0 1rem; color: var(--primary);">投資助言の否定と免責</h2>
+            <p style="margin-bottom: 1.5rem;">
+                当サイトで提供するシミュレーション結果は、一定の計算式とユーザーが入力した仮定の条件に基づく単純な概算値・参考値に過ぎません。実際の金融市場における価格変動、為替リスク、インフレ率、または各金融機関が定める具体的な手数料や詳細な税制計算（復興特別所得税の詳細な端数処理等）を完全に反映したものではありません。<br/>
+                したがって、<strong>当サイトで表示されるいかなるシミュレーション結果も、将来の運用成果を約束・保証するものではありません。</strong> また、特定の個別銘柄、投資信託、または証券会社の口座開設を強く推奨したり、個別具体的な投資助言（投資顧問業法に基づく助言）を行ったりするものではありません。<br/>
+                投資に関する最終的な決定は、ご自身の判断と責任において行っていただきますようお願い申し上げます。
+            </p>
+
+            <h2 style="font-size: 1.3rem; margin: 2rem 0 1rem; color: var(--primary);">信頼できる情報源（公的機関へのリンク）</h2>
+            <p style="margin-bottom: 1.5rem;">
+                本シミュレーターの計算ロジックや制度解説は、主に以下の公的機関が発信する情報を基礎として設計・構築されています。新NISA制度の正確なルールや最新の税制改正、iDeCoの加入条件等につきましては、必ず公式サイトをご確認ください。
+            </p>
+            <ul style="margin-bottom: 2rem; padding-left: 1.5rem; line-height: 1.8; background: var(--bg-body); padding: 1.5rem; border-radius: 8px;">
+                <li><a href="https://www.fsa.go.jp/policy/nisa2/index.html" target="_blank" rel="noopener noreferrer" style="color: var(--primary); text-decoration: underline; font-weight: bold;">新しいNISA ： 金融庁</a><br/><span style="font-size: 0.85rem; color: var(--text-muted);">（NISA制度の基本的な仕組みや非課税枠の概要）</span></li>
+                <li><a href="https://www.nta.go.jp/" target="_blank" rel="noopener noreferrer" style="color: var(--primary); text-decoration: underline; font-weight: bold;">国税庁</a><br/><span style="font-size: 0.85rem; color: var(--text-muted);">（株式譲渡益税、配当控除、特定口座に関する税制解説）</span></li>
+                <li><a href="https://www.ideco-koushiki.jp/" target="_blank" rel="noopener noreferrer" style="color: var(--primary); text-decoration: underline; font-weight: bold;">iDeCo公式サイト（国民年金基金連合会）</a><br/><span style="font-size: 0.85rem; color: var(--text-muted);">（iDeCo制度の加入資格や掛金上限、節税仕組みの解説）</span></li>
+            </ul>
+
+            <h2 style="font-size: 1.3rem; margin: 2rem 0 1rem; color: var(--primary);">サイトの更新履歴</h2>
+            <div style="background: white; border: 1px solid var(--border-color); border-radius: 8px; padding: 1.5rem; margin-bottom: 2rem;">
+                <ul style="list-style: none; padding: 0; margin: 0; line-height: 1.8;">
+                    <li style="margin-bottom: 1rem; border-bottom: 1px dashed var(--border-color); padding-bottom: 0.5rem;">
+                        <span style="font-weight: bold; color: var(--text-main); display: inline-block; width: 120px;">2026/02/27</span>
+                        <span style="color: var(--text-muted);">サイト全体のSEO強化、証券口座比較のCVR・利便性向上アップデート、本運営者情報ページの開設を実施。</span>
+                    </li>
+                    <li style="margin-bottom: 1rem; border-bottom: 1px dashed var(--border-color); padding-bottom: 0.5rem;">
+                        <span style="font-weight: bold; color: var(--text-main); display: inline-block; width: 120px;">2026/02/26</span>
+                        <span style="color: var(--text-muted);">iDeCo節税シミュレーターにモバイル追従バナー等のUI改修を追加実装。</span>
+                    </li>
+                    <li style="margin-bottom: 1rem; border-bottom: 1px dashed var(--border-color); padding-bottom: 0.5rem;">
+                        <span style="font-weight: bold; color: var(--text-main); display: inline-block; width: 120px;">2026/02/25</span>
+                        <span style="color: var(--text-muted);">独自ドメインへの本格移行およびsitemap.xmlの自動生成対応完了。</span>
+                    </li>
+                    <li>
+                        <span style="font-weight: bold; color: var(--text-main); display: inline-block; width: 120px;">2026/02/24</span>
+                        <span style="color: var(--text-muted);">新NISA積立、取り崩し、課税比較、およびiDeCoの各シミュレーターを初版リリース（完全無料・登録不要）。</span>
+                    </li>
+                </ul>
+            </div>
+
+            <h2 style="font-size: 1.3rem; margin: 2rem 0 1rem; color: var(--primary);">運営者・連絡先</h2>
+            <p style="margin-bottom: 1rem;">
+                <strong>運営：</strong> 新NISAシミュレーター 開発チーム<br/>
+                <strong>お問い合わせ：</strong> （※現在コンタクトフォーム準備中につき、システム的な不具合等は公式リポジトリ宛へご報告等お願いします。）
+            </p>
+
+        </div>
+    </div>
+</Layout>

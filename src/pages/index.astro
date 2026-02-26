@@ -7,6 +7,8 @@ const faqs = [
   { q: "新NISAと旧NISAのどちらの計算に対応していますか？", a: "2024年以降に追加された「新NISA」の非課税枠を最大限活用することを前提とした概算に利用可能です。" },
   { q: "シミュレーション結果は確実なものですか？", a: "いいえ、結果は一定の一定利回りが継続したと仮定したシミュレーションによる概算値であり、実際の将来の運用成果を保証するものではありません。" }
 ];
+
+const buildDate = new Date().toLocaleDateString('ja-JP', { timeZone: 'Asia/Tokyo' });
 ---
 
 <Layout 
@@ -14,7 +16,11 @@ const faqs = [
 	description="新NISAの積立利益や取り崩しを無料で即時計算。課税口座やiDeCoとの比較にも対応した資産形成シミュレーターです。口座情報や登録不要でスマホからすぐにご利用いただけます。"
 >
 	<div class="card" style="text-align: center; padding: 4rem 2rem;">
-		<h1 style="font-size: 2rem; font-weight: 800; margin-bottom: 1rem; color: var(--primary);">新NISAシミュレーター</h1>
+		<h1 style="font-size: 2rem; font-weight: 800; margin-bottom: 0.5rem; color: var(--primary);">新NISAシミュレーター</h1>
+		
+        <div style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 1.5rem; display: flex; align-items: center; justify-content: center; gap: 0.25rem;">
+            <span>🔄 最終更新日: {buildDate}</span>
+        </div>
 		
 		<p style="text-align: left; margin: 0 auto 2.5rem; line-height: 1.8; color: var(--text-muted); font-size: 0.95rem; max-width: 600px;">
 			本サイトは、新NISA制度を活用した将来の資産推移をブラウザ上でシミュレーションできる無料ツール群です。
@@ -40,6 +46,13 @@ const faqs = [
 			</a>
 		</div>
 	</div>
+
+    <section class="card" style="margin-bottom: 2.5rem; background-color: white; border: 1px solid var(--border-color);">
+        <h2 style="font-size: 1.4rem; font-weight: 700; margin-bottom: 1rem; color: var(--text-main);">新NISAシミュレーションで将来いくらになるかを確認しよう</h2>
+        <p style="line-height: 1.8; color: var(--text-muted); font-size: 0.95rem; margin: 0;">
+            2024年から始まった新しいNISA制度は、生涯で最大1,800万円までの投資が非課税になる強力な資産形成の枠組みです。しかし、「毎月いくら積み立てればいいのか」「自分の目標利回りで将来いくらになるのか」といった具体的なイメージを持つのはなかなか難しいものです。当サイトの各種シミュレーターを活用することで、ご自身のライフプランに合わせた積立金額や想定利回りから、数十年にわたる投資信託などの資産推移を簡単に棒グラフ・折れ線グラフ化できます。まずは少額からでも、ご自身が設定可能な無理のない範囲でシミュレーションを行い、教育資金や老後資金に向けた長期計画の第一歩を踏み出すツールとしてご活用ください。
+        </p>
+    </section>
 
 	<FAQSection faqs={faqs} />
 </Layout>

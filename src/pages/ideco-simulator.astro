@@ -12,11 +12,17 @@ const faqs = [
   { q: "iDeCoの掛金は誰でも上限が同じですか？", a: "いいえ、職業（会社員・公務員・自営業など）や加入している企業年金の有無によって、月々の拠出限度額が1.2万円〜6.8万円まで異なります。" },
   { q: "専業主婦（主夫）でもiDeCoの節税メリットはありますか？", a: "iDeCoの最大のメリットは「所得控除」による税金軽減ですが、ご本人に課税所得がない場合、この所得控除の恩恵は受けられません。その場合は新NISAの方が向いているケースがあります。" }
 ];
+
+const buildDate = new Date().toLocaleDateString('ja-JP', { timeZone: 'Asia/Tokyo' });
 ---
 
 <Layout title={title} description={description}>
     <div style="margin-bottom: 2.5rem;">
-      <h1 style="font-size: 1.8rem; font-weight: 800; margin: 0 0 8px; color: var(--text-main);">iDeCo（イデコ）節税シミュレーター</h1>
+      <h1 style="font-size: 1.8rem; font-weight: 800; margin: 0 0 0.5rem; color: var(--text-main);">iDeCo（イデコ）節税シミュレーター</h1>
+
+      <div style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 1.5rem; display: flex; align-items: center; gap: 0.25rem;">
+          <span>🔄 最終更新日: {buildDate}</span>
+      </div>
       <p style="margin: 0 0 16px; line-height: 1.8; color: var(--text-muted); font-size: 0.95rem;">
         iDeCo（個人型確定拠出年金）制度を利用した場合の、将来の資産推移と掛金拠出による毎年の「所得控除（概算節税額）」を同時に計算できる無料シミュレーションツールです。
         掛金全額が非課税となるiDeCo特有のメリットを視覚化し、新NISAなど他の制度と比較検討する材料として役立ちます。
@@ -189,6 +195,13 @@ const faqs = [
             新NISA（つみたて）も同条件で比較できます → 課税比較シミュレーターへ
         </a>
       </div>
+
+      <section class="card" style="margin-bottom: 2.5rem; background-color: white; border: 1px solid var(--border-color);">
+          <h2 style="font-size: 1.4rem; font-weight: 700; margin-bottom: 1rem; color: var(--text-main);">iDeCo（イデコ）と新NISAの違いを知って節税シミュレーションを活用しよう</h2>
+          <p style="line-height: 1.8; color: var(--text-muted); font-size: 0.95rem; margin: 0;">
+              老後資金の準備において強力な制度と称されることが多いのが「iDeCo（個人型確定拠出年金）」です。新NISAとの最大の違いは、運用益が非課税になるだけでなく「毎月の掛金そのものが全額所得控除の対象になる」という点です。つまり、iDeCoで積み立てた金額に応じて、その年の所得税と翌年の住民税が安くなるという強い節税メリットが存在します。一方で、iDeCoには「原則として60歳まで資金を引き出すことができない」という資金拘束の制限があります。本シミュレーターでは、ご自身の年収にかかる実効税率（目安）を入力することで、投資による将来の資産推移だけでなく、毎年いくらの税金が概算で安くなるのか（節税額）を同時にシミュレーションできます。直近で使う予定のない老後資金はiDeCo、教育資金や住宅ローンなどの中期的な備えは新NISAといった使い分けがおすすめです。
+          </p>
+      </section>
 
       <RelatedLinks />
       <FAQSection faqs={faqs} />
