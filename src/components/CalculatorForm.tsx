@@ -147,6 +147,28 @@ export default function CalculatorForm({ mode }: CalculatorFormProps) {
                 <div className="card">
                     <h2>シミュレーション条件</h2>
 
+                    {/* プリセットボタン群 */}
+                    <div style={{ marginBottom: '1.5rem', display: 'flex', gap: '0.5rem', flexWrap: 'wrap' }}>
+                        {mode === 'tsumitate' && (
+                            <>
+                                <button type="button" onClick={() => { setAmount('30000'); setReturnRate('5.0'); setYears('20'); }} style={{ padding: '0.4rem 0.8rem', fontSize: '0.8rem', borderRadius: '4px', border: '1px solid var(--primary)', background: 'white', color: 'var(--primary)', cursor: 'pointer', fontWeight: 'bold' }}>30代向け (月3万・利回り5%)</button>
+                                <button type="button" onClick={() => { setAmount('10000'); setReturnRate('3.0'); setYears('20'); }} style={{ padding: '0.4rem 0.8rem', fontSize: '0.8rem', borderRadius: '4px', border: '1px solid var(--primary)', background: 'white', color: 'var(--primary)', cursor: 'pointer', fontWeight: 'bold' }}>堅実運用 (月1万・利回り3%)</button>
+                            </>
+                        )}
+                        {mode === 'withdraw' && (
+                            <>
+                                <button type="button" onClick={() => { setAmount('30000000'); setMonthlyWithdraw('100000'); setReturnRate('4.0'); setYears('25'); }} style={{ padding: '0.4rem 0.8rem', fontSize: '0.8rem', borderRadius: '4px', border: '1px solid var(--primary)', background: 'white', color: 'var(--primary)', cursor: 'pointer', fontWeight: 'bold' }}>FIRE想定 (3,000万・10万・4%)</button>
+                                <button type="button" onClick={() => { setAmount('15000000'); setMonthlyWithdraw('50000'); setReturnRate('3.0'); setYears('25'); }} style={{ padding: '0.4rem 0.8rem', fontSize: '0.8rem', borderRadius: '4px', border: '1px solid var(--primary)', background: 'white', color: 'var(--primary)', cursor: 'pointer', fontWeight: 'bold' }}>老後安心 (1,500万・5万・3%)</button>
+                            </>
+                        )}
+                        {mode === 'tax-compare' && (
+                            <>
+                                <button type="button" onClick={() => { setAmount('30000'); setReturnRate('5.0'); setYears('20'); }} style={{ padding: '0.4rem 0.8rem', fontSize: '0.8rem', borderRadius: '4px', border: '1px solid var(--primary)', background: 'white', color: 'var(--primary)', cursor: 'pointer', fontWeight: 'bold' }}>王道積立 (月3万・利回り5%)</button>
+                                <button type="button" onClick={() => { setAmount('100000'); setReturnRate('5.0'); setYears('15'); }} style={{ padding: '0.4rem 0.8rem', fontSize: '0.8rem', borderRadius: '4px', border: '1px solid var(--primary)', background: 'white', color: 'var(--primary)', cursor: 'pointer', fontWeight: 'bold' }}>満額挑戦 (月10万・利回り5%)</button>
+                            </>
+                        )}
+                    </div>
+
                     {mode === 'withdraw' ? (
                         <>
                             <div className="form-group">
@@ -309,6 +331,10 @@ export default function CalculatorForm({ mode }: CalculatorFormProps) {
                 <div className="card">
                     <h2>資産推移グラフ</h2>
                     <AssetChart labels={chartData.labels} datasets={chartData.datasets} />
+
+                    <p style={{ marginTop: '1.5rem', fontSize: '0.95rem', color: 'var(--text-main)', textAlign: 'center' }}>
+                        制度の違いを理解したら、口座選びも重要です。<a href="/account-compare" style={{ color: 'var(--primary)', textDecoration: 'underline' }}>主要ネット証券の比較はこちら。</a>
+                    </p>
                 </div>
             )}
 
