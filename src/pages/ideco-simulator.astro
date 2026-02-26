@@ -1,18 +1,27 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import RelatedLinks from '../components/RelatedLinks.astro';
+import FAQSection from '../components/FAQSection.astro';
 
-const title = "iDeCo シミュレーター｜将来資産と節税効果（概算）";
+const title = "iDeCoシミュレーター【無料】掛金と節税・将来資産を即時計算";
 const description =
-  "毎月の掛金・運用利回り・期間からiDeCoの将来資産を試算。実効税率を入力すると節税額も概算できます（参考値）。";
+  "iDeCo（個人型確定拠出年金）の将来資産と毎年の節税額を無料でグラフ化。毎月の掛金や年収から長期間の運用メリットを計算するシミュレーターです。";
+
+const faqs = [
+  { q: "iDeCoと新NISAはどう使い分けるべきですか？", a: "一般的に、60歳まで引き出せない制約を許容でき、毎年の所得税・住民税を減らしたい場合はiDeCoを優先、いつでも資金を引き出して柔軟に使いたい場合は新NISAを優先するのが選択肢となります。" },
+  { q: "iDeCoの掛金は誰でも上限が同じですか？", a: "いいえ、職業（会社員・公務員・自営業など）や加入している企業年金の有無によって、月々の拠出限度額が1.2万円〜6.8万円まで異なります。" },
+  { q: "専業主婦（主夫）でもiDeCoの節税メリットはありますか？", a: "iDeCoの最大のメリットは「所得控除」による税金軽減ですが、ご本人に課税所得がない場合、この所得控除の恩恵は受けられません。その場合は新NISAの方が向いているケースがあります。" }
+];
 ---
 
 <Layout title={title} description={description}>
-    <div style="margin-bottom: 2rem;">
-      <h1 style="font-size: 1.8rem; font-weight: 800; margin: 0 0 8px; color: var(--text-main);">iDeCo シミュレーター</h1>
-      <p style="margin: 0 0 16px; line-height: 1.6; color: var(--text-muted); font-size: 0.95rem;">
-        毎月の掛金・想定利回り・期間から、将来の評価額をシミュレーションします。
-        実効税率（所得税＋住民税の目安）を入力すると、掛金の所得控除による節税額を<strong>参考値として</strong>概算します。
+    <div style="margin-bottom: 2.5rem;">
+      <h1 style="font-size: 1.8rem; font-weight: 800; margin: 0 0 8px; color: var(--text-main);">iDeCo（イデコ）節税シミュレーター</h1>
+      <p style="margin: 0 0 16px; line-height: 1.8; color: var(--text-muted); font-size: 0.95rem;">
+        iDeCo（個人型確定拠出年金）制度を利用した場合の、将来の資産推移と掛金拠出による毎年の「所得控除（概算節税額）」を同時に計算できる無料シミュレーションツールです。
+        掛金全額が非課税となるiDeCo特有のメリットを視覚化し、新NISAなど他の制度と比較検討する材料として役立ちます。
+        実効税率（所得税＋住民税の目安）を選択することでご自身の年収帯に近い条件での節税インパクトの確認が可能です。<br/>
+        ※各種税額は簡便的な計算に基づく参考値・概算値であり、個別の控除状況等を反映した正確な税額算出や投資助言を提供するものではありません。
       </p>
 
       <div style="margin-bottom: 1.5rem; padding: 1rem; background-color: #f0fdf4; border-radius: 8px; border-left: 4px solid #10b981; font-size: 0.9rem;">
@@ -182,6 +191,7 @@ const description =
       </div>
 
       <RelatedLinks />
+      <FAQSection faqs={faqs} />
     </div>
 
     <!-- Mobile Sticky CTA for iDeCo -->

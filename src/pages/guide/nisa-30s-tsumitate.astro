@@ -1,0 +1,61 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import RelatedLinks from '../../components/RelatedLinks.astro';
+
+const title = "30代から始める新NISAつみたて投資のシミュレーションと基本戦略";
+const description = "30代は新NISAを始めるベストタイミング。毎月3万円〜5万円の積立を20年以上継続した場合の複利効果や、教育資金・老後資金に向けたポートフォリオの考え方を解説します。";
+---
+
+<Layout title={title} description={description}>
+  <div style="margin-bottom: 2.5rem; background: white; padding: 2.5rem 2rem; border-radius: 12px; border: 1px solid var(--border-color); box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05);">
+    <h1 style="font-size: 1.8rem; font-weight: 800; margin-bottom: 1.5rem; color: var(--text-main); line-height: 1.4;">30代から始める新NISAつみたて投資のシミュレーションと基本戦略</h1>
+    
+    <div style="display: flex; gap: 0.5rem; margin-bottom: 2rem; flex-wrap: wrap;">
+      <span style="background: var(--bg-body); color: var(--text-muted); padding: 0.25rem 0.75rem; border-radius: 999px; font-size: 0.85rem; font-weight: bold;">新NISA活用ガイド</span>
+      <span style="background: var(--bg-body); color: var(--text-muted); padding: 0.25rem 0.75rem; border-radius: 999px; font-size: 0.85rem; font-weight: bold;">つみたて投資</span>
+      <span style="background: var(--bg-body); color: var(--text-muted); padding: 0.25rem 0.75rem; border-radius: 999px; font-size: 0.85rem; font-weight: bold;">30代向け</span>
+    </div>
+
+    <div style="line-height: 1.8; color: var(--text-main); font-size: 1rem;">
+      <h2 style="font-size: 1.4rem; color: var(--primary); margin: 2rem 0 1rem; border-bottom: 2px solid var(--primary); padding-bottom: 0.5rem;">なぜ「30代」が新NISAを始めるベストタイミングなのか？</h2>
+      <p style="margin-bottom: 1.5rem;">
+        30代は、結婚や子育て、住宅購入などのライフイベントが重なり出費が多くなる年代ですが、同時に<strong>「時間を味方につける」ことができる最後の特権的な期間</strong>でもあります。
+        投資において最も強力な武器は「複利効果」と「運用期間の長さ」です。30代から60代までの約30年間を運用期間として確保できれば、仮に毎月の積立額が少額であっても、最終的な資産総額は驚くほど大きなものへと成長する可能性があります。
+      </p>
+
+      <h2 style="font-size: 1.4rem; color: var(--primary); margin: 2rem 0 1rem; border-bottom: 2px solid var(--primary); padding-bottom: 0.5rem;">シミュレーション：毎月3万円を30年間積み立てたら？</h2>
+      <p style="margin-bottom: 1.5rem;">
+        具体的な数字を見てみましょう。たとえば毎月3万円を利回り5％で30年間積み立てた場合、投資元本は1,080万円となりますが、複利による運用益を含めると<strong>最終的な資産評価額は約2,496万円</strong>（概算）に達します。
+        新NISAの最大のメリットは、この本来なら約20%（約280万円）引かれるはずの利益に対する税金が「全額免除」される点にあります。この税制優遇があるかないかで、手取り額に埋めがたい差が生じるのです。
+      </p>
+
+      <div style="background: #f8fafc; border-left: 4px solid var(--primary); padding: 1.5rem; border-radius: 4px; margin-bottom: 2rem;">
+        <h3 style="font-size: 1.1rem; font-weight: bold; margin-top: 0; color: var(--text-main);">💡 ご自身の条件で計算してみましょう</h3>
+        <p style="margin-bottom: 1rem; font-size: 0.95rem; color: var(--text-muted);">
+          毎月の積立可能額や、想定する運用利回りは人それぞれ異なります。当サイトの無料シミュレーターを使って、あなたの未来の資産推移をすぐにグラフ化できます。
+        </p>
+        <a href="/nisa-tsumitate" class="track-affiliate" style="display: inline-block; background: var(--primary); color: white; text-decoration: none; padding: 0.75rem 1.5rem; border-radius: 6px; font-weight: bold; transition: opacity 0.2s;">
+          つみたてシミュレーターで計算する
+        </a>
+      </div>
+
+      <h2 style="font-size: 1.4rem; color: var(--primary); margin: 2rem 0 1rem; border-bottom: 2px solid var(--primary); padding-bottom: 0.5rem;">30代のポートフォリオと銘柄選びの考え方</h2>
+      <p style="margin-bottom: 1.5rem;">
+        30代は運用期間を20〜30年と長く取れるため、短期的な相場の暴落リスクを吸収しやすく、一時的な元本割れにも耐えうる体力があります。そのため、全世界株式（オール・カントリー）や米国株式（S&P500）などに連動する<strong>インデックス・ファンドを中心に、株式の割合を高めたポートフォリオ</strong>を組むのが王道とされています。
+        逆に、債券などを多く組み込んだ保守的すぎる運用は、長期的なインフレリスクに対して資産が目減りしてしまう懸念があるためバランスに注意が必要です。
+      </p>
+
+      <h2 style="font-size: 1.4rem; color: var(--primary); margin: 2rem 0 1rem; border-bottom: 2px solid var(--primary); padding-bottom: 0.5rem;">無理のない金額から設定し、まずは「市場に居続ける」こと</h2>
+      <p style="margin-bottom: 1.5rem;">
+        つみたて投資で失敗する典型的なケースは、初期に無理な金額を設定し、生活費が足りなくなって途中で解約してしまうことです。新NISAは年間の非課税枠が1,800万円まで拡大されていますが、枠を早く埋めようと焦る必要はありません。
+        大切なのは<strong>「毎月余裕を持って拠出でき、相場が暴落しても途中で売却せずに継続できる金額」</strong>を見極めることです。余裕ができたら月々の設定金額を増やすなど、柔軟に立ち回りながらコツコツと資産形成を続けていきましょう。
+      </p>
+
+      <p style="margin-top: 3rem; font-size: 0.85rem; color: var(--text-muted); padding-top: 1rem; border-top: 1px solid var(--border-color);">
+        免責事項：本記事に記載された内容は参考情報であり、特定の金融商品の売買を推奨するものではありません。投資判断は自己責任にてお願いいたします。
+      </p>
+    </div>
+  </div>
+
+  <RelatedLinks />
+</Layout>

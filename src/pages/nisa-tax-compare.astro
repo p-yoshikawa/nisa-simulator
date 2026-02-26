@@ -1,19 +1,27 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import CalculatorForm from '../components/CalculatorForm.tsx';
-import AffiliateSection from '../components/AffiliateSection.astro';
 import RelatedLinks from '../components/RelatedLinks.astro';
 import FAQSection from '../components/FAQSection.astro';
+
+const faqs = [
+  { q: "新NISAと特定口座の主な違いは何ですか？", a: "最大の違いは売却時や配当金に対する税金です。特定口座では約20%の税金が引かれますが、新NISAでは制限枠内であれば利益が非課税になります。" },
+  { q: "複数の証券会社で新NISA口座を持つことはできますか？", a: "新NISA口座は原則として1人1口座しか開設できません。金融機関の変更は年ごとに可能ですが、口座の併用は不可となります。" },
+  { q: "iDeCoと新NISAは併用できますか？", a: "はい、可能です。iDeCoは掛金自体が所得控除の対象となるため税効果はさらに高まりますが、60歳までの引き出し制限があります。目的に応じて使い分けてください。" }
+];
 ---
 
 <Layout 
-	title="新NISAと課税口座の違いをシミュレーション｜税金差を比較" 
-	description="新NISA口座と通常の特定口座（課税口座）で運用した場合の手取り金額の違いを明確に比較するシミュレーターです。"
+	title="新NISA・課税口座比較シミュレーター【無料】節税効果と手取り計算" 
+	description="新NISA（非課税）と特定口座（課税口座）の手取り額の違いを無料でシミュレーション。約20%の税金分がどれほど有利になるかグラフで比較します。"
 >
-	<div style="margin-bottom: 2rem;">
-		<h2>NISA vs 課税口座 比較シミュレーター</h2>
-		<p class="subtitle">
-			NISA口座（非課税）で運用した場合と、課税口座（税率20.315%）で運用し売却した場合の「手取り額」の差額を計算します。
+	<div style="margin-bottom: 2.5rem;">
+		<h1 style="font-size: 1.8rem; font-weight: 800; margin: 0 0 1rem; color: var(--text-main);">NISA vs 課税口座 比較シミュレーター</h1>
+		<p style="margin: 0 0 1rem; line-height: 1.8; color: var(--text-muted); font-size: 0.95rem;">
+			同じ金額・利回りで運用した際に、利益に税金がかからない「新NISA口座」と、売却益に約20.315%の税金がかかる「通常の課税口座（特定口座など）」での手取り額の差を算出する無料ツールです。
+			長期運用における節税効果の大きさを棒グラフで視覚的に比較できるため、NISA制度を利用するメリットを具体的な数値感として把握できます。
+			毎月の積立額と期間を入力するだけで、将来どれだけの税金が掛かる（または免除される）のかを即座に確認可能です。<br/>
+			※計算結果は現行の税制に基づいたシミュレーション用の概算値であり、今後の制度・税率変更等を反映または保証するものではありません。
 		</p>
 	</div>
 
@@ -32,7 +40,6 @@ import FAQSection from '../components/FAQSection.astro';
 		</div>
 	</section>
 
-    <AffiliateSection placement="tax-compare" />
 	<RelatedLinks />
-	<FAQSection />
+	<FAQSection faqs={faqs} />
 </Layout>

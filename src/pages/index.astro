@@ -1,13 +1,28 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import AffiliateSection from '../components/AffiliateSection.astro';
+import FAQSection from '../components/FAQSection.astro';
+
+const faqs = [
+  { q: "このシミュレーターは無料で利用できますか？", a: "はい、すべてのシミュレーション機能を完全無料でご利用いただけます。登録や個人情報の入力も不要です。" },
+  { q: "新NISAと旧NISAのどちらの計算に対応していますか？", a: "2024年以降に追加された「新NISA」の非課税枠を最大限活用することを前提とした概算に利用可能です。" },
+  { q: "シミュレーション結果は確実なものですか？", a: "いいえ、結果は一定の一定利回りが継続したと仮定したシミュレーションによる概算値であり、実際の将来の運用成果を保証するものではありません。" }
+];
 ---
 
-<Layout title="新NISAシミュレーター【2025年最新版】積立・取り崩し・税比較を無料で即計算">
+<Layout 
+	title="新NISAシミュレーター【無料】積立・取り崩し・課税比較対応"
+	description="新NISAの積立利益や取り崩しを無料で即時計算。課税口座やiDeCoとの比較にも対応した資産形成シミュレーターです。口座情報や登録不要でスマホからすぐにご利用いただけます。"
+>
 	<div class="card" style="text-align: center; padding: 4rem 2rem;">
-		<h2>新NISA対応 高速シミュレーター</h2>
-		<p class="subtitle" style="margin-bottom: 2rem;">
-			完全無料で即時計算。あなたの資産形成をサポートします。
+		<h1 style="font-size: 2rem; font-weight: 800; margin-bottom: 1rem; color: var(--primary);">新NISAシミュレーター</h1>
+		
+		<p style="text-align: left; margin: 0 auto 2.5rem; line-height: 1.8; color: var(--text-muted); font-size: 0.95rem; max-width: 600px;">
+			本サイトは、新NISA制度を活用した将来の資産推移をブラウザ上でシミュレーションできる無料ツール群です。
+			毎月の積立額や想定利回りを入力するだけで、数十年にわたる複利による資産成長の様子を即座にグラフ化します。
+			また、資産形成期だけでなく、セカンドライフに向けた「資産の取り崩しシミュレーション」や、
+			従来の特定口座（課税口座）との「手取り額の違い（節税効果の比較）」、
+			さらには「iDeCo（個人型確定拠出年金）」を併用した場合の概算まで、幅広い目的に合わせた計算機能を備えています。<br/>
+			※各シミュレーターの結果は一定の計算式に基づいた参考値であり、将来の運用成果を約束・保証するものではありません。
 		</p>
 		
 		<div style="display: flex; flex-direction: column; gap: 1rem; max-width: 400px; margin: 0 auto;">
@@ -26,5 +41,5 @@ import AffiliateSection from '../components/AffiliateSection.astro';
 		</div>
 	</div>
 
-	<AffiliateSection />
+	<FAQSection faqs={faqs} />
 </Layout>

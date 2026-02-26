@@ -1,0 +1,65 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import RelatedLinks from '../../components/RelatedLinks.astro';
+
+const title = "老後・FIRE後の新NISA取り崩しシミュレーションと4%ルール";
+const description = "新NISAで運用した資産を老後やFIRE後にどう引き出すか？「4%ルール」を参考に、運用しながら定額・定率で取り崩した場合の資産寿命をシミュレーションします。";
+---
+
+<Layout title={title} description={description}>
+  <div style="margin-bottom: 2.5rem; background: white; padding: 2.5rem 2rem; border-radius: 12px; border: 1px solid var(--border-color); box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05);">
+    <h1 style="font-size: 1.8rem; font-weight: 800; margin-bottom: 1.5rem; color: var(--text-main); line-height: 1.4;">老後・FIRE後の新NISA取り崩しシミュレーションと戦略</h1>
+    
+    <div style="display: flex; gap: 0.5rem; margin-bottom: 2rem; flex-wrap: wrap;">
+      <span style="background: var(--bg-body); color: var(--text-muted); padding: 0.25rem 0.75rem; border-radius: 999px; font-size: 0.85rem; font-weight: bold;">新NISA活用ガイド</span>
+      <span style="background: var(--bg-body); color: var(--text-muted); padding: 0.25rem 0.75rem; border-radius: 999px; font-size: 0.85rem; font-weight: bold;">取り崩し・出口戦略</span>
+      <span style="background: var(--bg-body); color: var(--text-muted); padding: 0.25rem 0.75rem; border-radius: 999px; font-size: 0.85rem; font-weight: bold;">老後資金・FIRE</span>
+    </div>
+
+    <div style="line-height: 1.8; color: var(--text-main); font-size: 1rem;">
+      <h2 style="font-size: 1.4rem; color: var(--primary); margin: 2rem 0 1rem; border-bottom: 2px solid var(--primary); padding-bottom: 0.5rem;">「貯める」から「使う」へ。出口戦略の重要性</h2>
+      <p style="margin-bottom: 1.5rem;">
+        つみたて投資などで長期間かけて資産を築き上げた後、退職やFIRE（経済的自立と早期退職）に伴い、いよいよその資産を生活費として使っていくフェーズが訪れます。
+        しかし、築いた資産を単に現金化して銀行口座に置いておくと、インフレによる価値の目減りや、取り崩しペースが早すぎて想定より早く資産が枯渇（ゼロになること）してしまうリスクがあります。
+        そのため、<strong>「運用利回りを維持しながら少しずつ取り崩していく」</strong>出口戦略が非常に重要になります。
+      </p>
+
+      <h2 style="font-size: 1.4rem; color: var(--primary); margin: 2rem 0 1rem; border-bottom: 2px solid var(--primary); padding-bottom: 0.5rem;">取り崩しの王道「4%ルール」とは？</h2>
+      <p style="margin-bottom: 1.5rem;">
+        アメリカのトリニティ大学で行われた研究（通称：トリニティ・スタディ）に基づく「4%ルール」という考え方が広く知られています。
+        これは、株式と債券を一定割合で保有したポートフォリオにおいて、初年度に総資産の4%を引き出し、その後もインフレ率を考慮しつつ毎年同額（または同率）を引き出し続けた場合、およそ30年後でも高確率で資産が枯渇せずに残っていたという研究結果です。
+        日本においても、為替リスクなどを考慮した上で、「運用利回り＞取り崩し率」に近い状態を保つことが、資産寿命を飛躍的に延ばすカギとなります。
+      </p>
+
+      <div style="background: #f8fafc; border-left: 4px solid var(--primary); padding: 1.5rem; border-radius: 4px; margin-bottom: 2rem;">
+        <h3 style="font-size: 1.1rem; font-weight: bold; margin-top: 0; color: var(--text-main);">💡 資産は何年もつ？シミュレーターで計算</h3>
+        <p style="margin-bottom: 1rem; font-size: 0.95rem; color: var(--text-muted);">
+          現在保有している（あるいは将来築く想定の）資産額から、毎月定額を引き出した場合に「何年で底をつくか（資産寿命）」を当サイトで無料で即時計算できます。
+        </p>
+        <a href="/nisa-withdraw" class="track-affiliate" style="display: inline-block; background: var(--primary); color: white; text-decoration: none; padding: 0.75rem 1.5rem; border-radius: 6px; font-weight: bold; transition: opacity 0.2s;">
+          取り崩しシミュレーターで計算する
+        </a>
+      </div>
+
+      <h2 style="font-size: 1.4rem; color: var(--primary); margin: 2rem 0 1rem; border-bottom: 2px solid var(--primary); padding-bottom: 0.5rem;">定額取り崩しと定率取り崩しの違い</h2>
+      <p style="margin-bottom: 1.5rem;">
+        取り崩しの方法には大きく分けて「定額」と「定率」の2パターンがあります。
+        <strong>「定額引き出し」</strong>は毎月必ず10万円など固定額を受け取るため、生活費の計算がしやすく安定感がありますが、相場下落時に多くの口数を売却してしまい、資産寿命を縮めやすいデメリット（リターン・シークエンス・リスク）があります。
+        一方<strong>「定率引き出し」</strong>は毎月残高の0.5%などを引き出すため、相場が良い時は多く、悪い時は少なく引き出すことになり資産が底をつきにくいという強力なメリットがありますが、手取り額が変動するため家計管理に工夫が求められます。
+      </p>
+
+      <h2 style="font-size: 1.4rem; color: var(--primary); margin: 2rem 0 1rem; border-bottom: 2px solid var(--primary); padding-bottom: 0.5rem;">新NISAの恒久化を出口戦略に活かす</h2>
+      <p style="margin-bottom: 1.5rem;">
+        2024年からの新NISAは非課税期間が無期限（恒久化）となりました。これは出口戦略において極めて有利に働きます。
+        かつての一般NISA（5年）や旧つみたてNISA（20年）のように、非課税期間の終了とともに強制的に課税口座へ移管（ロールオーバー等の制約）されることがなくなったため、老後やFIREまでの数十年、そしてそこから取り崩す数十年においても、<strong>利益がすべて非課税で手元に残ります。</strong>
+        新NISA口座を「使ったら終わり」ではなく、末長く運用しながら必要額だけを切り崩す「資産の寿命を延ばす箱」として活用しましょう。
+      </p>
+
+      <p style="margin-top: 3rem; font-size: 0.85rem; color: var(--text-muted); padding-top: 1rem; border-top: 1px solid var(--border-color);">
+        免責事項：本記事の解説や4%ルールなどの数値は過去の統計等に基づく参考情報であり、将来において同一の運用成績や資産寿命を保証するものではありません。
+      </p>
+    </div>
+  </div>
+
+  <RelatedLinks />
+</Layout>

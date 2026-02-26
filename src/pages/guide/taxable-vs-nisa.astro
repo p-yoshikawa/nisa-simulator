@@ -1,0 +1,66 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import RelatedLinks from '../../components/RelatedLinks.astro';
+
+const title = "「新NISA」と「特定口座（課税口座）」の違いと税金シミュレーション";
+const description = "新NISA口座と通常の特定口座では、将来の手取り額に大きな差が生じます。利益から約20%引かれる税金の影響と、制度ごとの使い分けを解説します。";
+---
+
+<Layout title={title} description={description}>
+  <div style="margin-bottom: 2.5rem; background: white; padding: 2.5rem 2rem; border-radius: 12px; border: 1px solid var(--border-color); box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05);">
+    <h1 style="font-size: 1.8rem; font-weight: 800; margin-bottom: 1.5rem; color: var(--text-main); line-height: 1.4;">「新NISA」と「特定口座（課税）」の違いと節税シミュレーション</h1>
+    
+    <div style="display: flex; gap: 0.5rem; margin-bottom: 2rem; flex-wrap: wrap;">
+      <span style="background: var(--bg-body); color: var(--text-muted); padding: 0.25rem 0.75rem; border-radius: 999px; font-size: 0.85rem; font-weight: bold;">新NISA活用ガイド</span>
+      <span style="background: var(--bg-body); color: var(--text-muted); padding: 0.25rem 0.75rem; border-radius: 999px; font-size: 0.85rem; font-weight: bold;">税金・制度比較</span>
+      <span style="background: var(--bg-body); color: var(--text-muted); padding: 0.25rem 0.75rem; border-radius: 999px; font-size: 0.85rem; font-weight: bold;">基礎知識</span>
+    </div>
+
+    <div style="line-height: 1.8; color: var(--text-main); font-size: 1rem;">
+      <h2 style="font-size: 1.4rem; color: var(--primary); margin: 2rem 0 1rem; border-bottom: 2px solid var(--primary); padding-bottom: 0.5rem;">約20％の税金が「かかる」か「かからない」かの違い</h2>
+      <p style="margin-bottom: 1.5rem;">
+        投資信託や株式投資を始める際、必ず証券会社で口座を開設しますが、一般的に選択されるのは「特定口座」と「新NISA口座」の2つです（※一般口座は割愛）。
+        特定口座（源泉徴収あり）は、証券会社が投資家へ代わって利益に対する税計算と納税を行ってくれる便利な口座ですが、<strong>運用で得た売却益や配当金には必ず約20.315%の税金</strong>が課せられます。
+        対して新NISA口座は、国が用意した非課税制度の枠組みであり、一定枠内であれば<strong>利益に対して一切税金がかかりません。</strong>
+      </p>
+
+      <h2 style="font-size: 1.4rem; color: var(--primary); margin: 2rem 0 1rem; border-bottom: 2px solid var(--primary); padding-bottom: 0.5rem;">複利運用において税金の影響は年々膨らむ</h2>
+      <p style="margin-bottom: 1.5rem;">
+        「たかが20%」と思うかもしれませんが、長期の複利運用においてはその差が数百万円規模に膨らむことがあります。
+        たとえば、長期の積立投資によって元本が1,000万円になり、利益が1,000万円発生した場合、総資産額は2,000万円となります。
+        これを特定口座で売却すると、利益1,000万円に対して約203万円の税金が引かれるため、手取り額は約1,797万円となります。一方、新NISA口座で運用していた場合は全額そのまま手元に2,000万円が残ります。
+      </p>
+
+      <div style="background: #f8fafc; border-left: 4px solid var(--primary); padding: 1.5rem; border-radius: 4px; margin-bottom: 2rem;">
+        <h3 style="font-size: 1.1rem; font-weight: bold; margin-top: 0; color: var(--text-main);">💡 税金差額をグラフで比較してみましょう</h3>
+        <p style="margin-bottom: 1rem; font-size: 0.95rem; color: var(--text-muted);">
+          積立額や想定年数から、特定口座と新NISA口座の手取り差額を棒グラフで並べて比較できる専用シミュレーターをご用意しています。
+        </p>
+        <a href="/nisa-tax-compare" class="track-affiliate" style="display: inline-block; background: var(--primary); color: white; text-decoration: none; padding: 0.75rem 1.5rem; border-radius: 6px; font-weight: bold; transition: opacity 0.2s;">
+          課税口座 比較シミュレーターを利用する
+        </a>
+      </div>
+
+      <h2 style="font-size: 1.4rem; color: var(--primary); margin: 2rem 0 1rem; border-bottom: 2px solid var(--primary); padding-bottom: 0.5rem;">新NISAのデメリット・注意点は？</h2>
+      <p style="margin-bottom: 1.5rem;">
+        圧倒的なメリットを誇る新NISAですが、以下のような特性・注意点もあります。
+        <ul style="margin-top: 0.5rem; margin-bottom: 1rem; padding-left: 1.5rem; line-height: 1.8;">
+            <li><strong style="color: var(--text-main);">損益通算ができない：</strong> 特定口座であれば、ある銘柄の「損失」と別の銘柄の「利益」を相殺して税金を抑えられますが、新NISAでの損失は税務上存在しないものとみなされるため、特定口座の利益と相殺することはできません。</li>
+            <li><strong style="color: var(--text-main);">投資上限額（非課税保有限度額）がある：</strong> 一人当たり一生涯で投資できる元本は「1,800万円」までと決められています。枠を使い切った後に追加で投資したい場合は、特定口座を利用することになります。</li>
+        </ul>
+      </p>
+
+      <h2 style="font-size: 1.4rem; color: var(--primary); margin: 2rem 0 1rem; border-bottom: 2px solid var(--primary); padding-bottom: 0.5rem;">結論：まずは新NISA口座を最優先で満額活用する</h2>
+      <p style="margin-bottom: 1.5rem;">
+        投資初心者はもちろんのこと、ある程度経験がある方にとっても、<strong>まずは非課税メリットのある新NISAの1,800万枠を優先して埋めること</strong>が、資産形成の王道コンセンサスとなっています。
+        NISA枠を使い切ってさらに余剰資金がある場合や、信用取引や非課税対象外の個別銘柄などに投資したい場合に初めて、特定口座や一般口座を併用するという戦略が基本路線となります。証券口座を開設する際は、必ずNISA口座を同時に申し込むことをおすすめします。
+      </p>
+
+      <p style="margin-top: 3rem; font-size: 0.85rem; color: var(--text-muted); padding-top: 1rem; border-top: 1px solid var(--border-color);">
+        免責事項：本記事の内容は現行（2024年以降）の税制に基づいた一般的な仕組みの解説であり、特定商品の推奨や将来の税制変更を保証するものではありません。
+      </p>
+    </div>
+  </div>
+
+  <RelatedLinks />
+</Layout>

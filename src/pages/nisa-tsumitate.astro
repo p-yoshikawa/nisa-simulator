@@ -1,19 +1,28 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import CalculatorForm from '../components/CalculatorForm.tsx';
-import AffiliateSection from '../components/AffiliateSection.astro';
 import RelatedLinks from '../components/RelatedLinks.astro';
 import FAQSection from '../components/FAQSection.astro';
+
+const faqs = [
+  { q: "新NISAのつみたて投資枠はいくらから始められますか？", a: "証券会社によりますが、主要なネット証券であれば月額100円の少額からつみたて投資を始めることができます。" },
+  { q: "想定利回りは何％で計算するのが現実的ですか？", a: "投資対象によりますが、全世界株式などに連動するインデックス・ファンドに長期で積立投資する場合、年率3〜7％程度で試算されることが多いです。生活の目的に応じて設定してください。" },
+  { q: "途中で積立金額を変更、またはやめることはできますか？", a: "はい、新NISAでの積立設定は途中で自由に金額を変更したり、一時停止・解約したりすることが可能です。" }
+];
 ---
 
 <Layout 
-	title="新NISA積立シミュレーター｜毎月いくらでいくら増える？【無料計算】" 
-	description="つみたてNISAで毎月いくら積み立てると将来いくらになるか、複利効果を計算・グラフ化する無料シミュレーターです。"
+	title="新NISA積立シミュレーター【無料】毎月の積立額で将来資産を計算" 
+	description="新NISA（つみたて投資枠）で毎月積立をした場合の将来資産を無料で即時計算。複利効果による増え方を利回り・期間ごとにグラフで可視化するシミュレーターです。"
 >
-	<div style="margin-bottom: 2rem;">
-		<h2>つみたてNISA（積立投資）シミュレーター</h2>
-		<p class="subtitle">
-			毎月の積立額、想定利回り、積立期間を入力して、将来の資産形成をシミュレーションしましょう。
+	<div style="margin-bottom: 2.5rem;">
+		<h1 style="font-size: 1.8rem; font-weight: 800; margin: 0 0 1rem; color: var(--text-main);">つみたてNISA（積立投資）シミュレーター</h1>
+		<p style="margin: 0 0 1rem; line-height: 1.8; color: var(--text-muted); font-size: 0.95rem;">
+			「毎月の積立金額」「想定される年利（利回り）」「運用期間」の3つの項目を入力するだけで、長期間運用を継続した場合の資産合計額をシミュレーションします。
+			新NISAの「つみたて投資枠」を利用して毎月コツコツと均等額で投資信託などを買い付けた場合、
+			投資した元本が長期的な複利効果によりどのように推移するかをグラフと数値で可視化します。
+			ボーナス月などの増額設定は省いたシンプルな概算ツールとして、将来の目標金額に向けた積立ペースの参考にご利用ください。<br/>
+			※初期設定値は参考例であり、将来の運用成果を保証するものではありません。
 		</p>
 	</div>
 
@@ -34,7 +43,6 @@ import FAQSection from '../components/FAQSection.astro';
 		</div>
 	</section>
 
-    <AffiliateSection placement="tsumitate" />
 	<RelatedLinks />
-	<FAQSection />
+	<FAQSection faqs={faqs} />
 </Layout>

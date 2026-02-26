@@ -12,8 +12,40 @@ const {
 	description = "新NISAに向けたシミュレーター。完全無料で高速に計算結果を表示します。",
 	image = "/ogp-image.jpg" // 暫定画像パス
 } = Astro.props;
-const canonicalURL = new URL(Astro.url.pathname, Astro.site || 'https://nisa-calc-mvp.example.com');
+const canonicalURL = new URL(Astro.url.pathname, Astro.site || 'https://newnisa-simulator.com');
 const safeTitle = title;
+
+// Breadcrumb logic
+const currentPath = Astro.url.pathname;
+let currentName = "ホーム";
+if (currentPath.includes('tsumitate')) currentName = "つみたてシミュレーター";
+else if (currentPath.includes('withdraw')) currentName = "取り崩しシミュレーター";
+else if (currentPath.includes('tax-compare')) currentName = "課税比較シミュレーター";
+else if (currentPath.includes('ideco')) currentName = "iDeCo節税シミュレーター";
+else if (currentPath.includes('account-compare')) currentName = "おすすめ証券口座比較";
+else if (currentPath.includes('guide')) currentName = "新NISAガイド";
+
+const breadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "ホーム",
+      "item": "https://newnisa-simulator.com/"
+    }
+  ]
+};
+
+if (currentPath !== "/" && currentPath !== "") {
+  breadcrumbSchema.itemListElement.push({
+    "@type": "ListItem",
+    "position": 2,
+    "name": currentName,
+    "item": `https://newnisa-simulator.com${currentPath}`
+  });
+}
 ---
 
 <!doctype html>
@@ -35,6 +67,7 @@ const safeTitle = title;
 		<meta property="og:type" content="website" />
 		<meta property="og:url" content={canonicalURL} />
 		<meta property="og:image" content={new URL(image, canonicalURL)} />
+		<script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
 		<!-- Google Fonts for modern typography -->
 		<link rel="preconnect" href="https://fonts.googleapis.com">
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -90,6 +123,12 @@ const safeTitle = title;
 				</div>
 				<a href="/" class="header-back-btn">TOPへ戻る</a>
 			</header>
+
+            {currentPath !== "/" && currentPath !== "" && (
+            <div style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 2rem; background: var(--bg-body); padding: 0.5rem 1rem; border-radius: 4px; display: inline-block;">
+                <a href="/" style="color: var(--primary); text-decoration: underline; font-weight: bold;">TOP</a> <span style="margin: 0 0.5rem;">&gt;</span> <span style="font-weight: 500;">{currentName}</span>
+            </div>
+            )}
 
 			<nav class="nav-links">
 				<a href="/" class={`nav-link track-nav ${Astro.url.pathname === '/' ? 'active' : ''}`} data-nav="home">ホーム</a>
