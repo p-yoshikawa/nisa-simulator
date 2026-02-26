@@ -1,4 +1,3 @@
 User-agent: *
 Allow: /
-# TODO: Replace with absolute production domain before release
-Sitemap: https://nisa-calc-mvp.example.com/sitemap-index.xml
+Sitemap: https://nisa-simulator.pages.dev/sitemap-index.xml
