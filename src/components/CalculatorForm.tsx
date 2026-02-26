@@ -173,27 +173,66 @@ export default function CalculatorForm({ mode }: CalculatorFormProps) {
                 <div className="card">
                     <h2>シミュレーション条件</h2>
 
-                    {/* プリセットボタン群 */}
-                    <div style={{ marginBottom: '1.5rem', display: 'flex', gap: '0.5rem', flexWrap: 'wrap' }}>
-                        {mode === 'tsumitate' && (
-                            <>
-                                <button type="button" onClick={() => { setAmount('30000'); setReturnRate('5.0'); setYears('20'); }} style={{ padding: '0.4rem 0.8rem', fontSize: '0.8rem', borderRadius: '4px', border: '1px solid var(--primary)', background: 'white', color: 'var(--primary)', cursor: 'pointer', fontWeight: 'bold' }}>30代向け (月3万・利回り5%)</button>
+                    {mode === 'tsumitate' && (
+                        <div style={{ marginBottom: '1.5rem' }}>
+                            <p style={{ fontSize: '0.85rem', fontWeight: 'bold', color: 'var(--text-main)', marginBottom: '0.5rem' }}>▼ 年代モデルを切り替える</p>
+                            <div style={{ display: 'flex', gap: '0.5rem', flexWrap: 'wrap', marginBottom: '1rem' }}>
+                                {[
+                                    { key: '20s', amount: '20000', returnRate: '5.0', years: '40', label: '20代' },
+                                    { key: '30s', amount: '30000', returnRate: '5.0', years: '30', label: '30代' },
+                                    { key: '40s', amount: '40000', returnRate: '4.0', years: '20', label: '40代' },
+                                    { key: '50s', amount: '50000', returnRate: '3.0', years: '10', label: '50代' }
+                                ].map((preset) => {
+                                    const isActive = (amount === preset.amount && returnRate === preset.returnRate && years === preset.years);
+                                    return (
+                                        <button
+                                            key={preset.key}
+                                            type="button"
+                                            onClick={() => { setAmount(preset.amount); setReturnRate(preset.returnRate); setYears(preset.years); }}
+                                            style={{
+                                                padding: '0.4rem 0.8rem',
+                                                fontSize: '0.85rem',
+                                                borderRadius: '20px',
+                                                border: isActive ? '2px solid var(--primary)' : '1px solid #cbd5e1',
+                                                background: isActive ? 'var(--primary)' : 'white',
+                                                color: isActive ? 'white' : 'var(--text-main)',
+                                                cursor: 'pointer',
+                                                fontWeight: isActive ? 'bold' : 'normal',
+                                                transition: 'all 0.2s'
+                                            }}
+                                        >
+                                            {preset.label}
+                                        </button>
+                                    );
+                                })}
+                            </div>
+
+                            <p style={{ fontSize: '0.85rem', fontWeight: 'bold', color: 'var(--text-main)', marginBottom: '0.5rem' }}>▼ おすすめプリセット</p>
+                            <div style={{ display: 'flex', gap: '0.5rem', flexWrap: 'wrap' }}>
+                                {/* 30代向けボタンは、重複を避けるために 年代タブ30代 と完全に同じ振る舞い（値）にする */}
+                                <button type="button" onClick={() => { setAmount('30000'); setReturnRate('5.0'); setYears('30'); }} style={{ padding: '0.4rem 0.8rem', fontSize: '0.8rem', borderRadius: '4px', border: '1px solid var(--primary)', background: 'white', color: 'var(--primary)', cursor: 'pointer', fontWeight: 'bold' }}>30代向け (月3万・利回り5%)</button>
                                 <button type="button" onClick={() => { setAmount('10000'); setReturnRate('3.0'); setYears('20'); }} style={{ padding: '0.4rem 0.8rem', fontSize: '0.8rem', borderRadius: '4px', border: '1px solid var(--primary)', background: 'white', color: 'var(--primary)', cursor: 'pointer', fontWeight: 'bold' }}>堅実運用 (月1万・利回り3%)</button>
-                            </>
-                        )}
-                        {mode === 'withdraw' && (
-                            <>
-                                <button type="button" onClick={() => { setAmount('30000000'); setMonthlyWithdraw('100000'); setReturnRate('4.0'); setYears('25'); }} style={{ padding: '0.4rem 0.8rem', fontSize: '0.8rem', borderRadius: '4px', border: '1px solid var(--primary)', background: 'white', color: 'var(--primary)', cursor: 'pointer', fontWeight: 'bold' }}>FIRE想定 (3,000万・10万・4%)</button>
-                                <button type="button" onClick={() => { setAmount('15000000'); setMonthlyWithdraw('50000'); setReturnRate('3.0'); setYears('25'); }} style={{ padding: '0.4rem 0.8rem', fontSize: '0.8rem', borderRadius: '4px', border: '1px solid var(--primary)', background: 'white', color: 'var(--primary)', cursor: 'pointer', fontWeight: 'bold' }}>老後安心 (1,500万・5万・3%)</button>
-                            </>
-                        )}
-                        {mode === 'tax-compare' && (
-                            <>
-                                <button type="button" onClick={() => { setAmount('30000'); setReturnRate('5.0'); setYears('20'); }} style={{ padding: '0.4rem 0.8rem', fontSize: '0.8rem', borderRadius: '4px', border: '1px solid var(--primary)', background: 'white', color: 'var(--primary)', cursor: 'pointer', fontWeight: 'bold' }}>王道積立 (月3万・利回り5%)</button>
-                                <button type="button" onClick={() => { setAmount('100000'); setReturnRate('5.0'); setYears('15'); }} style={{ padding: '0.4rem 0.8rem', fontSize: '0.8rem', borderRadius: '4px', border: '1px solid var(--primary)', background: 'white', color: 'var(--primary)', cursor: 'pointer', fontWeight: 'bold' }}>満額挑戦 (月10万・利回り5%)</button>
-                            </>
-                        )}
-                    </div>
+                            </div>
+                        </div>
+                    )}
+
+                    {/* 他のモード用 プリセットボタン群 */}
+                    {(mode === 'withdraw' || mode === 'tax-compare') && (
+                        <div style={{ marginBottom: '1.5rem', display: 'flex', gap: '0.5rem', flexWrap: 'wrap' }}>
+                            {mode === 'withdraw' && (
+                                <>
+                                    <button type="button" onClick={() => { setAmount('30000000'); setMonthlyWithdraw('100000'); setReturnRate('4.0'); setYears('25'); }} style={{ padding: '0.4rem 0.8rem', fontSize: '0.8rem', borderRadius: '4px', border: '1px solid var(--primary)', background: 'white', color: 'var(--primary)', cursor: 'pointer', fontWeight: 'bold' }}>FIRE想定 (3,000万・10万・4%)</button>
+                                    <button type="button" onClick={() => { setAmount('15000000'); setMonthlyWithdraw('50000'); setReturnRate('3.0'); setYears('25'); }} style={{ padding: '0.4rem 0.8rem', fontSize: '0.8rem', borderRadius: '4px', border: '1px solid var(--primary)', background: 'white', color: 'var(--primary)', cursor: 'pointer', fontWeight: 'bold' }}>老後安心 (1,500万・5万・3%)</button>
+                                </>
+                            )}
+                            {mode === 'tax-compare' && (
+                                <>
+                                    <button type="button" onClick={() => { setAmount('30000'); setReturnRate('5.0'); setYears('20'); }} style={{ padding: '0.4rem 0.8rem', fontSize: '0.8rem', borderRadius: '4px', border: '1px solid var(--primary)', background: 'white', color: 'var(--primary)', cursor: 'pointer', fontWeight: 'bold' }}>王道積立 (月3万・利回り5%)</button>
+                                    <button type="button" onClick={() => { setAmount('100000'); setReturnRate('5.0'); setYears('15'); }} style={{ padding: '0.4rem 0.8rem', fontSize: '0.8rem', borderRadius: '4px', border: '1px solid var(--primary)', background: 'white', color: 'var(--primary)', cursor: 'pointer', fontWeight: 'bold' }}>満額挑戦 (月10万・利回り5%)</button>
+                                </>
+                            )}
+                        </div>
+                    )}
 
                     {mode === 'withdraw' ? (
                         <>
