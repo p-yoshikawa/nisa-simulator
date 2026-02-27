@@ -1,0 +1,139 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import FaqSchema from '../../components/FaqSchema.astro';
+
+// SEO Settings
+const title = "新NISA 月3万円で将来いくら？無料シミュレーション";
+const description = "毎月3万円の積立投資を続けると将来いくらになるのか？期待利回り別に無料でシミュレーションし、新NISAの非課税メリットを解説します。";
+
+// FAQ Schema Data
+const faqs = [
+  {
+    question: "毎月3万円を20年間積み立てるとどうなりますか？",
+    answer: "年利5%で運用できたと仮定した場合、投資元本720万円に対して利益が約500万円以上となり、合計で約1200万円を超えるペースになります（※将来の利益を保証するものではありません）。"
+  },
+  {
+    question: "ボーナス月に増額することはできますか？",
+    answer: "多くの金融機関で「ボーナス月設定」などの機能が用意されており、通常の月3万円に加えて年数回だけ積立額を上乗せすることが可能です。"
+  },
+  {
+    question: "月3万円の積立は新NISAの成長投資枠とつみたて投資枠のどちらを使うべきですか？",
+    answer: "月3万円（年間36万円）で投資信託の積立を行う場合、原則として「つみたて投資枠」（年間120万円まで）の範囲内で非課税運用を完結させることが一般的です。"
+  }
+];
+---
+
+<Layout title={title} description={description}>
+    <div style="margin-bottom: 2rem;">
+        <h1 style="font-size: 1.5rem; color: var(--text-main); line-height: 1.4; margin-bottom: 1rem;">
+            新NISA 月3万円で将来いくら？無料シミュレーション
+        </h1>
+        <p style="font-size: 0.95rem; color: var(--text-muted); line-height: 1.6; margin-bottom: 1.5rem;">
+            「まずは月3万円の積立から始めたい」という方が多くいらっしゃいます。家計への負担を抑えつつ、長期間の複利効果を活かして将来の資産形成を目指す上で、月3万円はひとつのスタンダードな目安と言えます。<br>
+            以下の無料シミュレーターを利用して、「利回り3%」や「利回り5%」の場合に資産がどのように増えていくか、そのイメージを確認してみましょう。
+        </p>
+        
+        <div style="text-align: center; margin-bottom: 3rem;">
+            <a href="/nisa-tsumitate?model=30s" class="track-outbound" data-target="simulator_tsumitate_30s" style="display: inline-block; background-color: var(--primary); color: white; padding: 1rem 2rem; border-radius: 8px; font-weight: bold; text-decoration: none; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);">
+                月3万円の設定で無料で試算する
+            </a>
+            <p style="margin-top: 0.5rem; font-size: 0.8rem; color: var(--text-muted);">※登録不要・ブラウザ上で即計算できます</p>
+        </div>
+    </div>
+
+    <!-- 前提条件セクション -->
+    <section class="card" style="margin-bottom: 2rem;">
+        <h2 style="font-size: 1.25rem; font-weight: 700; border-bottom: 2px solid var(--border-color); padding-bottom: 0.5rem; margin-bottom: 1rem;">
+            シミュレーションを行う上での前提条件
+        </h2>
+        <ul style="list-style-type: disc; padding-left: 1.5rem; color: var(--text-muted); line-height: 1.8; font-size: 0.95rem;">
+            <li><strong>運用期間:</strong> 長期投資の目安として20年〜30年を中心に想定。</li>
+            <li><strong>想定利回り:</strong> 一般的なインデックスファンドのリターンを参考に、年利3%〜5%程度を例示。</li>
+            <li><strong>インフレ率:</strong> 本シミュレーションの計算結果は将来の物価上昇を考慮していません。</li>
+            <li><strong>元本保証なし:</strong> 投資にはリスクが伴い、元本割れを起こす可能性があります。利回りを確約するものではありません。</li>
+        </ul>
+    </section>
+
+    <!-- 代表ケースセクション -->
+    <section class="card" style="margin-bottom: 2rem;">
+        <h2 style="font-size: 1.25rem; font-weight: 700; border-bottom: 2px solid var(--border-color); padding-bottom: 0.5rem; margin-bottom: 1rem;">
+            長期間（20年〜30年）での想定推移
+        </h2>
+        <div style="display: flex; flex-direction: column; gap: 1rem;">
+            <div style="background-color: var(--bg-body); padding: 1rem; border-radius: 8px;">
+                <h3 style="font-size: 1.05rem; font-weight: 600; color: var(--primary); margin-bottom: 0.5rem;">堅実な資産形成を目指す期間（10〜15年）</h3>
+                <p style="font-size: 0.9rem; color: var(--text-muted); line-height: 1.6;">
+                    積立開始から10年程度は元本が占める割合が大きく、「少しずつ増えている」実感を得る期間です。市場下落時には一時的な元本割れを経験することもありますが、継続が推奨されます。
+                </p>
+            </div>
+            <div style="background-color: var(--bg-body); padding: 1rem; border-radius: 8px;">
+                <h3 style="font-size: 1.05rem; font-weight: 600; color: var(--primary); margin-bottom: 0.5rem;">複利効果が現れる期間（20年〜30年）</h3>
+                <p style="font-size: 0.9rem; color: var(--text-muted); line-height: 1.6;">
+                    20年を超えてくると、これまでに再投資された利益がさらに利益を生む「複利」の力が大きく働き始め、元本に対して利益幅が急角度で広がる傾向が見られます。
+                </p>
+            </div>
+            <div style="background-color: var(--bg-body); padding: 1rem; border-radius: 8px;">
+                <h3 style="font-size: 1.05rem; font-weight: 600; color: var(--primary); margin-bottom: 0.5rem;">新NISAによる非課税の恩恵</h3>
+                <p style="font-size: 0.9rem; color: var(--text-muted); line-height: 1.6;">
+                    通常の口座では利益に対して約20%の税金が引かれますが、新NISAであればその利益を全て非課税で受け取ることができるため、月3万円の少額積立でも長期で見ると数百万円規模の税制メリットが生じる可能性があります。
+                </p>
+            </div>
+        </div>
+        <p style="margin-top: 1rem; font-size: 0.85rem; color: var(--text-muted);">
+            ※これらはあくまで傾向としての例であり、個別具体的な投資を推奨・助言するものではありません。
+        </p>
+    </section>
+
+    <!-- FAQセクション -->
+    <section class="card" style="margin-bottom: 2rem;">
+        <h2 style="font-size: 1.25rem; font-weight: 700; border-bottom: 2px solid var(--border-color); padding-bottom: 0.5rem; margin-bottom: 1rem;">
+            月3万円の積立に関するよくある疑問
+        </h2>
+        <div style="display: flex; flex-direction: column; gap: 1rem;">
+            {faqs.map(faq => (
+                <div style="border-bottom: 1px solid var(--border-color); padding-bottom: 1rem;">
+                    <h3 style="font-size: 1rem; font-weight: 600; color: var(--text-main); margin-bottom: 0.5rem;">{faq.question}</h3>
+                    <p style="font-size: 0.9rem; color: var(--text-muted); line-height: 1.6;">{faq.answer}</p>
+                </div>
+            ))}
+        </div>
+        <p style="margin-top: 1rem; font-size: 0.85rem; color: var(--text-muted);">
+            一般的な傾向としての情報です。ご自身の税務相談や詳細な資産設計については、金融庁のウェブサイトをご参照いただくか、専門家にご相談されることをおすすめします。
+        </p>
+    </section>
+
+    <!-- ボトムCTA -->
+    <div style="text-align: center; margin-bottom: 3rem; background-color: white; padding: 2rem; border-radius: 8px; border: 1px solid var(--primary);">
+        <h2 style="font-size: 1.2rem; font-weight: 700; margin-bottom: 1rem; color: var(--text-main);">
+            まずは自分の条件で試してみましょう
+        </h2>
+        <p style="font-size: 0.9rem; color: var(--text-muted); margin-bottom: 1.5rem;">
+            仮に利回りが3%、5%、7%だった場合、将来の資産残高がどう変わるのか、ツールのグラフで簡単に確認できます。
+        </p>
+        <a href="/nisa-tsumitate?model=30s" class="track-outbound" style="display: inline-block; background-color: var(--primary); color: white; padding: 1rem 2rem; border-radius: 8px; font-weight: bold; text-decoration: none;">
+            もう一度、条件を変えて試算する
+        </a>
+    </div>
+
+    <!-- 関連リンク -->
+    <section style="margin-bottom: 2rem;">
+        <h2 style="font-size: 1.1rem; font-weight: 700; margin-bottom: 1rem; color: var(--text-main);">その他のシミュレーション・比較</h2>
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1rem;">
+            <a href="/nisa-tsumitate" style="display: block; padding: 1rem; background: white; border: 1px solid var(--border-color); border-radius: 8px; text-decoration: none; color: var(--text-main); font-weight: bold; font-size: 0.9rem;">
+                📈 つみたてNISAシミュレーター
+            </a>
+            <a href="/nisa-tax-compare" style="display: block; padding: 1rem; background: white; border: 1px solid var(--border-color); border-radius: 8px; text-decoration: none; color: var(--text-main); font-weight: bold; font-size: 0.9rem;">
+                ⚖️ 課税口座との差分・比較ツール
+            </a>
+            <a href="/ideco-simulator/" style="display: block; padding: 1rem; background: white; border: 1px solid var(--border-color); border-radius: 8px; text-decoration: none; color: var(--text-main); font-weight: bold; font-size: 0.9rem;">
+                💼 iDeCo節税シミュレーター
+            </a>
+            <a href="/account-compare" style="display: block; padding: 1rem; background: white; border: 1px solid var(--border-color); border-radius: 8px; text-decoration: none; color: var(--text-main); font-weight: bold; font-size: 0.9rem;">
+                🏦 新NISAおすすめ口座比較
+            </a>
+        </div>
+    </section>
+
+    <!-- 構造化データ出力 -->
+    <FaqSchema faqs={faqs} />
+</Layout>

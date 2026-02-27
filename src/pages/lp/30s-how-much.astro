@@ -1,0 +1,139 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import FaqSchema from '../../components/FaqSchema.astro';
+
+// SEO Settings
+const title = "30代の新NISAはいくら積み立てればいい？無料シミュレーション";
+const description = "30代から新NISAを始める場合の積立額の目安や考え方を解説。ライフイベントが多い30代に向けた無理のない積立プランを無料でシミュレーションできます。";
+
+// FAQ Schema Data
+const faqs = [
+  {
+    question: "30代の毎月の積立額の平均はどれくらいですか？",
+    answer: "家計の状況によりますが、月額1万〜3万円程度から始める方が多いです。住宅購入や子育てなどのイベントが多いため、無理のない範囲で継続することが重要です。"
+  },
+  {
+    question: "後から積立金額を変更することはできますか？",
+    answer: "はい、可能です。多くの金融機関では、いつでも積立金額の増額や減額、一時停止の手続きをWeb上から簡単に行うことができます。"
+  },
+  {
+    question: "まとまった資金がある場合、一気に投資した方がいいですか？",
+    answer: "「一括投資」と「分割投資」のどちらが良いかは市況に依存します。30代であれば、時間分散のメリットを活かしてコツコツ積み立てる方法（ドルコスト平均法）が一般的に推奨されます。"
+  }
+];
+---
+
+<Layout title={title} description={description}>
+    <div style="margin-bottom: 2rem;">
+        <h1 style="font-size: 1.5rem; color: var(--text-main); line-height: 1.4; margin-bottom: 1rem;">
+            30代の新NISAはいくら積み立てればいい？無理のない設定額を無料試算
+        </h1>
+        <p style="font-size: 0.95rem; color: var(--text-muted); line-height: 1.6; margin-bottom: 1.5rem;">
+            結婚、出産、マイホーム購入など、ライフイベントによる支出が重なりやすい30代。「将来のために投資はしたいけれど、無理はできない」という声は少なくありません。新NISAの積立額に正解はありませんが、ご自身の家計状況に合わせた目安を知ることは大切です。<br>
+            当サイトの無料シミュレーターを使えば、例えば「月3万円を利回り5%で続けた場合」の将来の資産推移をすぐに確認できます。
+        </p>
+        
+        <div style="text-align: center; margin-bottom: 3rem;">
+            <a href="/nisa-tsumitate?model=30s" class="track-outbound" data-target="simulator_tsumitate_30s" style="display: inline-block; background-color: var(--primary); color: white; padding: 1rem 2rem; border-radius: 8px; font-weight: bold; text-decoration: none; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);">
+                30代のモデルケースを入れて無料で試算する
+            </a>
+            <p style="margin-top: 0.5rem; font-size: 0.8rem; color: var(--text-muted);">※登録不要・ブラウザ上で即計算できます</p>
+        </div>
+    </div>
+
+    <!-- 前提条件セクション -->
+    <section class="card" style="margin-bottom: 2rem;">
+        <h2 style="font-size: 1.25rem; font-weight: 700; border-bottom: 2px solid var(--border-color); padding-bottom: 0.5rem; margin-bottom: 1rem;">
+            シミュレーションを行う上での前提条件
+        </h2>
+        <ul style="list-style-type: disc; padding-left: 1.5rem; color: var(--text-muted); line-height: 1.8; font-size: 0.95rem;">
+            <li><strong>運用期間:</strong> 30代から定年後までを見据え、20年〜30年の中長期を想定。</li>
+            <li><strong>想定利回り:</strong> 一般的なインデックスファンドのリターンを参考に、年利3%〜5%程度を例示。</li>
+            <li><strong>インフレ率:</strong> 本シミュレーションの計算結果は、将来の物価上昇（インフレ）を考慮していません。</li>
+            <li><strong>元本保証なし:</strong> 投資にはリスクが伴い、元本割れを起こす可能性があります。利回りを保証するものではありません。</li>
+        </ul>
+    </section>
+
+    <!-- 代表ケースセクション -->
+    <section class="card" style="margin-bottom: 2rem;">
+        <h2 style="font-size: 1.25rem; font-weight: 700; border-bottom: 2px solid var(--border-color); padding-bottom: 0.5rem; margin-bottom: 1rem;">
+            30代の積立設定・代表的な考え方
+        </h2>
+        <div style="display: flex; flex-direction: column; gap: 1rem;">
+            <div style="background-color: var(--bg-body); padding: 1rem; border-radius: 8px;">
+                <h3 style="font-size: 1.05rem; font-weight: 600; color: var(--primary); margin-bottom: 0.5rem;">少額から堅実に始める（月1万〜2万円）</h3>
+                <p style="font-size: 0.9rem; color: var(--text-muted); line-height: 1.6;">
+                    「まずは投資に慣れたい」「手元の現金を減らしたくない」という方に向けたアプローチです。少額であっても、長期間続けることで複利の効果に期待できます。
+                </p>
+            </div>
+            <div style="background-color: var(--bg-body); padding: 1rem; border-radius: 8px;">
+                <h3 style="font-size: 1.05rem; font-weight: 600; color: var(--primary); margin-bottom: 0.5rem;">王道のバランス型（月3万円）</h3>
+                <p style="font-size: 0.9rem; color: var(--text-muted); line-height: 1.6;">
+                    家計への負担をコントロールしつつ、老後資金のベースを作るためによく参照される金額帯です。ボーナス月だけ増額する設定を併用する方もいます。
+                </p>
+            </div>
+            <div style="background-color: var(--bg-body); padding: 1rem; border-radius: 8px;">
+                <h3 style="font-size: 1.05rem; font-weight: 600; color: var(--primary); margin-bottom: 0.5rem;">家計にゆとりがある場合（月5万円〜）</h3>
+                <p style="font-size: 0.9rem; color: var(--text-muted); line-height: 1.6;">
+                    共働き世帯などで投資に回せる余力がある場合、非課税枠を積極的に活用して資産形成のスピードを上げることを目指すケースです。
+                </p>
+            </div>
+        </div>
+        <p style="margin-top: 1rem; font-size: 0.85rem; color: var(--text-muted);">
+            ※これらはあくまで傾向としての例であり、個別具体的な投資を推奨・助言するものではありません。
+        </p>
+    </section>
+
+    <!-- FAQセクション -->
+    <section class="card" style="margin-bottom: 2rem;">
+        <h2 style="font-size: 1.25rem; font-weight: 700; border-bottom: 2px solid var(--border-color); padding-bottom: 0.5rem; margin-bottom: 1rem;">
+            30代の積立投資に関するよくある疑問
+        </h2>
+        <div style="display: flex; flex-direction: column; gap: 1rem;">
+            {faqs.map(faq => (
+                <div style="border-bottom: 1px solid var(--border-color); padding-bottom: 1rem;">
+                    <h3 style="font-size: 1rem; font-weight: 600; color: var(--text-main); margin-bottom: 0.5rem;">{faq.question}</h3>
+                    <p style="font-size: 0.9rem; color: var(--text-muted); line-height: 1.6;">{faq.answer}</p>
+                </div>
+            ))}
+        </div>
+        <p style="margin-top: 1rem; font-size: 0.85rem; color: var(--text-muted);">
+            一般的な傾向としての情報です。ご自身の税務相談や詳細な資産設計については、金融庁のウェブサイトをご参照いただくか、専門家にご相談されることをおすすめします。
+        </p>
+    </section>
+
+    <!-- ボトムCTA -->
+    <div style="text-align: center; margin-bottom: 3rem; background-color: white; padding: 2rem; border-radius: 8px; border: 1px solid var(--primary);">
+        <h2 style="font-size: 1.2rem; font-weight: 700; margin-bottom: 1rem; color: var(--text-main);">
+            まずは自分の条件で試してみましょう
+        </h2>
+        <p style="font-size: 0.9rem; color: var(--text-muted); margin-bottom: 1.5rem;">
+            「月々いくらなら無理なく続けられそうか」「その場合20年後にどうなるか」、実際に数値を入力してグラフで確認できます。
+        </p>
+        <a href="/nisa-tsumitate?model=30s" class="track-outbound" style="display: inline-block; background-color: var(--primary); color: white; padding: 1rem 2rem; border-radius: 8px; font-weight: bold; text-decoration: none;">
+            もう一度、条件を変えて試算する
+        </a>
+    </div>
+
+    <!-- 関連リンク -->
+    <section style="margin-bottom: 2rem;">
+        <h2 style="font-size: 1.1rem; font-weight: 700; margin-bottom: 1rem; color: var(--text-main);">その他のシミュレーション・比較</h2>
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1rem;">
+            <a href="/nisa-tsumitate" style="display: block; padding: 1rem; background: white; border: 1px solid var(--border-color); border-radius: 8px; text-decoration: none; color: var(--text-main); font-weight: bold; font-size: 0.9rem;">
+                📈 つみたてNISAシミュレーター
+            </a>
+            <a href="/nisa-tax-compare" style="display: block; padding: 1rem; background: white; border: 1px solid var(--border-color); border-radius: 8px; text-decoration: none; color: var(--text-main); font-weight: bold; font-size: 0.9rem;">
+                ⚖️ 課税口座との差分・比較ツール
+            </a>
+            <a href="/ideco-simulator/" style="display: block; padding: 1rem; background: white; border: 1px solid var(--border-color); border-radius: 8px; text-decoration: none; color: var(--text-main); font-weight: bold; font-size: 0.9rem;">
+                💼 iDeCo節税シミュレーター
+            </a>
+            <a href="/account-compare" style="display: block; padding: 1rem; background: white; border: 1px solid var(--border-color); border-radius: 8px; text-decoration: none; color: var(--text-main); font-weight: bold; font-size: 0.9rem;">
+                🏦 新NISAおすすめ口座比較
+            </a>
+        </div>
+    </section>
+
+    <!-- 構造化データ出力 -->
+    <FaqSchema faqs={faqs} />
+</Layout>

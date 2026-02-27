@@ -1,0 +1,139 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import FaqSchema from '../../components/FaqSchema.astro';
+
+// SEO Settings
+const title = "新NISAとiDeCoどっち？違いと向き不向きを比較（無料試算）";
+const description = "「新NISA」と「iDeCo（個人型確定拠出年金）」の違いを比較し、どちらが向いているかを解説。無料の節税シミュレーターでiDeCoの具体的な節税効果も計算できます。";
+
+// FAQ Schema Data
+const faqs = [
+  {
+    question: "新NISAとiDeCo（イデコ）は併用できますか？",
+    answer: "はい、併用可能です。資金に余裕がある場合は、iDeCoで所得控除の節税メリットを受けつつ、万が一に備えて引き出し自由な新NISAも活用する「いいとこ取り」のアプローチを取る方が多いです。"
+  },
+  {
+    question: "どちらか1つだけ選ぶならどちらが良いですか？",
+    answer: "一概には言えませんが、生活の変化（結婚、住宅購入、転職等）で資金が必要になる可能性がある場合は、いつでも引き出せる「新NISA」を優先するのが一般的とされています。"
+  },
+  {
+    question: "iDeCoの最大のデメリットは何ですか？",
+    answer: "原則として60歳まで資金を引き出すことができない「資金拘束」が最大のデメリットです。老後資金専用と割り切る必要があります。"
+  }
+];
+---
+
+<Layout title={title} description={description}>
+    <div style="margin-bottom: 2rem;">
+        <h1 style="font-size: 1.5rem; color: var(--text-main); line-height: 1.4; margin-bottom: 1rem;">
+            新NISAとiDeCoどっち？違いと向き不向きを比較して無料で試算
+        </h1>
+        <p style="font-size: 0.95rem; color: var(--text-muted); line-height: 1.6; margin-bottom: 1.5rem;">
+            資産形成のツートップと言える「新NISA」と「iDeCo（個人型確定拠出年金）」。どちらも税制優遇がある点は同じですが、「いつ引き出せるか」「どの税金が安くなるか」という仕組みに明確な違いがあります。<br>
+            ご自身のライフプラン（いつお金が必要になるか）に合わせて選ぶことが大切です。まずはiDeCo特有の「今の税金（所得税・住民税）がどれくらい安くなるのか」を無料ツールで試算してみましょう。
+        </p>
+        
+        <div style="text-align: center; margin-bottom: 3rem;">
+            <a href="/ideco-simulator" class="track-outbound" data-target="simulator_ideco" style="display: inline-block; background-color: var(--primary); color: white; padding: 1rem 2rem; border-radius: 8px; font-weight: bold; text-decoration: none; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);">
+                iDeCoの節税メリットを無料で計算する
+            </a>
+            <p style="margin-top: 0.5rem; font-size: 0.8rem; color: var(--text-muted);">※登録不要・年収を入れるだけで即計算できます</p>
+        </div>
+    </div>
+
+    <!-- 前提条件セクション -->
+    <section class="card" style="margin-bottom: 2rem;">
+        <h2 style="font-size: 1.25rem; font-weight: 700; border-bottom: 2px solid var(--border-color); padding-bottom: 0.5rem; margin-bottom: 1rem;">
+            制度比較の前提条件
+        </h2>
+        <ul style="list-style-type: disc; padding-left: 1.5rem; color: var(--text-muted); line-height: 1.8; font-size: 0.95rem;">
+            <li><strong>引き出し制限:</strong> 新NISAはいつでも売却・引き出し可能ですが、iDeCoは原則60歳まで引き出せません。</li>
+            <li><strong>目的の違い:</strong> 新NISAは汎用的な中長期の資産形成、iDeCoは「老後資金の準備」に完全に特化しています。</li>
+            <li><strong>節税の種類:</strong> 両者とも「運用益が非課税」になりますが、iDeCoはさらに「毎月の掛金全額が所得控除（今の税金が安くなる）」という強力なメリットがあります。</li>
+            <li><strong>口座管理手数料:</strong> 新NISA（主にネット証券）は無料が一般的ですが、iDeCoは加入時や毎月の口座管理手数料が発生します。</li>
+        </ul>
+    </section>
+
+    <!-- 代表ケースセクション -->
+    <section class="card" style="margin-bottom: 2rem;">
+        <h2 style="font-size: 1.25rem; font-weight: 700; border-bottom: 2px solid var(--border-color); padding-bottom: 0.5rem; margin-bottom: 1rem;">
+            タイプ別・おすすめの考え方
+        </h2>
+        <div style="display: flex; flex-direction: column; gap: 1rem;">
+            <div style="background-color: var(--bg-body); padding: 1rem; border-radius: 8px;">
+                <h3 style="font-size: 1.05rem; font-weight: 600; color: var(--primary); margin-bottom: 0.5rem;">新NISAが向いている人</h3>
+                <p style="font-size: 0.9rem; color: var(--text-muted); line-height: 1.6;">
+                    「将来、住宅購入や教育費、起業などでまとまったお金が必要になるかもしれない」「病気などの緊急時に引き出せないと不安だ」という方は、流動性（引き出しやすさ）の高い新NISAを優先するのが無難とされています。
+                </p>
+            </div>
+            <div style="background-color: var(--bg-body); padding: 1rem; border-radius: 8px;">
+                <h3 style="font-size: 1.05rem; font-weight: 600; color: var(--primary); margin-bottom: 0.5rem;">iDeCoが向いている人</h3>
+                <p style="font-size: 0.9rem; color: var(--text-muted); line-height: 1.6;">
+                    「老後のためだけに確実にお金を残したい」「意志が弱くてつい引き出して使ってしまいそう」「所得税や住民税を今すぐ安くしたい（節税したい）」という明確な目的がある方はiDeCoの恩恵を最大化できます。
+                </p>
+            </div>
+            <div style="background-color: var(--bg-body); padding: 1rem; border-radius: 8px;">
+                <h3 style="font-size: 1.05rem; font-weight: 600; color: var(--primary); margin-bottom: 0.5rem;">両方の併用が向いている人</h3>
+                <p style="font-size: 0.9rem; color: var(--text-muted); line-height: 1.6;">
+                    家計に十分な余裕があり、緊急用の現金も確保できている方は、少額だけでもiDeCoを始めて所得控除（節税）を受けつつ、残りの余力で新NISAを運用するというハイブリッド戦略を取ることができます。
+                </p>
+            </div>
+        </div>
+        <p style="margin-top: 1rem; font-size: 0.85rem; color: var(--text-muted);">
+            ※これらはあくまで傾向としての例であり、個別具体的な投資を推奨・助言するものではありません。
+        </p>
+    </section>
+
+    <!-- FAQセクション -->
+    <section class="card" style="margin-bottom: 2rem;">
+        <h2 style="font-size: 1.25rem; font-weight: 700; border-bottom: 2px solid var(--border-color); padding-bottom: 0.5rem; margin-bottom: 1rem;">
+            新NISAとiDeCoに関するよくある疑問
+        </h2>
+        <div style="display: flex; flex-direction: column; gap: 1rem;">
+            {faqs.map(faq => (
+                <div style="border-bottom: 1px solid var(--border-color); padding-bottom: 1rem;">
+                    <h3 style="font-size: 1rem; font-weight: 600; color: var(--text-main); margin-bottom: 0.5rem;">{faq.question}</h3>
+                    <p style="font-size: 0.9rem; color: var(--text-muted); line-height: 1.6;">{faq.answer}</p>
+                </div>
+            ))}
+        </div>
+        <p style="margin-top: 1rem; font-size: 0.85rem; color: var(--text-muted);">
+            一般的な傾向としての情報です。ご自身の税務相談や詳細な資産設計については、金融庁や厚生労働省のウェブサイトをご参照いただくか、専門家にご相談されることをおすすめします。
+        </p>
+    </section>
+
+    <!-- ボトムCTA -->
+    <div style="text-align: center; margin-bottom: 3rem; background-color: white; padding: 2rem; border-radius: 8px; border: 1px solid var(--primary);">
+        <h2 style="font-size: 1.2rem; font-weight: 700; margin-bottom: 1rem; color: var(--text-main);">
+            iDeCoの節税効果はどれくらい？
+        </h2>
+        <p style="font-size: 0.9rem; color: var(--text-muted); margin-bottom: 1.5rem;">
+            年齢と年収を入力するだけで、「もしiDeCoをやったら、毎年いくら税金が安くなるか」の目安を無料で瞬時にシミュレーションできます。
+        </p>
+        <a href="/ideco-simulator" class="track-outbound" style="display: inline-block; background-color: var(--primary); color: white; padding: 1rem 2rem; border-radius: 8px; font-weight: bold; text-decoration: none;">
+            iDeCoシミュレーターを使ってみる
+        </a>
+    </div>
+
+    <!-- 関連リンク -->
+    <section style="margin-bottom: 2rem;">
+        <h2 style="font-size: 1.1rem; font-weight: 700; margin-bottom: 1rem; color: var(--text-main);">その他のシミュレーション・比較</h2>
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1rem;">
+            <a href="/nisa-tsumitate" style="display: block; padding: 1rem; background: white; border: 1px solid var(--border-color); border-radius: 8px; text-decoration: none; color: var(--text-main); font-weight: bold; font-size: 0.9rem;">
+                📈 つみたてNISAシミュレーター
+            </a>
+            <a href="/nisa-tax-compare" style="display: block; padding: 1rem; background: white; border: 1px solid var(--border-color); border-radius: 8px; text-decoration: none; color: var(--text-main); font-weight: bold; font-size: 0.9rem;">
+                ⚖️ 新NISA vs 課税口座の比較ツール
+            </a>
+            <a href="/nisa-withdraw" style="display: block; padding: 1rem; background: white; border: 1px solid var(--border-color); border-radius: 8px; text-decoration: none; color: var(--text-main); font-weight: bold; font-size: 0.9rem;">
+                📉 取り崩しシミュレーター
+            </a>
+            <a href="/account-compare" style="display: block; padding: 1rem; background: white; border: 1px solid var(--border-color); border-radius: 8px; text-decoration: none; color: var(--text-main); font-weight: bold; font-size: 0.9rem;">
+                🏦 新NISAおすすめ口座比較
+            </a>
+        </div>
+    </section>
+
+    <!-- 構造化データ出力 -->
+    <FaqSchema faqs={faqs} />
+</Layout>

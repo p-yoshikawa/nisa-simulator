@@ -57,6 +57,17 @@ const buildDate = new Date().toLocaleDateString('ja-JP', { timeZone: 'Asia/Tokyo
         </p>
     </section>
 
+    <!-- 新設： 目的別・詳細解説へのリンク集 -->
+    <section style="margin-bottom: 2rem; background-color: white; padding: 1.5rem; border-radius: 8px; border: 1px solid var(--border-color);">
+        <h2 style="font-size: 1.1rem; font-weight: 700; margin-bottom: 1rem; color: var(--text-main); border-bottom: 2px solid var(--border-color); padding-bottom: 0.5rem;">
+            NISAと課税口座の比較に関するよくある疑問
+        </h2>
+        <ul style="list-style-type: none; padding: 0; display: flex; flex-direction: column; gap: 0.8rem;">
+            <li><a href="/lp/nisa-vs-taxable" style="color: var(--primary); text-decoration: none; font-weight: 600; display: flex; align-items: center; gap: 0.5rem;"><span>▶</span> 新NISAと課税口座の違いは？税金差を無料で比較</a></li>
+            <li><a href="/lp/nisa-vs-ideco" style="color: var(--primary); text-decoration: none; font-weight: 600; display: flex; align-items: center; gap: 0.5rem;"><span>▶</span> 新NISAとiDeCoどっち？違いと向き不向きを比較</a></li>
+        </ul>
+    </section>
+
 	<RelatedLinks />
 	<FAQSection faqs={faqs} />
 </Layout>

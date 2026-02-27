@@ -72,10 +72,27 @@ const buildDate = new Date().toLocaleDateString('ja-JP', { timeZone: 'Asia/Tokyo
                 <span style="color: var(--border-color);">|</span>
                 <a href="/nisa-tsumitate?model=40s" style="color: var(--primary); text-decoration: underline;">40代モデル</a>
                 <span style="color: var(--border-color);">|</span>
-                <a href="/nisa-tsumitate?model=50s" style="color: var(--primary); text-decoration: underline;">50代モデル</a>
+                <a href="/nisa-tsumitate?model=50s" class="guide-link">
+                <span class="guide-icon">📊</span>
+                <span class="guide-text">50代からのラストスパート</span>
+            </a>
             </div>
         </div>
-	</div>
+    </div>
+
+    <!-- 新設： 目的別・詳細解説へのリンク集 -->
+    <section style="margin-bottom: 2.5rem; background-color: white; padding: 1.5rem; border-radius: 8px; border: 1px solid var(--border-color);">
+        <h2 style="font-size: 1.25rem; font-weight: 700; margin-bottom: 1rem; color: var(--text-main); border-bottom: 2px solid var(--border-color); padding-bottom: 0.5rem;">
+            目的別・年代別のよくある疑問とシミュレーション
+        </h2>
+        <ul style="list-style-type: none; padding: 0; display: flex; flex-direction: column; gap: 0.8rem;">
+            <li><a href="/lp/30s-how-much" style="color: var(--primary); text-decoration: none; font-weight: 600; display: flex; align-items: center; gap: 0.5rem;"><span>▶</span> 30代の新NISAはいくら積み立てればいい？無料シミュレーション</a></li>
+            <li><a href="/lp/monthly-30000-future" style="color: var(--primary); text-decoration: none; font-weight: 600; display: flex; align-items: center; gap: 0.5rem;"><span>▶</span> 新NISA 月3万円で将来いくら？無料シミュレーション</a></li>
+            <li><a href="/lp/40s-is-it-late" style="color: var(--primary); text-decoration: none; font-weight: 600; display: flex; align-items: center; gap: 0.5rem;"><span>▶</span> 40代から新NISAは遅い？いくら積立で間に合うか試算</a></li>
+            <li><a href="/lp/nisa-vs-ideco" style="color: var(--primary); text-decoration: none; font-weight: 600; display: flex; align-items: center; gap: 0.5rem;"><span>▶</span> 新NISAとiDeCoどっち？違いと向き不向きを比較</a></li>
+            <li><a href="/lp/nisa-vs-taxable" style="color: var(--primary); text-decoration: none; font-weight: 600; display: flex; align-items: center; gap: 0.5rem;"><span>▶</span> 新NISAと課税口座の違いは？税金差を無料で比較</a></li>
+        </ul>
+    </section>
 
     <section class="card" style="margin-bottom: 2.5rem; background-color: white; border: 1px solid var(--border-color);">
         <h2 style="font-size: 1.4rem; font-weight: 700; margin-bottom: 1rem; color: var(--text-main);">新NISAシミュレーションで将来いくらになるかを確認しよう</h2>

@@ -1,0 +1,139 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import FaqSchema from '../../components/FaqSchema.astro';
+
+// SEO Settings
+const title = "40代から新NISAは遅い？いくら積立で間に合うか試算";
+const description = "「40代からの積立投資は遅すぎるのでは？」という疑問を解消。残り20年弱の運用期間でも老後資金にどう影響するか、40代向けの設定で無料シミュレーションできます。";
+
+// FAQ Schema Data
+const faqs = [
+  {
+    question: "40代から新NISAを始めても意味はありますか？",
+    answer: "はい、意味があります。65歳までの運用期間だけでも約20年前後確保できるため、複利効果や非課税メリットを十分に享受できる可能性があります。"
+  },
+  {
+    question: "40代は毎月いくら積み立てるのが目安ですか？",
+    answer: "家計状況によりますが、老後資金の確保を主目的とする場合、月3万円〜5万円程度を目安に設定する方が多い傾向にあります。"
+  },
+  {
+    question: "今ある貯金を一気に全額投資しても良いでしょうか？",
+    answer: "生活防衛資金（生活費の数ヶ月〜半年分程度）は必ず現金として手元に残し、当面使う予定のない余裕資金の範囲内で無理なく投資を行うことが推奨されます。"
+  }
+];
+---
+
+<Layout title={title} description={description}>
+    <div style="margin-bottom: 2rem;">
+        <h1 style="font-size: 1.5rem; color: var(--text-main); line-height: 1.4; margin-bottom: 1rem;">
+            40代から新NISAは遅い？いくら積立で間に合うか無料で試算
+        </h1>
+        <p style="font-size: 0.95rem; color: var(--text-muted); line-height: 1.6; margin-bottom: 1.5rem;">
+            「周りはもうみんな始めているのに、40代からのスタートではもう遅いのでは？」と不安に思う方は少なくありません。しかし、仮に65歳の定年までと考えた場合でも、約20年前後の運用期間を確保することができ、長期間の積立による資産形成効果は十分に期待できます。<br>
+            当サイトの無料シミュレーターを利用して、「月4万円を継続した場合」の将来予測グラフを確認してみましょう。
+        </p>
+        
+        <div style="text-align: center; margin-bottom: 3rem;">
+            <a href="/nisa-tsumitate?model=40s" class="track-outbound" data-target="simulator_tsumitate_40s" style="display: inline-block; background-color: var(--primary); color: white; padding: 1rem 2rem; border-radius: 8px; font-weight: bold; text-decoration: none; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);">
+                40代のモデルケースを入れて無料で試算する
+            </a>
+            <p style="margin-top: 0.5rem; font-size: 0.8rem; color: var(--text-muted);">※登録不要・ブラウザ上で即計算できます</p>
+        </div>
+    </div>
+
+    <!-- 前提条件セクション -->
+    <section class="card" style="margin-bottom: 2rem;">
+        <h2 style="font-size: 1.25rem; font-weight: 700; border-bottom: 2px solid var(--border-color); padding-bottom: 0.5rem; margin-bottom: 1rem;">
+            シミュレーションを行う上での前提条件
+        </h2>
+        <ul style="list-style-type: disc; padding-left: 1.5rem; color: var(--text-muted); line-height: 1.8; font-size: 0.95rem;">
+            <li><strong>運用期間:</strong> 概ね60代〜65歳のリタイア時期を見据え、15年〜20年の中長期を想定。</li>
+            <li><strong>想定利回り:</strong> 一般的なインデックスファンドのリターンを参考に、年利3%〜5%程度を例示。</li>
+            <li><strong>インフレ率:</strong> 本計算では将来の物価上昇（インフレーション）は考慮されていません。</li>
+            <li><strong>元本保証なし:</strong> 投資にはリスクが伴い、元本割れを起こす可能性があります。</li>
+        </ul>
+    </section>
+
+    <!-- 代表ケースセクション -->
+    <section class="card" style="margin-bottom: 2rem;">
+        <h2 style="font-size: 1.25rem; font-weight: 700; border-bottom: 2px solid var(--border-color); padding-bottom: 0.5rem; margin-bottom: 1rem;">
+            40代からの積立・代表的な考え方
+        </h2>
+        <div style="display: flex; flex-direction: column; gap: 1rem;">
+            <div style="background-color: var(--bg-body); padding: 1rem; border-radius: 8px;">
+                <h3 style="font-size: 1.05rem; font-weight: 600; color: var(--primary); margin-bottom: 0.5rem;">教育資金と老後資金の並行ライン（月2万〜3万円）</h3>
+                <p style="font-size: 0.9rem; color: var(--text-muted); line-height: 1.6;">
+                    子どもの教育費がピークを迎えるケースが多い40代。無理のない範囲で月2〜3万円を確保し、まずは現金の流出を抑えながら積立をスタートするアプローチです。
+                </p>
+            </div>
+            <div style="background-color: var(--bg-body); padding: 1rem; border-radius: 8px;">
+                <h3 style="font-size: 1.05rem; font-weight: 600; color: var(--primary); margin-bottom: 0.5rem;">老後に向けたスパート（月4万〜5万円）</h3>
+                <p style="font-size: 0.9rem; color: var(--text-muted); line-height: 1.6;">
+                    収入が安定してくる、あるいは教育費の目処が立ってきたタイミングから、毎月の積立額を増やして20年後のリタイア資産の基盤を一気に構築する考え方です。
+                </p>
+            </div>
+            <div style="background-color: var(--bg-body); padding: 1rem; border-radius: 8px;">
+                <h3 style="font-size: 1.05rem; font-weight: 600; color: var(--primary); margin-bottom: 0.5rem;">既にある貯金の活用（一括＋積立）</h3>
+                <p style="font-size: 0.9rem; color: var(--text-muted); line-height: 1.6;">
+                    すでに一定のまとまった預貯金がある場合、成長投資枠などを活用して、数回に分けて投資に回しつつ、毎月の積立も並行して行う戦略も用いられます。
+                </p>
+            </div>
+        </div>
+        <p style="margin-top: 1rem; font-size: 0.85rem; color: var(--text-muted);">
+            ※これらはあくまで傾向としての例であり、個別具体的な投資を推奨・助言するものではありません。
+        </p>
+    </section>
+
+    <!-- FAQセクション -->
+    <section class="card" style="margin-bottom: 2rem;">
+        <h2 style="font-size: 1.25rem; font-weight: 700; border-bottom: 2px solid var(--border-color); padding-bottom: 0.5rem; margin-bottom: 1rem;">
+            40代からの新NISAに関するよくある疑問
+        </h2>
+        <div style="display: flex; flex-direction: column; gap: 1rem;">
+            {faqs.map(faq => (
+                <div style="border-bottom: 1px solid var(--border-color); padding-bottom: 1rem;">
+                    <h3 style="font-size: 1rem; font-weight: 600; color: var(--text-main); margin-bottom: 0.5rem;">{faq.question}</h3>
+                    <p style="font-size: 0.9rem; color: var(--text-muted); line-height: 1.6;">{faq.answer}</p>
+                </div>
+            ))}
+        </div>
+        <p style="margin-top: 1rem; font-size: 0.85rem; color: var(--text-muted);">
+            一般的な傾向としての情報です。ご自身の税務相談や詳細な資産設計については、金融庁のウェブサイトをご参照いただくか、専門家にご相談されることをおすすめします。
+        </p>
+    </section>
+
+    <!-- ボトムCTA -->
+    <div style="text-align: center; margin-bottom: 3rem; background-color: white; padding: 2rem; border-radius: 8px; border: 1px solid var(--primary);">
+        <h2 style="font-size: 1.2rem; font-weight: 700; margin-bottom: 1rem; color: var(--text-main);">
+            まずは自分の条件で試してみましょう
+        </h2>
+        <p style="font-size: 0.9rem; color: var(--text-muted); margin-bottom: 1.5rem;">
+            今の年齢から65歳までの年数を入力して、「毎月いくらの積立で、およそいくらになるのか」をグラフで簡単にシミュレーションできます。
+        </p>
+        <a href="/nisa-tsumitate?model=40s" class="track-outbound" style="display: inline-block; background-color: var(--primary); color: white; padding: 1rem 2rem; border-radius: 8px; font-weight: bold; text-decoration: none;">
+            もう一度、条件を変えて試算する
+        </a>
+    </div>
+
+    <!-- 関連リンク -->
+    <section style="margin-bottom: 2rem;">
+        <h2 style="font-size: 1.1rem; font-weight: 700; margin-bottom: 1rem; color: var(--text-main);">その他のシミュレーション・比較</h2>
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1rem;">
+            <a href="/nisa-tsumitate" style="display: block; padding: 1rem; background: white; border: 1px solid var(--border-color); border-radius: 8px; text-decoration: none; color: var(--text-main); font-weight: bold; font-size: 0.9rem;">
+                📈 つみたてNISAシミュレーター
+            </a>
+            <a href="/nisa-tax-compare" style="display: block; padding: 1rem; background: white; border: 1px solid var(--border-color); border-radius: 8px; text-decoration: none; color: var(--text-main); font-weight: bold; font-size: 0.9rem;">
+                ⚖️ 課税口座との差分・比較ツール
+            </a>
+            <a href="/ideco-simulator/" style="display: block; padding: 1rem; background: white; border: 1px solid var(--border-color); border-radius: 8px; text-decoration: none; color: var(--text-main); font-weight: bold; font-size: 0.9rem;">
+                💼 iDeCo節税シミュレーター
+            </a>
+            <a href="/account-compare" style="display: block; padding: 1rem; background: white; border: 1px solid var(--border-color); border-radius: 8px; text-decoration: none; color: var(--text-main); font-weight: bold; font-size: 0.9rem;">
+                🏦 新NISAおすすめ口座比較
+            </a>
+        </div>
+    </section>
+
+    <!-- 構造化データ出力 -->
+    <FaqSchema faqs={faqs} />
+</Layout>

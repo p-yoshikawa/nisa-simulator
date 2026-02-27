@@ -1,0 +1,139 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import FaqSchema from '../../components/FaqSchema.astro';
+
+// SEO Settings
+const title = "新NISAと課税口座の違いは？税金差を無料で比較シミュレーション";
+const description = "新NISAと通常の課税口座（特定口座など）の違いを分かりやすく解説。投資信託の積立を行った場合、将来どれくらい税金に差が出るのかを無料シミュレーターで比較できます。";
+
+// FAQ Schema Data
+const faqs = [
+  {
+    question: "新NISAと普通の口座（特定口座）の決定的な違いは何ですか？",
+    answer: "投資で得た利益に対する税金が違います。課税口座では利益に対して約20%の税金が引かれますが、新NISAであれば税金が一切かからず利益をそのまま受け取れます。"
+  },
+  {
+    question: "新NISAのデメリットはありますか？",
+    answer: "非課税の枠（年間最大360万円、生涯1800万円）が決まっていることや、他の口座で出た損失と利益を相殺する「損益通算」ができない点が挙げられます。"
+  },
+  {
+    question: "課税口座から新NISAに直接移行（移管）することは可能ですか？",
+    answer: "直接移行することはできません。課税口座で保有している商品を一度売却し、現金化してから新NISA口座で買い直す必要があります。"
+  }
+];
+---
+
+<Layout title={title} description={description}>
+    <div style="margin-bottom: 2rem;">
+        <h1 style="font-size: 1.5rem; color: var(--text-main); line-height: 1.4; margin-bottom: 1rem;">
+            新NISAと課税口座の違いは？税金差を無料で比較
+        </h1>
+        <p style="font-size: 0.95rem; color: var(--text-muted); line-height: 1.6; margin-bottom: 1.5rem;">
+            投資を始める際、「まずは普通の証券口座（特定口座や一般口座）でいいのか、それとも新NISAを作るべきか」と迷う方は少なくありません。<br>
+            結論から言うと、同じ元本・同じ利回りで運用した場合、手元に残る最終的な金額には「税金の有無」だけで数百万円単位の差が生じることもあります。まずは無料シミュレーターで、その差額のイメージを視覚的に確認してみましょう。
+        </p>
+        
+        <div style="text-align: center; margin-bottom: 3rem;">
+            <a href="/nisa-tax-compare" class="track-outbound" data-target="simulator_tax_compare" style="display: inline-block; background-color: var(--primary); color: white; padding: 1rem 2rem; border-radius: 8px; font-weight: bold; text-decoration: none; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);">
+                NISAと課税口座の「手取り額の差」を無料で試算
+            </a>
+            <p style="margin-top: 0.5rem; font-size: 0.8rem; color: var(--text-muted);">※登録不要・ブラウザ上で即計算できます</p>
+        </div>
+    </div>
+
+    <!-- 前提条件セクション -->
+    <section class="card" style="margin-bottom: 2rem;">
+        <h2 style="font-size: 1.25rem; font-weight: 700; border-bottom: 2px solid var(--border-color); padding-bottom: 0.5rem; margin-bottom: 1rem;">
+            比較シミュレーションの前提条件
+        </h2>
+        <ul style="list-style-type: disc; padding-left: 1.5rem; color: var(--text-muted); line-height: 1.8; font-size: 0.95rem;">
+            <li><strong>税率の想定:</strong> 課税口座の税率は、所得税・住民税・復興特別所得税をあわせた20.315%として一律計算しています。</li>
+            <li><strong>手数料の有無:</strong> 購入時手数料や信託報酬などの投資コスト、および将来のインフレ率は計算に含んでいません。</li>
+            <li><strong>再投資の考慮:</strong> シミュレーションツールでは、運用で得た利益がそのまま元本に組み込まれていく「複利運用」を想定しています。</li>
+            <li><strong>元本保証なし:</strong> 投資にはリスクが伴い、元本割れを起こす可能性があります。</li>
+        </ul>
+    </section>
+
+    <!-- 代表ケースセクション -->
+    <section class="card" style="margin-bottom: 2rem;">
+        <h2 style="font-size: 1.25rem; font-weight: 700; border-bottom: 2px solid var(--border-color); padding-bottom: 0.5rem; margin-bottom: 1rem;">
+            制度の主な違いと使い分け
+        </h2>
+        <div style="display: flex; flex-direction: column; gap: 1rem;">
+            <div style="background-color: var(--bg-body); padding: 1rem; border-radius: 8px;">
+                <h3 style="font-size: 1.05rem; font-weight: 600; color: var(--primary); margin-bottom: 0.5rem;">新NISAのメリット（非課税）</h3>
+                <p style="font-size: 0.9rem; color: var(--text-muted); line-height: 1.6;">
+                    通常の投資では、例えば100万円の利益が出た場合、約20万円が税金として引かれ手元には80万円しか残りません。新NISAであれば、100万円の利益がそのまま無税で自分のものになります。
+                </p>
+            </div>
+            <div style="background-color: var(--bg-body); padding: 1rem; border-radius: 8px;">
+                <h3 style="font-size: 1.05rem; font-weight: 600; color: var(--primary); margin-bottom: 0.5rem;">課税口座（特定口座）の役割</h3>
+                <p style="font-size: 0.9rem; color: var(--text-muted); line-height: 1.6;">
+                    新NISAには生涯で1800万円という投資枠の限度があります。1800万円以上の資産を運用したい場合や、新NISA対象外の金融商品（一部のアクティブファンド等）を買いたい場合に、特定口座を利用します。
+                </p>
+            </div>
+            <div style="background-color: var(--bg-body); padding: 1rem; border-radius: 8px;">
+                <h3 style="font-size: 1.05rem; font-weight: 600; color: var(--primary); margin-bottom: 0.5rem;">効率的な投資のセオリー</h3>
+                <p style="font-size: 0.9rem; color: var(--text-muted); line-height: 1.6;">
+                    まずは税制上もっとも有利な「新NISA」の生涯投資枠1800万円を優先的に埋め、それでもさらに投資に回せる資金がある場合にのみ課税口座を利用するアプローチが、一般的に無駄が少ないとされます。
+                </p>
+            </div>
+        </div>
+        <p style="margin-top: 1rem; font-size: 0.85rem; color: var(--text-muted);">
+            ※これらは一般的な解説であり、個別具体的な税務判断につきましては税理士資格を持つ専門家等にご確認ください。
+        </p>
+    </section>
+
+    <!-- FAQセクション -->
+    <section class="card" style="margin-bottom: 2rem;">
+        <h2 style="font-size: 1.25rem; font-weight: 700; border-bottom: 2px solid var(--border-color); padding-bottom: 0.5rem; margin-bottom: 1rem;">
+            税金や口座の違いに関するよくある疑問
+        </h2>
+        <div style="display: flex; flex-direction: column; gap: 1rem;">
+            {faqs.map(faq => (
+                <div style="border-bottom: 1px solid var(--border-color); padding-bottom: 1rem;">
+                    <h3 style="font-size: 1rem; font-weight: 600; color: var(--text-main); margin-bottom: 0.5rem;">{faq.question}</h3>
+                    <p style="font-size: 0.9rem; color: var(--text-muted); line-height: 1.6;">{faq.answer}</p>
+                </div>
+            ))}
+        </div>
+        <p style="margin-top: 1rem; font-size: 0.85rem; color: var(--text-muted);">
+            一般的な傾向としての情報です。ご自身の税務相談や詳細な資産設計については、金融庁のウェブサイトをご参照いただくか、専門家にご相談されることをおすすめします。
+        </p>
+    </section>
+
+    <!-- ボトムCTA -->
+    <div style="text-align: center; margin-bottom: 3rem; background-color: white; padding: 2rem; border-radius: 8px; border: 1px solid var(--primary);">
+        <h2 style="font-size: 1.2rem; font-weight: 700; margin-bottom: 1rem; color: var(--text-main);">
+            実際に、税金でいくら差が出る？
+        </h2>
+        <p style="font-size: 0.9rem; color: var(--text-muted); margin-bottom: 1.5rem;">
+            毎月の積立額と年数を入れるだけで、「もし普通の口座で運用していたら引かれていたはずの税金（＝新NISAでお得になった手取り額）」をすぐにグラフ化できます。
+        </p>
+        <a href="/nisa-tax-compare" class="track-outbound" style="display: inline-block; background-color: var(--primary); color: white; padding: 1rem 2rem; border-radius: 8px; font-weight: bold; text-decoration: none;">
+            NISAと課税口座の比較ツールを使う
+        </a>
+    </div>
+
+    <!-- 関連リンク -->
+    <section style="margin-bottom: 2rem;">
+        <h2 style="font-size: 1.1rem; font-weight: 700; margin-bottom: 1rem; color: var(--text-main);">その他のシミュレーション・比較</h2>
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1rem;">
+            <a href="/nisa-tsumitate" style="display: block; padding: 1rem; background: white; border: 1px solid var(--border-color); border-radius: 8px; text-decoration: none; color: var(--text-main); font-weight: bold; font-size: 0.9rem;">
+                📈 つみたてNISAシミュレーター
+            </a>
+            <a href="/ideco-simulator/" style="display: block; padding: 1rem; background: white; border: 1px solid var(--border-color); border-radius: 8px; text-decoration: none; color: var(--text-main); font-weight: bold; font-size: 0.9rem;">
+                💼 iDeCo節税シミュレーター
+            </a>
+            <a href="/nisa-withdraw" style="display: block; padding: 1rem; background: white; border: 1px solid var(--border-color); border-radius: 8px; text-decoration: none; color: var(--text-main); font-weight: bold; font-size: 0.9rem;">
+                📉 取り崩しシミュレーター
+            </a>
+            <a href="/account-compare" style="display: block; padding: 1rem; background: white; border: 1px solid var(--border-color); border-radius: 8px; text-decoration: none; color: var(--text-main); font-weight: bold; font-size: 0.9rem;">
+                🏦 新NISAおすすめ口座比較
+            </a>
+        </div>
+    </section>
+
+    <!-- 構造化データ出力 -->
+    <FaqSchema faqs={faqs} />
+</Layout>
