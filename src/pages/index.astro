@@ -13,141 +13,138 @@ const buildDate = new Date().toLocaleDateString('ja-JP', { timeZone: 'Asia/Tokyo
 
 <Layout 
 	title="新NISAシミュレーター【無料】積立・取り崩し・課税比較対応"
-	description="新NISAの積立利益や取り崩しを無料で即時計算。課税口座やiDeCoとの比較にも対応した資産形成シミュレーターです。口座情報や登録不要でスマホからすぐにご利用いただけます。"
+	description="新NISAの積立額や目標からの逆算、取り崩しを無料でシミュレーション。課税口座・iDeCoとの比較まで幅広く対応した資産形成ポータルです。目安としてご活用ください。"
 >
-	<div class="card" style="text-align: center; padding: 4rem 2rem;">
-		<h1 style="font-size: 1.8rem; font-weight: 800; margin-bottom: 0.5rem; color: var(--text-main); line-height: 1.4;">新NISAシミュレーター【無料】<br/><span style="font-size: 1.4rem; color: var(--primary);">将来いくら？積立・取り崩し・課税比較対応</span></h1>
-		
-        <div style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 1rem; display: flex; align-items: center; justify-content: center; gap: 0.25rem;">
-            <span>🔄 最終更新日: {buildDate}</span>
-        </div>
-		
-        <div style="font-size: 0.95rem; margin-bottom: 2rem; text-align: center;">
-            💡 <a href="/new-nisa-guide/" class="track-nav" data-nav="top_guide" style="color: var(--primary); font-weight: bold; text-decoration: underline;">制度の詳細はこちら → 新NISA完全ガイド</a>
-        </div>
-		
-		<p style="text-align: left; margin: 0 auto 1.5rem; line-height: 1.8; color: var(--text-muted); font-size: 0.95rem; max-width: 600px;">
-			本サイトは、新NISA制度を活用して「将来いくらになるのか」をブラウザ上で簡単にシミュレーション・計算できる無料ツール群です。
-			毎月の積立額や想定利回りを入力するだけで、数十年にわたる複利による資産成長の様子を即座にグラフ化します。
-			また、資産形成期だけでなく、セカンドライフに向けた「資産の取り崩しシミュレーション」や、
-			従来の特定口座（課税口座）との「手取り額の違い（節税効果の比較）」、
-			さらには「iDeCo（個人型確定拠出年金）」を併用した場合の概算まで、年齢別・目的別に合わせた計算機能を備えています。<br/>
-			※各シミュレーターの結果は一定の計算式に基づいた参考値であり、将来の運用成果を約束・保証するものではありません。<br/><br/>
-            <strong>登録や個人情報の入力は不要で、ブラウザ上で完結します。</strong>
-		</p>
-        
-        <!-- こんな方におすすめ セクション -->
-        <div style="max-width: 500px; margin: 0 auto 2.5rem; text-align: left; background-color: var(--bg-body); border-radius: 8px; padding: 1.5rem; border: 1px solid var(--border-color);">
-            <h3 style="font-size: 1.1rem; font-weight: bold; margin-bottom: 1rem; color: var(--text-main); text-align: center;">💡 こんな方におすすめ</h3>
-            <ul style="margin: 0; padding-left: 1.5rem; color: var(--text-muted); font-size: 0.95rem; line-height: 1.8;">
-                <li>毎月いくら積み立てれば将来いくらになるか知りたい</li>
-                <li>老後資金の目安を試算したい</li>
-                <li>新NISAと課税口座の違いを比較したい</li>
-                <li>iDeCoとの併用を検討している</li>
-            </ul>
-        </div>
-		
-		<div style="display: flex; flex-direction: column; gap: 1rem; max-width: 400px; margin: 0 auto; margin-bottom: 2.5rem;">
-			<a href="/nisa-tsumitate" class="nav-link" style="background-color: var(--primary); color: white;">
-				つみたてシミュレーションを始める
+	<div style="text-align: center; padding: 3rem 1rem 4rem;">
+		<h1 style="font-size: 1.8rem; font-weight: 800; margin-bottom: 1rem; color: var(--text-main); line-height: 1.4;">
+            月◯円で将来いくら？<br/>
+            <span style="font-size: 1.6rem; color: var(--primary);">新NISAを無料で今すぐ試算</span>
+        </h1>
+        <p style="font-size: 1rem; color: var(--text-muted); line-height: 1.6; margin-bottom: 2.5rem; max-width: 600px; margin-left: auto; margin-right: auto;">
+            積立・取り崩し・税金差までまとめてシミュレーション可能。
+        </p>
+
+		<div style="display: flex; flex-direction: column; gap: 1rem; max-width: 350px; margin: 0 auto 2rem;">
+			<a href="/nisa-tsumitate" class="nav-link track-nav" data-nav="hero_tsumitate" style="background-color: var(--primary); color: white; border-radius: 30px; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1);">
+				💡 積立を試算する
 			</a>
-			<a href="/nisa-withdraw" class="nav-link" style="border: 1px solid var(--primary); color: var(--primary);">
-				取り崩しシミュレーションを始める
-			</a>
-			<a href="/nisa-tax-compare" class="nav-link" style="border: 1px solid var(--primary); color: var(--primary);">
-				課税口座との比較を始める
-			</a>
-			<a href="/ideco-simulator" class="nav-link" style="border: 1px solid var(--primary); color: var(--primary);">
-				iDeCoのシミュレーションを始める
+			<a href="/nisa-goal-simulator" class="nav-link track-nav" data-nav="hero_goal" style="border: 2px solid var(--primary); color: var(--primary); border-radius: 30px;">
+				🎯 目標から逆算する
 			</a>
 		</div>
-
-        <!-- 年齢別導線 -->
-        <div style="font-size: 0.95rem; color: var(--text-main); margin-bottom: 2rem;">
-            <p style="font-weight: bold; margin-bottom: 0.5rem;">年齢別のシミュレーション戦略を見る</p>
-            <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
-                <a href="/nisa-tsumitate?model=20s" style="color: var(--primary); text-decoration: underline;">20代モデル</a>
-                <span style="color: var(--border-color);">|</span>
-                <a href="/nisa-tsumitate?model=30s" style="color: var(--primary); text-decoration: underline;">30代モデル</a>
-                <span style="color: var(--border-color);">|</span>
-                <a href="/nisa-tsumitate?model=40s" style="color: var(--primary); text-decoration: underline;">40代モデル</a>
-                <span style="color: var(--border-color);">|</span>
-                <a href="/nisa-tsumitate?model=50s" class="guide-link">
-                <span class="guide-icon">📊</span>
-                <span class="guide-text">50代からのラストスパート</span>
-            </a>
-            </div>
+        <div style="font-size: 0.8rem; color: var(--text-muted); display: flex; align-items: center; justify-content: center; gap: 0.25rem;">
+            <span>🔄 最終更新日: {buildDate}</span>
         </div>
     </div>
 
-    <!-- 新設： 条件別シミュレーション一覧 -->
-    <section style="margin-bottom: 2.5rem; background-color: white; padding: 1.5rem; border-radius: 8px; border: 1px solid var(--border-color);">
-        <h2 style="font-size: 1.25rem; font-weight: 700; margin-bottom: 1rem; color: var(--text-main); border-bottom: 2px solid var(--border-color); padding-bottom: 0.5rem;">
-            条件別シミュレーション一覧
+    <!-- ② このサイトでできること（4カラム） -->
+    <section style="margin-bottom: 3rem;">
+        <h2 style="font-size: 1.4rem; font-weight: 700; text-align: center; margin-bottom: 1.5rem; color: var(--text-main);">
+            このサイトでできること
         </h2>
-        <ul style="list-style-type: none; padding: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 0.8rem;">
-            <li><a href="/lp/20s-how-much" style="color: var(--primary); text-decoration: none; font-weight: 600; display: flex; align-items: center; gap: 0.5rem;"><span>▶</span> 20代の新NISAはいくら？</a></li>
-            <li><a href="/lp/30s-how-much" style="color: var(--primary); text-decoration: none; font-weight: 600; display: flex; align-items: center; gap: 0.5rem;"><span>▶</span> 30代はいくら積立？</a></li>
-            <li><a href="/lp/40s-is-it-late" style="color: var(--primary); text-decoration: none; font-weight: 600; display: flex; align-items: center; gap: 0.5rem;"><span>▶</span> 40代から間に合う？</a></li>
-            <li><a href="/lp/50s-how-much" style="color: var(--primary); text-decoration: none; font-weight: 600; display: flex; align-items: center; gap: 0.5rem;"><span>▶</span> 50代はいくら積立？</a></li>
-            <li><a href="/lp/monthly-10000" style="color: var(--primary); text-decoration: none; font-weight: 600; display: flex; align-items: center; gap: 0.5rem;"><span>▶</span> 月1万円で将来いくら？</a></li>
-            <li><a href="/lp/monthly-30000-future" style="color: var(--primary); text-decoration: none; font-weight: 600; display: flex; align-items: center; gap: 0.5rem;"><span>▶</span> 月3万円で将来いくら？</a></li>
-            <li><a href="/lp/monthly-50000" style="color: var(--primary); text-decoration: none; font-weight: 600; display: flex; align-items: center; gap: 0.5rem;"><span>▶</span> 月5万円で将来いくら？</a></li>
-            <li><a href="/lp/return-3-percent" style="color: var(--primary); text-decoration: none; font-weight: 600; display: flex; align-items: center; gap: 0.5rem;"><span>▶</span> 利回り3%ならいくら増える？</a></li>
-            <li><a href="/lp/return-7-percent" style="color: var(--primary); text-decoration: none; font-weight: 600; display: flex; align-items: center; gap: 0.5rem;"><span>▶</span> 利回り7%ならいくら増える？</a></li>
-            <li><a href="/lp/education-fund" style="color: var(--primary); text-decoration: none; font-weight: 600; display: flex; align-items: center; gap: 0.5rem;"><span>▶</span> 教育資金は新NISAで貯まる？</a></li>
-            <li><a href="/lp/retirement-2000m" style="color: var(--primary); text-decoration: none; font-weight: 600; display: flex; align-items: center; gap: 0.5rem;"><span>▶</span> 老後2000万円問題は足りる？</a></li>
-            <li><a href="/lp/nisa-when-to-start" style="color: var(--primary); text-decoration: none; font-weight: 600; display: flex; align-items: center; gap: 0.5rem;"><span>▶</span> 新NISAはいつ始めるべき？</a></li>
-            <li><a href="/lp/nisa-lump-sum-vs-monthly" style="color: var(--primary); text-decoration: none; font-weight: 600; display: flex; align-items: center; gap: 0.5rem;"><span>▶</span> 一括投資vs毎月積立 比較</a></li>
-            <li><a href="/lp/nisa-vs-ideco" style="color: var(--primary); text-decoration: none; font-weight: 600; display: flex; align-items: center; gap: 0.5rem;"><span>▶</span> 新NISAとiDeCoどっち？</a></li>
-            <li><a href="/lp/nisa-vs-taxable" style="color: var(--primary); text-decoration: none; font-weight: 600; display: flex; align-items: center; gap: 0.5rem;"><span>▶</span> NISAと課税口座の違い</a></li>
-        </ul>
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem;">
+            <a href="/nisa-goal-simulator" style="display: block; background: white; border: 1px solid var(--border-color); border-radius: 12px; padding: 1.5rem; text-decoration: none; color: inherit; transition: transform 0.2s, box-shadow 0.2s;" onMouseOver="this.style.transform='translateY(-2px)'; this.style.boxShadow='0 4px 12px rgba(0,0,0,0.05)'" onMouseOut="this.style.transform='none'; this.style.boxShadow='none'">
+                <div style="font-size: 2rem; margin-bottom: 0.5rem; text-align: center;">🎯</div>
+                <h3 style="font-size: 1rem; font-weight: bold; color: var(--text-main); text-align: center; margin-bottom: 0.5rem;">毎月いくら積立すればいいか分かる</h3>
+                <p style="font-size: 0.85rem; color: var(--text-muted); line-height: 1.5;">目標金額から毎月の必要額を逆算します。</p>
+            </a>
+            <a href="/nisa-tsumitate" style="display: block; background: white; border: 1px solid var(--border-color); border-radius: 12px; padding: 1.5rem; text-decoration: none; color: inherit; transition: transform 0.2s, box-shadow 0.2s;" onMouseOver="this.style.transform='translateY(-2px)'; this.style.boxShadow='0 4px 12px rgba(0,0,0,0.05)'" onMouseOut="this.style.transform='none'; this.style.boxShadow='none'">
+                <div style="font-size: 2rem; margin-bottom: 0.5rem; text-align: center;">📈</div>
+                <h3 style="font-size: 1rem; font-weight: bold; color: var(--text-main); text-align: center; margin-bottom: 0.5rem;">将来資産の推移をグラフで確認</h3>
+                <p style="font-size: 0.85rem; color: var(--text-muted); line-height: 1.5;">積立額と利回りから複利効果を可視化します。</p>
+            </a>
+            <a href="/nisa-tax-compare" style="display: block; background: white; border: 1px solid var(--border-color); border-radius: 12px; padding: 1.5rem; text-decoration: none; color: inherit; transition: transform 0.2s, box-shadow 0.2s;" onMouseOver="this.style.transform='translateY(-2px)'; this.style.boxShadow='0 4px 12px rgba(0,0,0,0.05)'" onMouseOut="this.style.transform='none'; this.style.boxShadow='none'">
+                <div style="font-size: 2rem; margin-bottom: 0.5rem; text-align: center;">⚖️</div>
+                <h3 style="font-size: 1rem; font-weight: bold; color: var(--text-main); text-align: center; margin-bottom: 0.5rem;">NISAと課税口座の違いを比較</h3>
+                <p style="font-size: 0.85rem; color: var(--text-muted); line-height: 1.5;">非課税により手取り額にどれだけ差が出るか比較。</p>
+            </a>
+            <a href="/account-compare" style="display: block; background: white; border: 1px solid var(--border-color); border-radius: 12px; padding: 1.5rem; text-decoration: none; color: inherit; transition: transform 0.2s, box-shadow 0.2s;" onMouseOver="this.style.transform='translateY(-2px)'; this.style.boxShadow='0 4px 12px rgba(0,0,0,0.05)'" onMouseOut="this.style.transform='none'; this.style.boxShadow='none'">
+                <div style="font-size: 2rem; margin-bottom: 0.5rem; text-align: center;">🏦</div>
+                <h3 style="font-size: 1rem; font-weight: bold; color: var(--text-main); text-align: center; margin-bottom: 0.5rem;">証券会社の違いを確認</h3>
+                <p style="font-size: 0.85rem; color: var(--text-muted); line-height: 1.5;">新NISA対応の主要証券口座の特徴を比較します。</p>
+            </a>
+        </div>
     </section>
 
-    <section class="card" style="margin-bottom: 2.5rem; background-color: white; border: 1px solid var(--border-color);">
-        <h2 style="font-size: 1.4rem; font-weight: 700; margin-bottom: 1rem; color: var(--text-main);">新NISAシミュレーションで将来いくらになるかを確認しよう</h2>
-        <p style="line-height: 1.8; color: var(--text-muted); font-size: 0.95rem; margin: 0;">
-            2024年から始まった新しいNISA制度は、生涯で最大1,800万円までの投資が非課税になる強力な資産形成の枠組みです。しかし、「毎月いくら積み立てればいいのか」「自分の目標利回りで計算すると将来いくらになるのか」といった具体的なイメージを持つのはなかなか難しいものです。当サイトの各種シミュレーターを活用することで、ご自身のライフプランに合わせた積立金額や想定利回りから、数十年にわたる投資信託などの資産推移を簡単に棒グラフ・折れ線グラフ化できます。まずは少額からでも、年齢別・目的に合わせた無理のない範囲でシミュレーションを行い、教育資金や老後資金に向けた長期計画の第一歩を踏み出すツールとしてご活用ください。
+    <!-- ③ 新NISAとは？ -->
+    <section class="card" style="margin-bottom: 3rem; background-color: var(--bg-body); border: none;">
+        <h2 style="font-size: 1.3rem; font-weight: 700; margin-bottom: 1rem; color: var(--text-main);">
+            新NISAとは？（2024年〜）
+        </h2>
+        <p style="font-size: 0.95rem; color: var(--text-main); line-height: 1.7; margin-bottom: 1rem;">
+            新NISA（少額投資非課税制度）は、投資によって得られた利益（運用益や配当金など）にかかる約20%の税金が、無期限でゼロになる国の制度です。<br/>
+            運用方法は「つみたて投資枠」と「成長投資枠」の2種類があり、併用が可能です。
         </p>
+        <ul style="list-style-type: none; padding: 0; margin-bottom: 1.5rem; font-size: 0.95rem; display: grid; gap: 0.5rem; color: var(--text-muted);">
+            <li>✅ <strong>年間投資枠</strong>：最大360万円（つみたて120万＋成長240万）</li>
+            <li>✅ <strong>非課税保有期間</strong>：無期限</li>
+            <li>✅ <strong>生涯投資上限</strong>：1,800万円（買付残高ベース。うち成長投資枠は1,200万円まで）</li>
+        </ul>
+        <div style="font-size: 0.85rem; text-align: right;">
+            🔗 <a href="https://www.fsa.go.jp/policy/nisa2/about/index.html" target="_blank" rel="nofollow noopener noreferrer" style="color: var(--primary); text-decoration: underline;">金融庁：NISAとは？</a>
+        </div>
     </section>
 
-    <!-- 利回り別ミニ比較表 -->
-    <section class="card" style="margin-bottom: 2.5rem; background-color: var(--bg-body); border: none;">
-        <h3 style="font-size: 1.25rem; font-weight: 700; margin-bottom: 1rem; color: var(--text-main); text-align: center;">利回り別に将来資産を計算・比較してみましょう</h3>
-        <p style="font-size: 0.9rem; color: var(--text-muted); text-align: center; margin-bottom: 1.5rem;">※毎月5万円を20年間積み立てた場合（合計元本: 1,200万円）の一般的な想定例です。</p>
-        
-        <div style="overflow-x: auto;">
-            <table style="width: 100%; min-width: 500px; border-collapse: collapse; text-align: center; background-color: white; border: 1px solid var(--border-color); border-radius: 8px;">
-                <thead>
-                    <tr style="background-color: #f8fafc; border-bottom: 2px solid var(--border-color);">
-                        <th style="padding: 1rem; color: var(--text-main);">想定利回り</th>
-                        <th style="padding: 1rem; color: var(--text-main);">最終積立金額</th>
-                        <th style="padding: 1rem; color: var(--primary);">利益分（非課税）</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr style="border-bottom: 1px solid var(--border-color);">
-                        <td style="padding: 1rem; font-weight: bold; color: var(--text-main);">年利 3%</td>
-                        <td style="padding: 1rem; font-weight: bold;">約 1,641 万円</td>
-                        <td style="padding: 1rem; color: var(--primary);">+ 約 441 万円</td>
-                    </tr>
-                    <tr style="border-bottom: 1px solid var(--border-color);">
-                        <td style="padding: 1rem; font-weight: bold; color: var(--text-main);">年利 5%</td>
-                        <td style="padding: 1rem; font-weight: bold;">約 2,055 万円</td>
-                        <td style="padding: 1rem; color: var(--primary);">+ 約 855 万円</td>
-                    </tr>
-                    <tr>
-                        <td style="padding: 1rem; font-weight: bold; color: var(--text-main);">年利 7%</td>
-                        <td style="padding: 1rem; font-weight: bold;">約 2,604 万円</td>
-                        <td style="padding: 1rem; color: var(--primary);">+ 約 1,404 万円</td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-        <div style="text-align: center; margin-top: 1.5rem;">
-            <a href="/nisa-tsumitate" style="font-weight: bold; color: var(--primary); text-decoration: underline;">👉 ご自身の金額で詳しくシミュレーションする</a>
+    <!-- ④ 目的別に選ぶ（LP群への導線） -->
+    <section style="margin-bottom: 3rem;">
+        <h2 style="font-size: 1.4rem; font-weight: 700; border-bottom: 2px solid var(--border-color); padding-bottom: 0.5rem; margin-bottom: 1.5rem; color: var(--text-main);">
+            目的・年代から試算する
+        </h2>
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1rem;">
+            <ul style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 1rem;">
+                <li><a href="/lp/20s-how-much" style="color: var(--primary); text-decoration: underline; font-weight: bold; font-size: 1.05rem;">▶ 20代はいくら？新NISA積立試算</a></li>
+                <li><a href="/lp/30s-how-much" style="color: var(--primary); text-decoration: underline; font-weight: bold; font-size: 1.05rem;">▶ 30代はいくら？新NISA積立試算</a></li>
+                <li><a href="/lp/40s-is-it-late" style="color: var(--primary); text-decoration: underline; font-weight: bold; font-size: 1.05rem;">▶ 40代から新NISAは遅い？間に合うか試算</a></li>
+                <li><a href="/lp/50s-how-much" style="color: var(--primary); text-decoration: underline; font-weight: bold; font-size: 1.05rem;">▶ 50代はいくら積立？ラストスパート試算</a></li>
+            </ul>
+            <ul style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 1rem;">
+                <li><a href="/lp/monthly-30000-future" style="color: var(--primary); text-decoration: underline; font-weight: bold; font-size: 1.05rem;">▶ 月3万円でいくら？新NISA試算</a></li>
+                <li><a href="/lp/monthly-50000" style="color: var(--primary); text-decoration: underline; font-weight: bold; font-size: 1.05rem;">▶ 月5万円でいくら？新NISA試算</a></li>
+                <li><a href="/lp/retirement-2000m" style="color: var(--primary); text-decoration: underline; font-weight: bold; font-size: 1.05rem;">▶ 老後2000万円は新NISAで足りる？逆算試算</a></li>
+                <li><a href="/lp/education-fund" style="color: var(--primary); text-decoration: underline; font-weight: bold; font-size: 1.05rem;">▶ 教育資金は新NISAで準備できる？</a></li>
+            </ul>
         </div>
     </section>
+
+    <!-- ⑤ 人気のシミュレーター -->
+    <section style="margin-bottom: 3.5rem; background-color: var(--bg-body); padding: 2rem; border-radius: 12px;">
+        <h2 style="font-size: 1.4rem; font-weight: 700; text-align: center; margin-bottom: 1.5rem; color: var(--text-main);">
+            人気のシミュレーター
+        </h2>
+        <div style="display: flex; flex-direction: column; gap: 1rem; max-width: 500px; margin: 0 auto;">
+            <a href="/nisa-tsumitate" style="display: flex; align-items: center; justify-content: space-between; background: white; padding: 1.5rem; border-radius: 8px; border: 1px solid var(--border-color); text-decoration: none; color: var(--text-main); font-weight: bold; box-shadow: 0 2px 4px rgba(0,0,0,0.02);">
+                <div style="display: flex; align-items: center; gap: 0.8rem;">
+                    <span style="font-size: 1.5rem;">📈</span>
+                    <span>つみたてシミュレーター</span>
+                </div>
+                <span style="color: var(--primary);">詳細設定へ →</span>
+            </a>
+            <a href="/nisa-goal-simulator" style="display: flex; align-items: center; justify-content: space-between; background: white; padding: 1.5rem; border-radius: 8px; border: 1px solid var(--border-color); text-decoration: none; color: var(--text-main); font-weight: bold; box-shadow: 0 2px 4px rgba(0,0,0,0.02);">
+                <div style="display: flex; align-items: center; gap: 0.8rem;">
+                    <span style="font-size: 1.5rem;">🎯</span>
+                    <span>目標逆算シミュレーター</span>
+                </div>
+                <span style="color: var(--primary);">詳細設定へ →</span>
+            </a>
+            <a href="/nisa-withdraw" style="display: flex; align-items: center; justify-content: space-between; background: white; padding: 1.5rem; border-radius: 8px; border: 1px solid var(--border-color); text-decoration: none; color: var(--text-main); font-weight: bold; box-shadow: 0 2px 4px rgba(0,0,0,0.02);">
+                <div style="display: flex; align-items: center; gap: 0.8rem;">
+                    <span style="font-size: 1.5rem;">📉</span>
+                    <span>取り崩しシミュレーター</span>
+                </div>
+                <span style="color: var(--primary);">詳細設定へ →</span>
+            </a>
+        </div>
+    </section>
+
+    <!-- ⑥ 証券口座の比較 -->
+    <div style="text-align: center; margin-bottom: 4rem;">
+        <p style="font-size: 0.95rem; color: var(--text-main); margin-bottom: 0.8rem; font-weight: bold;">
+            💡 実際にNISAを始める場合は証券口座の違いも重要です。
+        </p>
+        <a href="/account-compare" style="color: var(--primary); text-decoration: underline; font-weight: bold; font-size: 1.05rem;">
+            → 新NISA対応のおすすめ証券会社を比較する
+        </a>
+    </div>
 
 	<FAQSection faqs={faqs} />
 </Layout>
