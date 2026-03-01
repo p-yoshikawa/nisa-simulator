@@ -1,24 +1,24 @@
 ---
 import Layout from '../../layouts/Layout.astro';
-import FaqSchema from '../../components/FaqSchema.astro';
+import FAQSection from '../../components/FAQSection.astro';
 
 // SEO Settings
 const title = "新NISAとiDeCoどっちを優先？違いと使い分けを無料シミュレーション";
 const description = "「新NISA」と「iDeCo（個人型確定拠出年金）」はどっちを選ぶべきか？両者の制度の違いを比較し、あなたに合った活用法を解説します。当サイトの無料シミュレーターを使えば、iDeCoを利用した場合の具体的な節税額目安も登録不要ですぐに計算できます。";
 
-// FAQ Schema Data
+// FAQ Data
 const faqs = [
   {
-    question: "新NISAとiDeCo（イデコ）は併用できますか？",
-    answer: "はい、併用可能です。資金に余裕がある場合は、iDeCoで所得控除の節税メリットを受けつつ、万が一に備えて引き出し自由な新NISAも活用する「いいとこ取り」のアプローチを取る方が多いです。"
+    q: "新NISAとiDeCo（イデコ）は併用できますか？",
+    a: "はい、併用可能です。iDeCoで所得控除の節税を受けつつ、緊急時に引き出し自由な新NISAも活用する「いいとこ取り」のアプローチを取る方が多いです。"
   },
   {
-    question: "どちらか1つだけ選ぶならどちらが良いですか？",
-    answer: "一概には言えませんが、生活の変化（結婚、住宅購入、転職等）で資金が必要になる可能性がある場合は、いつでも引き出せる「新NISA」を優先するのが一般的とされています。"
+    q: "どちらか1つだけ選ぶならどちらが良いですか？",
+    a: "一概には言えませんが、住宅購入や転職など資金が必要になる可能性がある場合は、いつでも引き出せる「新NISA」を優先するのが一般的とされています。"
   },
   {
-    question: "iDeCoの最大のデメリットは何ですか？",
-    answer: "原則として60歳まで資金を引き出すことができない「資金拘束」が最大のデメリットです。老後資金専用と割り切る必要があります。"
+    q: "iDeCoの最大のデメリットは何ですか？",
+    a: "原則60歳まで資金を引き出すことができない「資金拘束」が最大のデメリットです。そのため老後資金専用と割り切って無理のない額で活用する必要があります。"
   }
 ];
 ---
@@ -84,24 +84,6 @@ const faqs = [
         </p>
     </section>
 
-    <!-- FAQセクション -->
-    <section class="card" style="margin-bottom: 2rem;">
-        <h2 style="font-size: 1.25rem; font-weight: 700; border-bottom: 2px solid var(--border-color); padding-bottom: 0.5rem; margin-bottom: 1rem;">
-            新NISAとiDeCoに関するよくある疑問
-        </h2>
-        <div style="display: flex; flex-direction: column; gap: 1rem;">
-            {faqs.map(faq => (
-                <div style="border-bottom: 1px solid var(--border-color); padding-bottom: 1rem;">
-                    <h3 style="font-size: 1rem; font-weight: 600; color: var(--text-main); margin-bottom: 0.5rem;">{faq.question}</h3>
-                    <p style="font-size: 0.9rem; color: var(--text-muted); line-height: 1.6;">{faq.answer}</p>
-                </div>
-            ))}
-        </div>
-        <p style="margin-top: 1rem; font-size: 0.85rem; color: var(--text-muted);">
-            一般的な傾向としての情報です。ご自身の税務相談や詳細な資産設計については、金融庁や厚生労働省のウェブサイトをご参照いただくか、専門家にご相談されることをおすすめします。
-        </p>
-    </section>
-
     <!-- ボトムCTA -->
     <div style="text-align: center; margin-bottom: 3rem; background-color: white; padding: 2rem; border-radius: 8px; border: 1px solid var(--primary);">
         <h2 style="font-size: 1.2rem; font-weight: 700; margin-bottom: 1rem; color: var(--text-main);">
@@ -134,6 +116,8 @@ const faqs = [
         </div>
     </section>
 
-    <!-- 構造化データ出力 -->
-    <FaqSchema faqs={faqs} />
+    <!-- FAQ統合と構造化データ出力 -->
+    <div style="max-width: 800px; margin: 0 auto; padding: 0 1rem;">
+        <FAQSection faqs={faqs} />
+    </div>
 </Layout>

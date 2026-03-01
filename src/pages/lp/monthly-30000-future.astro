@@ -1,24 +1,24 @@
 ---
 import Layout from '../../layouts/Layout.astro';
-import FaqSchema from '../../components/FaqSchema.astro';
+import FAQSection from '../../components/FAQSection.astro';
 
 // SEO Settings
 const title = "新NISA 月3万円で将来いくら？無料シミュレーション";
 const description = "毎月3万円の積立投資を続けると将来いくらになるのか？期待利回り別に無料でシミュレーションし、新NISAの非課税メリットを解説します。";
 
-// FAQ Schema Data
+// FAQ Data
 const faqs = [
   {
-    question: "毎月3万円を20年間積み立てるとどうなりますか？",
-    answer: "年利5%で運用できたと仮定した場合、投資元本720万円に対して利益が約500万円以上となり、合計で約1200万円を超えるペースになります（※将来の利益を保証するものではありません）。"
+    q: "毎月3万円を20年間積み立てるとどうなりますか？",
+    a: "仮に年利5%で運用できた場合、投資元本720万円に対して利益が約500万円以上となり、合計で約1200万円を超える計算になります（※将来の利益を保証するものではありません）。"
   },
   {
-    question: "ボーナス月に増額することはできますか？",
-    answer: "多くの金融機関で「ボーナス月設定」などの機能が用意されており、通常の月3万円に加えて年数回だけ積立額を上乗せすることが可能です。"
+    q: "ボーナス月などに積立額を一時的に増額することはできますか？",
+    a: "主なネット証券などでは「ボーナス月設定」等の機能があり、年に数回だけ積立額を上乗せ設定することが可能です。"
   },
   {
-    question: "月3万円の積立は新NISAの成長投資枠とつみたて投資枠のどちらを使うべきですか？",
-    answer: "月3万円（年間36万円）で投資信託の積立を行う場合、原則として「つみたて投資枠」（年間120万円まで）の範囲内で非課税運用を完結させることが一般的です。"
+    q: "月3万円の積立は、つみたて投資枠と成長投資枠どちらが良いですか？",
+    a: "月3万円（年間36万円）で投資信託の積立を行う場合、まずは「つみたて投資枠」（年間120万円上限）を優先して使用するのが一般的です。"
   }
 ];
 ---
@@ -84,24 +84,6 @@ const faqs = [
         </p>
     </section>
 
-    <!-- FAQセクション -->
-    <section class="card" style="margin-bottom: 2rem;">
-        <h2 style="font-size: 1.25rem; font-weight: 700; border-bottom: 2px solid var(--border-color); padding-bottom: 0.5rem; margin-bottom: 1rem;">
-            月3万円の積立に関するよくある疑問
-        </h2>
-        <div style="display: flex; flex-direction: column; gap: 1rem;">
-            {faqs.map(faq => (
-                <div style="border-bottom: 1px solid var(--border-color); padding-bottom: 1rem;">
-                    <h3 style="font-size: 1rem; font-weight: 600; color: var(--text-main); margin-bottom: 0.5rem;">{faq.question}</h3>
-                    <p style="font-size: 0.9rem; color: var(--text-muted); line-height: 1.6;">{faq.answer}</p>
-                </div>
-            ))}
-        </div>
-        <p style="margin-top: 1rem; font-size: 0.85rem; color: var(--text-muted);">
-            一般的な傾向としての情報です。ご自身の税務相談や詳細な資産設計については、金融庁のウェブサイトをご参照いただくか、専門家にご相談されることをおすすめします。
-        </p>
-    </section>
-
     <!-- ボトムCTA -->
     <div style="text-align: center; margin-bottom: 3rem; background-color: white; padding: 2rem; border-radius: 8px; border: 1px solid var(--primary);">
         <h2 style="font-size: 1.2rem; font-weight: 700; margin-bottom: 1rem; color: var(--text-main);">
@@ -134,6 +116,8 @@ const faqs = [
         </div>
     </section>
 
-    <!-- 構造化データ出力 -->
-    <FaqSchema faqs={faqs} />
+    <!-- FAQ統合と構造化データ出力 -->
+    <div style="max-width: 800px; margin: 0 auto; padding: 0 1rem;">
+        <FAQSection faqs={faqs} />
+    </div>
 </Layout>

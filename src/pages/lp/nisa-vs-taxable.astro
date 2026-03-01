@@ -1,24 +1,24 @@
 ---
 import Layout from '../../layouts/Layout.astro';
-import FaqSchema from '../../components/FaqSchema.astro';
+import FAQSection from '../../components/FAQSection.astro';
 
 // SEO Settings
 const title = "新NISAと特定口座の違いは？税金差を無料シミュレーションで比較";
 const description = "新NISA口座と通常の課税口座（特定口座など）の決定的な違いを分かりやすく解説。同じ金額で投資信託の積立を行った場合、将来どれくらい利益や税金に差が出るのか？当サイトの無料シミュレーターを使えば、非課税の恩恵を登録不要ですぐに比較・確認できます。";
 
-// FAQ Schema Data
+// FAQ Data
 const faqs = [
   {
-    question: "新NISAと普通の口座（特定口座）の決定的な違いは何ですか？",
-    answer: "投資で得た利益に対する税金が違います。課税口座では利益に対して約20%の税金が引かれますが、新NISAであれば税金が一切かからず利益をそのまま受け取れます。"
+    q: "新NISAと普通の口座（特定口座）の決定的な違いは何ですか？",
+    a: "運用で得た利益（運用益）に対する税金が違います。課税口座では利益に対して約20%の税金が引かれますが、新NISAであれば非課税枠の範囲内で税金が一切かからず受け取れます。"
   },
   {
-    question: "新NISAのデメリットはありますか？",
-    answer: "非課税の枠（年間最大360万円、生涯1800万円）が決まっていることや、他の口座で出た損失と利益を相殺する「損益通算」ができない点が挙げられます。"
+    q: "新NISAのデメリットはありますか？",
+    a: "非課税の枠（年間最大360万円、生涯1800万円）が決まっていることや、他の口座で出た損失と利益を相殺する「損益通算」ができない点が挙げられます。"
   },
   {
-    question: "課税口座から新NISAに直接移行（移管）することは可能ですか？",
-    answer: "直接移行することはできません。課税口座で保有している商品を一度売却し、現金化してから新NISA口座で買い直す必要があります。"
+    q: "課税口座から新NISAに直接移行（移管）することは可能ですか？",
+    a: "直接移行することはできません。課税口座で保有している商品を一度売却し、現金化してから新NISA口座で買い直す手続が必要です。"
   }
 ];
 ---
@@ -84,24 +84,6 @@ const faqs = [
         </p>
     </section>
 
-    <!-- FAQセクション -->
-    <section class="card" style="margin-bottom: 2rem;">
-        <h2 style="font-size: 1.25rem; font-weight: 700; border-bottom: 2px solid var(--border-color); padding-bottom: 0.5rem; margin-bottom: 1rem;">
-            税金や口座の違いに関するよくある疑問
-        </h2>
-        <div style="display: flex; flex-direction: column; gap: 1rem;">
-            {faqs.map(faq => (
-                <div style="border-bottom: 1px solid var(--border-color); padding-bottom: 1rem;">
-                    <h3 style="font-size: 1rem; font-weight: 600; color: var(--text-main); margin-bottom: 0.5rem;">{faq.question}</h3>
-                    <p style="font-size: 0.9rem; color: var(--text-muted); line-height: 1.6;">{faq.answer}</p>
-                </div>
-            ))}
-        </div>
-        <p style="margin-top: 1rem; font-size: 0.85rem; color: var(--text-muted);">
-            一般的な傾向としての情報です。ご自身の税務相談や詳細な資産設計については、金融庁のウェブサイトをご参照いただくか、専門家にご相談されることをおすすめします。
-        </p>
-    </section>
-
     <!-- ボトムCTA -->
     <div style="text-align: center; margin-bottom: 3rem; background-color: white; padding: 2rem; border-radius: 8px; border: 1px solid var(--primary);">
         <h2 style="font-size: 1.2rem; font-weight: 700; margin-bottom: 1rem; color: var(--text-main);">
@@ -134,6 +116,8 @@ const faqs = [
         </div>
     </section>
 
-    <!-- 構造化データ出力 -->
-    <FaqSchema faqs={faqs} />
+    <!-- FAQ統合と構造化データ出力 -->
+    <div style="max-width: 800px; margin: 0 auto; padding: 0 1rem;">
+        <FAQSection faqs={faqs} />
+    </div>
 </Layout>

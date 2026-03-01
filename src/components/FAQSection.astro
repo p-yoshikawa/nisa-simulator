@@ -28,15 +28,16 @@ const schemaData = {
 <hr style="margin: 3rem 0; border: none; border-top: 1px solid var(--border-color);" />
 
 <section class="faq-section" style="margin-bottom: 2rem;">
-  <h3 style="font-size: 1.25rem; margin-bottom: 1.5rem; color: var(--text-main);">よくある質問（FAQ）</h3>
+  <h3 style="font-size: 1.25rem; margin-bottom: 1.5rem; color: var(--text-main);">よくある質問</h3>
 
   {faqs.map((faq, index) => (
     <div style="margin-bottom: 1.5rem;">
-      <h4 style="font-size: 1.05rem; margin-bottom: 0.5rem; color: var(--primary);">Q{index + 1}. {faq.q}</h4>
+      <h4 style="font-size: 1.05rem; margin-bottom: 0.5rem; color: var(--primary);">Q{index + 1}: {faq.q}</h4>
       <p style="color: var(--text-muted); line-height: 1.6; font-size: 0.95rem; margin: 0;">
+        <span style="font-weight: 600; color: var(--text-main);">A{index + 1}:</span>
         {faq.a.split('\n').map((line, i) => (
           <Fragment key={i}>
-            {line}
+            {" "}{line}
             {i !== faq.a.split('\n').length - 1 && <br />}
           </Fragment>
         ))}

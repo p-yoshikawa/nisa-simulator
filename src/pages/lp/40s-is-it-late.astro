@@ -1,24 +1,24 @@
 ---
 import Layout from '../../layouts/Layout.astro';
-import FaqSchema from '../../components/FaqSchema.astro';
+import FAQSection from '../../components/FAQSection.astro';
 
 // SEO Settings
 const title = "40代から新NISAは遅い？いくら積立で間に合うか無料試算";
 const description = "「40代からの積立投資は遅すぎるのでは？」という疑問を解消。65歳の定年まで残り20年弱の運用期間でも老後資金にどう影響するか。当サイトの無料シミュレーターを使えば、40代向けのモデルケースで将来資産を簡単に試算確認できます。";
 
-// FAQ Schema Data
+// FAQ Data
 const faqs = [
   {
-    question: "40代から新NISAを始めても意味はありますか？",
-    answer: "はい、意味があります。65歳までの運用期間だけでも約20年前後確保できるため、複利効果や非課税メリットを十分に享受できる可能性があります。"
+    q: "40代から新NISAを始めても意味はありますか？",
+    a: "はい、十分に意味があると言われています。65歳まで約20年前後の運用期間を確保できるため、複利効果や非課税の恩恵を受けることが期待できます。"
   },
   {
-    question: "40代は毎月いくら積み立てるのが目安ですか？",
-    answer: "家計状況によりますが、老後資金の確保を主目的とする場合、月3万円〜5万円程度を目安に設定する方が多い傾向にあります。"
+    q: "40代は毎月いくら積み立てるのが目安ですか？",
+    a: "家計状況に依存しますが、老後資金の確保を目的とする場合、毎月3万〜5万円程度を目安に運用を検討される方が多い傾向にあります。"
   },
   {
-    question: "今ある貯金を一気に全額投資しても良いでしょうか？",
-    answer: "生活防衛資金（生活費の数ヶ月〜半年分程度）は必ず現金として手元に残し、当面使う予定のない余裕資金の範囲内で無理なく投資を行うことが推奨されます。"
+    q: "今ある貯金を一気に全額投資してもよいですか？",
+    a: "生活防衛資金（生活費の半年分など）は現金として残し、当面使う予定のない余剰資金の範囲内で、時間分散をしながら投資を行うのがセオリーとされています。"
   }
 ];
 ---
@@ -84,24 +84,6 @@ const faqs = [
         </p>
     </section>
 
-    <!-- FAQセクション -->
-    <section class="card" style="margin-bottom: 2rem;">
-        <h2 style="font-size: 1.25rem; font-weight: 700; border-bottom: 2px solid var(--border-color); padding-bottom: 0.5rem; margin-bottom: 1rem;">
-            40代からの新NISAに関するよくある疑問
-        </h2>
-        <div style="display: flex; flex-direction: column; gap: 1rem;">
-            {faqs.map(faq => (
-                <div style="border-bottom: 1px solid var(--border-color); padding-bottom: 1rem;">
-                    <h3 style="font-size: 1rem; font-weight: 600; color: var(--text-main); margin-bottom: 0.5rem;">{faq.question}</h3>
-                    <p style="font-size: 0.9rem; color: var(--text-muted); line-height: 1.6;">{faq.answer}</p>
-                </div>
-            ))}
-        </div>
-        <p style="margin-top: 1rem; font-size: 0.85rem; color: var(--text-muted);">
-            一般的な傾向としての情報です。ご自身の税務相談や詳細な資産設計については、金融庁のウェブサイトをご参照いただくか、専門家にご相談されることをおすすめします。
-        </p>
-    </section>
-
     <!-- ボトムCTA -->
     <div style="text-align: center; margin-bottom: 3rem; background-color: white; padding: 2rem; border-radius: 8px; border: 1px solid var(--primary);">
         <h2 style="font-size: 1.2rem; font-weight: 700; margin-bottom: 1rem; color: var(--text-main);">
@@ -134,6 +116,8 @@ const faqs = [
         </div>
     </section>
 
-    <!-- 構造化データ出力 -->
-    <FaqSchema faqs={faqs} />
+    <!-- FAQ統合と構造化データ出力 -->
+    <div style="max-width: 800px; margin: 0 auto; padding: 0 1rem;">
+        <FAQSection faqs={faqs} />
+    </div>
 </Layout>

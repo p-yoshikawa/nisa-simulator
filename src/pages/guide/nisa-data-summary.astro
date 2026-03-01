@@ -1,0 +1,114 @@
+---
+import Layout from '../../layouts/Layout.astro';
+
+// SEO Settings
+const title = "2026年版 新NISA制度まとめ｜年間投資枠・非課税期間・上限一覧";
+const description = "新NISA（2024年以降開始）の制度について、年間投資枠、非課税期間、生涯投資上限などの基本ルールを事実ベースでまとめた一覧ページです。データ引用や事実確認にご活用ください。";
+
+---
+
+<Layout title={title} description={description}>
+    <div style="margin-bottom: 2rem;">
+        <h1 style="font-size: 1.5rem; color: var(--text-main); line-height: 1.4; margin-bottom: 1rem;">
+            2026年版 新NISA制度まとめ｜年間投資枠・非課税期間・上限一覧
+        </h1>
+        <p style="font-size: 0.95rem; color: var(--text-muted); line-height: 1.6; margin-bottom: 1.5rem;">
+            このページでは、2024年に開始された新しいNISA（少額投資非課税制度）の制度概要を事実に基づいてまとめています。数字の確認や表データの引用などにご活用ください。
+        </p>
+    </div>
+
+    <!-- 制度概要と年間投資枠 -->
+    <section class="card" style="margin-bottom: 2rem;">
+        <h2 style="font-size: 1.25rem; font-weight: 700; border-bottom: 2px solid var(--border-color); padding-bottom: 0.5rem; margin-bottom: 1rem;">
+            年間投資枠と基本スペック一覧
+        </h2>
+        <div style="overflow-x: auto; margin-bottom: 1.5rem;">
+            <table style="width: 100%; border-collapse: collapse; text-align: left; font-size: 0.95rem;">
+                <thead>
+                    <tr style="background-color: var(--bg-body); border-bottom: 2px solid var(--border-color);">
+                        <th style="padding: 1rem; border: 1px solid var(--border-color); width: 25%;">項目</th>
+                        <th style="padding: 1rem; border: 1px solid var(--border-color); width: 37.5%;">つみたて投資枠</th>
+                        <th style="padding: 1rem; border: 1px solid var(--border-color); width: 37.5%;">成長投資枠</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td style="padding: 1rem; border: 1px solid var(--border-color); font-weight: 600; background-color: var(--bg-body);">年間投資枠</td>
+                        <td style="padding: 1rem; border: 1px solid var(--border-color);">年間120万円</td>
+                        <td style="padding: 1rem; border: 1px solid var(--border-color);">年間240万円</td>
+                    </tr>
+                    <tr>
+                        <td style="padding: 1rem; border: 1px solid var(--border-color); font-weight: 600; background-color: var(--bg-body);">最大年間投資額（併用）</td>
+                        <td colspan="2" style="padding: 1rem; border: 1px solid var(--border-color); text-align: center;">年間360万円（つみたて投資枠と成長投資枠の併用可能）</td>
+                    </tr>
+                    <tr>
+                        <td style="padding: 1rem; border: 1px solid var(--border-color); font-weight: 600; background-color: var(--bg-body);">非課税保有期間</td>
+                        <td colspan="2" style="padding: 1rem; border: 1px solid var(--border-color); text-align: center;">無期限</td>
+                    </tr>
+                    <tr>
+                        <td style="padding: 1rem; border: 1px solid var(--border-color); font-weight: 600; background-color: var(--bg-body);">生涯非課税限度額</td>
+                        <td colspan="2" style="padding: 1rem; border: 1px solid var(--border-color); text-align: center;">1,800万円<br><span style="font-size: 0.85em; color: var(--text-muted);">（うち成長投資枠は1,200万円まで）</span></td>
+                    </tr>
+                    <tr>
+                        <td style="padding: 1rem; border: 1px solid var(--border-color); font-weight: 600; background-color: var(--bg-body);">非課税枠の再利用</td>
+                        <td colspan="2" style="padding: 1rem; border: 1px solid var(--border-color); text-align: center;">保有商品を売却した場合、その「元本分」の枠が翌年以降に復活・再利用可能</td>
+                    </tr>
+                    <tr>
+                        <td style="padding: 1rem; border: 1px solid var(--border-color); font-weight: 600; background-color: var(--bg-body);">対象商品</td>
+                        <td style="padding: 1rem; border: 1px solid var(--border-color);">金融庁の基準を満たした長期・積立・分散投資に適した一定の投資信託</td>
+                        <td style="padding: 1rem; border: 1px solid var(--border-color);">上場株式、投資信託等<br><span style="font-size: 0.85em; color: var(--text-muted);">（整理・監理銘柄や信託期間20年未満、高レバレッジ型、毎月分配型の投資信託等を除く）</span></td>
+                    </tr>
+                    <tr>
+                        <td style="padding: 1rem; border: 1px solid var(--border-color); font-weight: 600; background-color: var(--bg-body);">投資対象の年齢</td>
+                        <td colspan="2" style="padding: 1rem; border: 1px solid var(--border-color); text-align: center;">18歳以上（※1）</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <p style="font-size: 0.85rem; color: var(--text-muted); margin-top: 0.5rem;">
+            （※1）口座開設する年の1月1日現在で18歳以上の居住者等。
+        </p>
+    </section>
+
+    <!-- 旧制度との違い -->
+    <section class="card" style="margin-bottom: 2rem;">
+        <h2 style="font-size: 1.25rem; font-weight: 700; border-bottom: 2px solid var(--border-color); padding-bottom: 0.5rem; margin-bottom: 1rem;">
+            旧制度（2023年まで）と新制度の主な違い
+        </h2>
+        <ul style="list-style-type: disc; padding-left: 1.5rem; color: var(--text-muted); line-height: 1.8; font-size: 0.95rem;">
+            <li><strong>制度の併用:</strong> 旧制度では「一般NISA」と「つみたてNISA」の選択制でしたが、新制度では「つみたて投資枠」と「成長投資枠」の併用が可能になりました。</li>
+            <li><strong>非課税期間:</strong> 旧制度では一般NISAが5年、つみたてNISAが20年でしたが、新制度では制限がなくなり「無期限」となりました。</li>
+            <li><strong>年間投資枠の拡大:</strong> 旧一般NISAは年120万円、旧つみたてNISAは年40万円でしたが、新制度では合計で年360万円（成長240万＋つみたて120万）まで拡大しました。</li>
+            <li><strong>制度の恒久化:</strong> 旧制度は口座開設可能期間に制限がありましたが、新制度では制度自体が恒久化されました。</li>
+            <li><strong>旧制度の口座について:</strong> 旧制度で購入した商品は、新制度の非課税枠（1,800万円）とは別枠として、従来の非課税期間（5年または20年）の範囲内でそのまま非課税での保有が可能です。</li>
+        </ul>
+    </section>
+
+    <!-- 出典元の明記 -->
+    <section class="card" style="margin-bottom: 2rem; background-color: var(--bg-body); border: none;">
+        <h2 style="font-size: 1.1rem; font-weight: 700; margin-bottom: 0.5rem; color: var(--text-main);">
+            データ出典・参考リンク
+        </h2>
+        <p style="font-size: 0.9rem; color: var(--text-muted); line-height: 1.6;">
+            本ページの基本データは、以下の政府・公的機関の一次情報を参照して作成しております。最新の詳細要件については直接公式サイトにてご確認ください。
+        </p>
+        <ul style="list-style-type: none; padding: 0; margin-top: 0.5rem;">
+            <li style="margin-bottom: 0.5rem;">
+                <a href="https://www.fsa.go.jp/policy/nisa2/about/index.html" target="_blank" rel="noopener noreferrer" style="color: var(--primary); text-decoration: underline; font-size: 0.9rem;">
+                    金融庁：「新しいNISA」制度の概要
+                </a>
+            </li>
+        </ul>
+    </section>
+
+    <!-- ボトムツール導線 -->
+    <div style="margin-top: 3rem; text-align: center;">
+        <p style="font-size: 0.95rem; color: var(--text-main); margin-bottom: 1rem;">
+            制度の枠組みを確認した後は、自分の条件で将来の資産推移を計算してみましょう。
+        </p>
+        <a href="/nisa-tsumitate" class="track-outbound" style="display: inline-block; background-color: var(--primary); color: white; padding: 1rem 2rem; border-radius: 8px; font-weight: bold; text-decoration: none;">
+            新NISA 積立シミュレーターを使う（無料）
+        </a>
+    </div>
+
+</Layout>
