@@ -1,0 +1,71 @@
+---
+import Layout from '../layouts/Layout.astro';
+import GoalCalculatorForm from '../components/GoalCalculatorForm';
+import FAQSection from '../components/FAQSection.astro';
+import RelatedLinks from '../components/RelatedLinks.astro';
+
+const title = "新NISA目標逆算シミュレーター｜将来◯◯万円に必要な毎月積立額は？";
+const description = "将来の目標金額（例：老後資金2000万円など）に向けて、新NISAで毎月いくら積み立てればよいかを逆算できる無料シミュレーターです。想定利回りと運用年数から必要額を瞬時に試算し、資産推移グラフを表示します。";
+
+const faqs = [
+    {
+        q: "このシミュレーションの計算式はどうなっていますか？",
+        a: "複利計算の将来価値（FV）を求める数式を変形し、目標金額から毎月の積立額を逆算しています。"
+    },
+    {
+        q: "算出される毎月の積立額は確実なものですか？",
+        a: "いいえ、一定の利回りで運用できたと仮定した場合の目安となります。実際の運用では相場変動により結果が異なります。"
+    },
+    {
+        q: "目標金額はいくらに設定すればよいですか？",
+        a: "老後資金であれば2,000万円、教育資金であれば500万円など、ご自身のライフイベントに合わせて設定いただくのが一般的です。"
+    }
+];
+---
+
+<Layout title={title} description={description} schemaType="SoftwareApplication">
+    <!-- JSON-LD (WebApplication & FAQ) -->
+    <script type="application/ld+json" set:html={JSON.stringify({
+        "@context": "https://schema.org",
+        "@graph": [
+            {
+                "@type": "WebApplication",
+                "name": "新NISA目標逆算シミュレーター",
+                "description": description,
+                "url": "https://nisa-simulator.cfd/nisa-goal-simulator",
+                "applicationCategory": "BusinessApplication",
+                "operatingSystem": "Any"
+            },
+            {
+                "@type": "FAQPage",
+                "mainEntity": faqs.map(faq => ({
+                    "@type": "Question",
+                    "name": faq.q,
+                    "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": faq.a
+                    }
+                }))
+            }
+        ]
+    })} />
+
+    <div style="text-align: center; margin-bottom: 2rem;">
+        <h1 style="font-size: 1.8rem; font-weight: 800; color: var(--text-main); line-height: 1.4; margin-bottom: 1rem;">
+            将来の目標金額から<br/>必要な毎月積立額を<span style="color: var(--primary);">逆算</span>
+        </h1>
+        <p style="color: var(--text-muted); font-size: 1rem; max-width: 600px; margin: 0 auto; line-height: 1.6;">
+            目標金額・運用年数・想定利回りを設定すると、毎月いくら積み立てれば達成できるかの目安と、資産の推移グラフを確認できます。<br/>※この計算は入力された利回りが毎月一定であると仮定したシミュレーションです。
+        </p>
+    </div>
+
+    <!-- Reactシミュレーター本体（ハイドレーション有効化） -->
+    <GoalCalculatorForm client:load />
+
+    <!-- FAQと関連リンク群 -->
+    <div style="max-width: 800px; margin: 0 auto; padding: 0 1rem; margin-top: 4rem;">
+        <FAQSection faqs={faqs} />
+        <RelatedLinks />
+    </div>
+
+</Layout>

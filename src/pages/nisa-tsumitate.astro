@@ -40,7 +40,18 @@ const buildDate = new Date().toLocaleDateString('ja-JP', { timeZone: 'Asia/Tokyo
 	<CalculatorForm mode="tsumitate" client:load />
 
 	<section class="card" style="margin-top: 3rem; margin-bottom: 2rem; border-color: rgba(37, 99, 235, 0.2); background-color: #f8fafc;">
-		<h3 style="font-size: 1.25rem; margin-bottom: 1rem; color: var(--text-main);">iDeCoとの違いも比較できます</h3>
+		<h3 style="font-size: 1.25rem; margin-bottom: 1rem; color: var(--text-main);">将来の目標金額から毎月の積立額を計算したい方はこちら</h3>
+		<p style="color: var(--text-muted); margin-bottom: 1.5rem; line-height: 1.6;">
+			「老後資金に2,000万円準備したい」など、目標金額が決まっている場合は、<br/>
+			毎月いくら積み立てれば達成できるかを逆算できるシミュレーターをご利用ください。
+		</p>
+		<div style="text-align: center; margin-bottom: 2rem;">
+			<a href="/nisa-goal-simulator/" class="nav-link track-nav" data-nav="goal_cta" style="display: inline-block; background-color: var(--primary); color: white; padding: 1rem 2rem; border-radius: 8px; font-weight: bold; text-decoration: none; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);">
+				目標金額から逆算シミュレーションする
+			</a>
+		</div>
+
+		<h3 style="font-size: 1.25rem; margin-bottom: 1rem; color: var(--text-main); border-top: 1px solid var(--border-color); padding-top: 2rem;">iDeCoとの違いも比較できます</h3>
 		<p style="color: var(--text-muted); margin-bottom: 1.5rem; line-height: 1.6;">
 			iDeCoは掛金が全額所得控除になる制度です。<br/>
 			60歳まで引き出せない代わりに、節税という非常に大きなメリットがあります。<br/>
