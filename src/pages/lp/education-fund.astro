@@ -1,0 +1,112 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import FAQSection from '../../components/FAQSection.astro';
+
+// SEO Settings
+const title = "教育費は新NISAでいくら準備できる？試算";
+const description = "子どもの大学進学などの教育費準備に新NISAを活用したらどうなる？学資保険との違いや、積立投資で効率よく教育資金を用意するためのシミュレーション例を解説する無料ツールです。";
+
+// FAQ Data
+const faqs = [
+  {
+    q: "教育費の準備に新NISAを使うメリットは何ですか？",
+    a: "運用によって得られた利益が非課税になるため、学資保険等と比べて利益が出た際により多くの資金を手元に残せる可能性があります。"
+  },
+  {
+    q: "新NISAで教育費を貯めるデメリットやリスクは？",
+    a: "投資手法であるため元本保証がありません。大学進学などお金が必要なタイミングで相場が暴落しているリスクに備える必要があります。"
+  },
+  {
+    q: "いつから準備を始めるべきですか？",
+    a: "複利効果を最大限活かすため、出産直後など、なるべく早く長期の運用期間（15年〜18年など）を確保することが理想とされています。"
+  }
+];
+---
+
+<Layout title={title} description={description}>
+    <div style="margin-bottom: 2rem;">
+        <h1 style="font-size: 1.5rem; color: var(--text-main); line-height: 1.4; margin-bottom: 1rem;">
+            教育費は新NISAでいくら準備できる？無料シミュレーション
+        </h1>
+        <p style="font-size: 0.95rem; color: var(--text-muted); line-height: 1.6; margin-bottom: 1.5rem;">
+            「学資保険の代わりに新NISAで教育資金を準備しようか迷っている」という親御さんへ。子どもが18歳になるまでの運用期間で、毎月の積立額がどう成長するかをシミュレーションします。
+        </p>
+    </div>
+
+    <!-- 結論セクション -->
+    <section class="card" style="margin-bottom: 2rem; background-color: var(--bg-body); border: none;">
+        <h2 style="font-size: 1.2rem; font-weight: 700; margin-bottom: 0.5rem; color: var(--text-main);">
+            この記事の結論
+        </h2>
+        <ul style="list-style-type: disc; padding-left: 1.5rem; color: var(--text-main); line-height: 1.8; font-size: 0.95rem;">
+            <li>子どもが生まれてすぐ始めれば<strong>高校卒業まで約15年〜18年の運用期間</strong>が確保でき、非課税メリットを大きく享受できる可能性があります。</li>
+            <li>「必要な時に暴落するリスク」を避けるため、<strong>目標金額に近づいたら現金化して守りに入る（預貯金に移す）</strong>といった出口戦略が必要です。</li>
+        </ul>
+    </section>
+
+    <!-- シミュレーション事例 -->
+    <section class="card" style="margin-bottom: 2rem;">
+        <h2 style="font-size: 1.25rem; font-weight: 700; border-bottom: 2px solid var(--border-color); padding-bottom: 0.5rem; margin-bottom: 1rem;">
+            教育費に向けた積立シミュレーション例
+        </h2>
+        
+        <div style="margin-bottom: 1.5rem;">
+            <p style="font-size: 0.9rem; color: var(--text-muted); margin-bottom: 0.5rem;">【前提条件】</p>
+            <ul style="font-size: 0.9rem; color: var(--text-muted); padding-left: 1.5rem; margin-bottom: 1rem;">
+                <li>運用期間：18年間（0歳から18歳まで継続）</li>
+                <li>想定利回り：年利4%（やや手堅い運用を想定）</li>
+            </ul>
+        </div>
+
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1rem; margin-bottom: 1.5rem;">
+            <div style="border: 1px solid var(--border-color); border-radius: 8px; padding: 1.5rem;">
+                <h3 style="font-size: 1.1rem; font-weight: 700; color: var(--primary); margin-bottom: 0.5rem;">毎月1.5万円（児童手当分等）の場合</h3>
+                <p style="font-size: 0.95rem; color: var(--text-main); margin-bottom: 0.5rem;">18年後の総資産目安：<strong style="font-size: 1.2rem;">約465万円</strong></p>
+                <p style="font-size: 0.85rem; color: var(--text-muted);">（元本324万円＋運用益約141万円）</p>
+            </div>
+            
+            <div style="border: 1px solid var(--border-color); border-radius: 8px; padding: 1.5rem;">
+                <h3 style="font-size: 1.1rem; font-weight: 700; color: var(--primary); margin-bottom: 0.5rem;">毎月3万円の場合</h3>
+                <p style="font-size: 0.95rem; color: var(--text-main); margin-bottom: 0.5rem;">18年後の総資産目安：<strong style="font-size: 1.2rem;">約930万円</strong></p>
+                <p style="font-size: 0.85rem; color: var(--text-muted);">（元本648万円＋運用益約282万円）</p>
+            </div>
+        </div>
+        <p style="margin-top: 1rem; font-size: 0.85rem; color: var(--text-muted);">
+            ※これらはあくまで傾向としての例であり、将来の運用成果を予測・保証するものではありません。
+        </p>
+    </section>
+
+    <!-- ボトムCTA -->
+    <div style="text-align: center; margin-bottom: 3rem; background-color: white; padding: 2rem; border-radius: 8px; border: 1px solid var(--primary);">
+        <h2 style="font-size: 1.2rem; font-weight: 700; margin-bottom: 1rem; color: var(--text-main);">
+            まずは自分の条件で試してみましょう
+        </h2>
+        <p style="font-size: 0.9rem; color: var(--text-muted); margin-bottom: 1.5rem;">
+            児童手当の額などを想定して、手入力でシミュレーションしてみましょう。
+        </p>
+        <a href="/nisa-tsumitate?monthly=15000&years=18&return=4" class="track-outbound" style="display: inline-block; background-color: var(--primary); color: white; padding: 1rem 2rem; border-radius: 8px; font-weight: bold; text-decoration: none;">
+            18年間の条件で試算してみる
+        </a>
+    </div>
+
+    <!-- FAQ統合と構造化データ出力 -->
+    <div style="max-width: 800px; margin: 0 auto; padding: 0 1rem; margin-bottom: 3rem;">
+        <h2 style="font-size: 1.25rem; font-weight: 700; border-bottom: 2px solid var(--border-color); padding-bottom: 0.5rem; margin-bottom: 1rem;">
+            よくある質問
+        </h2>
+        <FAQSection faqs={faqs} />
+    </div>
+
+    <!-- 関連リンク -->
+    <section>
+        <h2 style="font-size: 1.1rem; font-weight: 700; margin-bottom: 1rem; color: var(--text-main);">関連シミュレーション</h2>
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1rem;">
+            <a href="/lp/nisa-when-to-start" style="display: block; padding: 1rem; background: white; border: 1px solid var(--border-color); border-radius: 8px; text-decoration: none; color: var(--text-main); font-weight: bold; font-size: 0.9rem;">
+                📊 新NISAはいつ始めるべき？
+            </a>
+            <a href="/nisa-withdraw" style="display: block; padding: 1rem; background: white; border: 1px solid var(--border-color); border-radius: 8px; text-decoration: none; color: var(--text-main); font-weight: bold; font-size: 0.9rem;">
+                📉 増やした資産の取り崩し試算
+            </a>
+        </div>
+    </section>
+</Layout>

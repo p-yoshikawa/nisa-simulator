@@ -1,0 +1,115 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import FAQSection from '../../components/FAQSection.astro';
+
+// SEO Settings
+const title = "新NISA 月5万円で将来いくら？無料試算";
+const description = "新NISAで毎月5万円ずつ積み立てた場合の将来の資産額をシミュレーション。20年後、30年後にいくらになるのか、想定利回りごとの試算結果を解説します。無料ツールで自分の条件に合わせ計算可能。";
+
+// FAQ Data
+const faqs = [
+  {
+    q: "月5万円の積立はつみたて投資枠だけで足りますか？",
+    a: "つみたて投資枠の年間上限は120万円（月額10万円）ですので、月5万円なら満額つみたて投資枠のみで運用可能です。"
+  },
+  {
+    q: "20年間、月5万円を続けるといくらになりますか？",
+    a: "仮に年利5%で運用できた場合、元本1200万円に対して約2000万円以上になる計算です（将来を保証するものではありません）。"
+  },
+  {
+    q: "ボーナス月に積立を増やすことは可能ですか？",
+    a: "多くの証券会社で、特定のボーナス月に通常の積立額へ上乗せする設定機能が用意されています。"
+  }
+];
+---
+
+<Layout title={title} description={description}>
+    <div style="margin-bottom: 2rem;">
+        <h1 style="font-size: 1.5rem; color: var(--text-main); line-height: 1.4; margin-bottom: 1rem;">
+            新NISA 月5万円で将来いくら？無料試算
+        </h1>
+        <p style="font-size: 0.95rem; color: var(--text-muted); line-height: 1.6; margin-bottom: 1.5rem;">
+            家計に余裕が出てきた方や、本気で老後資金を作りたいという方へ。毎月5万円を新NISAで長期間積み立てた場合、将来の資産がどうなるのかをシミュレーションします。
+        </p>
+    </div>
+
+    <!-- 結論セクション -->
+    <section class="card" style="margin-bottom: 2rem; background-color: var(--bg-body); border: none;">
+        <h2 style="font-size: 1.2rem; font-weight: 700; margin-bottom: 0.5rem; color: var(--text-main);">
+            この記事の結論
+        </h2>
+        <ul style="list-style-type: disc; padding-left: 1.5rem; color: var(--text-main); line-height: 1.8; font-size: 0.95rem;">
+            <li>毎月5万円の積立を20年以上続けると、<strong>老後2000万円問題の解決に大きく近づく</strong>ポテンシャルがあります。</li>
+            <li>運用によって得られた利益には<strong>税金（約20%）が一切かからない</strong>ため、積立額が多いほど新NISAの節税メリットが大きくなります。</li>
+        </ul>
+    </section>
+
+    <!-- シミュレーション事例 -->
+    <section class="card" style="margin-bottom: 2rem;">
+        <h2 style="font-size: 1.25rem; font-weight: 700; border-bottom: 2px solid var(--border-color); padding-bottom: 0.5rem; margin-bottom: 1rem;">
+            月5万円の積立シミュレーション例
+        </h2>
+        
+        <div style="margin-bottom: 1.5rem;">
+            <p style="font-size: 0.9rem; color: var(--text-muted); margin-bottom: 0.5rem;">【前提条件】</p>
+            <ul style="font-size: 0.9rem; color: var(--text-muted); padding-left: 1.5rem; margin-bottom: 1rem;">
+                <li>毎月の積立額：5万円</li>
+                <li>想定利回り：年利5%（標準的なインデックス投資の仮定）</li>
+            </ul>
+        </div>
+
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1rem; margin-bottom: 1.5rem;">
+            <div style="border: 1px solid var(--border-color); border-radius: 8px; padding: 1.5rem;">
+                <h3 style="font-size: 1.1rem; font-weight: 700; color: var(--primary); margin-bottom: 0.5rem;">20年後の場合</h3>
+                <p style="font-size: 0.95rem; color: var(--text-main); margin-bottom: 0.5rem;">総資産目安：<strong style="font-size: 1.2rem;">約2,055万円</strong></p>
+                <p style="font-size: 0.85rem; color: var(--text-muted);">（元本1,200万円＋運用益約855万円）</p>
+            </div>
+            
+            <div style="border: 1px solid var(--border-color); border-radius: 8px; padding: 1.5rem;">
+                <h3 style="font-size: 1.1rem; font-weight: 700; color: var(--primary); margin-bottom: 0.5rem;">30年後の場合</h3>
+                <p style="font-size: 0.95rem; color: var(--text-main); margin-bottom: 0.5rem;">総資産目安：<strong style="font-size: 1.2rem;">約4,161万円</strong></p>
+                <p style="font-size: 0.85rem; color: var(--text-muted);">（元本1,800万円＋運用益約2,361万円）</p>
+            </div>
+        </div>
+        <p style="margin-top: 1rem; font-size: 0.85rem; color: var(--text-muted);">
+            ※これらはあくまで傾向としての例であり、将来の運用成果を予測・保証するものではありません。
+        </p>
+    </section>
+
+    <!-- ボトムCTA -->
+    <div style="text-align: center; margin-bottom: 3rem; background-color: white; padding: 2rem; border-radius: 8px; border: 1px solid var(--primary);">
+        <h2 style="font-size: 1.2rem; font-weight: 700; margin-bottom: 1rem; color: var(--text-main);">
+            まずは自分の条件で試してみましょう
+        </h2>
+        <p style="font-size: 0.9rem; color: var(--text-muted); margin-bottom: 1.5rem;">
+            毎月5万円の設定で、グラフをシミュレーションしてみましょう。
+        </p>
+        <a href="/nisa-tsumitate?monthly=50000&years=20&return=5" class="track-outbound" style="display: inline-block; background-color: var(--primary); color: white; padding: 1rem 2rem; border-radius: 8px; font-weight: bold; text-decoration: none;">
+            月5万円の条件で試算してみる
+        </a>
+    </div>
+
+    <!-- FAQ統合と構造化データ出力 -->
+    <div style="max-width: 800px; margin: 0 auto; padding: 0 1rem; margin-bottom: 3rem;">
+        <h2 style="font-size: 1.25rem; font-weight: 700; border-bottom: 2px solid var(--border-color); padding-bottom: 0.5rem; margin-bottom: 1rem;">
+            よくある質問
+        </h2>
+        <FAQSection faqs={faqs} />
+    </div>
+
+    <!-- 関連リンク -->
+    <section>
+        <h2 style="font-size: 1.1rem; font-weight: 700; margin-bottom: 1rem; color: var(--text-main);">関連シミュレーション</h2>
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1rem;">
+            <a href="/lp/monthly-10000" style="display: block; padding: 1rem; background: white; border: 1px solid var(--border-color); border-radius: 8px; text-decoration: none; color: var(--text-main); font-weight: bold; font-size: 0.9rem;">
+                📈 月1万円で将来いくら？
+            </a>
+            <a href="/lp/monthly-30000-future" style="display: block; padding: 1rem; background: white; border: 1px solid var(--border-color); border-radius: 8px; text-decoration: none; color: var(--text-main); font-weight: bold; font-size: 0.9rem;">
+                📈 月3万円で将来いくら？
+            </a>
+            <a href="/lp/retirement-2000m" style="display: block; padding: 1rem; background: white; border: 1px solid var(--border-color); border-radius: 8px; text-decoration: none; color: var(--text-main); font-weight: bold; font-size: 0.9rem;">
+                📈 老後2000万円は足りる？
+            </a>
+        </div>
+    </section>
+</Layout>

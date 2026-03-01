@@ -1,0 +1,102 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import FAQSection from '../../components/FAQSection.astro';
+
+// SEO Settings
+const title = "一括投資と積立どっち？新NISAで比較試算";
+const description = "まとまった資金がある場合、新NISAの成長投資枠で「一括投資」すべきか、「毎月積立」で分散すべきか？それぞれのメリット・デメリットを比較し、シミュレーションで検証します。";
+
+// FAQ Data
+const faqs = [
+  {
+    q: "理論上は一括と積立どちらが有利ですか？",
+    a: "長期的に右肩上がりの相場を前提とすれば、資金を早く市場に置く「年初一括投資」の方が理論上はリターンが高くなりやすいとされています。"
+  },
+  {
+    q: "一括投資のデメリットは何ですか？",
+    a: "投資直後に大きな暴落が起きた場合、含み損による精神的な負担が非常に大きく、狼狽売りをしてしまうリスクが高まる点です。"
+  },
+  {
+    q: "結局どちらを選ぶべきですか？",
+    a: "リスク許容度によります。資産の変動額に耐えられるなら一括、日々の値動きが気になって夜も眠れないなら時間分散（積立）を選ぶのが一般的です。"
+  }
+];
+---
+
+<Layout title={title} description={description}>
+    <div style="margin-bottom: 2rem;">
+        <h1 style="font-size: 1.5rem; color: var(--text-main); line-height: 1.4; margin-bottom: 1rem;">
+            一括投資と積立投資どっち？新NISAでのメリット比較試算
+        </h1>
+        <p style="font-size: 0.95rem; color: var(--text-muted); line-height: 1.6; margin-bottom: 1.5rem;">
+            手元にすでにまとまった貯金・資金がある場合、新NISAの年間投資枠（最大360万円）を年初に一括で埋めるべきか、毎月少しずつ分けて積立（時間分散）すべきか、多くの方が悩むポイントについて解説します。
+        </p>
+    </div>
+
+    <!-- 結論セクション -->
+    <section class="card" style="margin-bottom: 2rem; background-color: var(--bg-body); border: none;">
+        <h2 style="font-size: 1.2rem; font-weight: 700; margin-bottom: 0.5rem; color: var(--text-main);">
+            この記事の結論
+        </h2>
+        <ul style="list-style-type: disc; padding-left: 1.5rem; color: var(--text-main); line-height: 1.8; font-size: 0.95rem;">
+            <li>理論・リターンの最大化を重視するなら<strong>「一括投資」</strong>が有利とされることが多いです（複利恩恵を早く受けられるため）。</li>
+            <li>暴落による精神的ダメージを抑え、気持ちの平穏を重視するなら<strong>「ドルコスト平均法（分散・積立）」</strong>が推奨されます。</li>
+        </ul>
+    </section>
+
+    <!-- シミュレーション事例 -->
+    <section class="card" style="margin-bottom: 2rem;">
+        <h2 style="font-size: 1.25rem; font-weight: 700; border-bottom: 2px solid var(--border-color); padding-bottom: 0.5rem; margin-bottom: 1rem;">
+            なぜ一括投資・急いで枠を埋める方が有利と言われるのか？
+        </h2>
+        
+        <div style="margin-bottom: 1.5rem;">
+            <p style="font-size: 0.95rem; color: var(--text-main); margin-bottom: 0.5rem;">
+                株式市場の価格は常に上下を繰り返しますが、アメリカのS&P500や全世界株式など広く分散された指数の場合、15年以上などの「超長期」で見れば右肩上がりになる歴史が続いています。
+            </p>
+            <p style="font-size: 0.95rem; color: var(--text-main); margin-bottom: 0.5rem;">
+                最終的に上がっていくという前提に立つのであれば、「より早くまとまったお金を市場に預けた状態」にしておくことで、配当や上昇益の複利効果を最も大きく受け取ることができます。
+            </p>
+            <p style="font-size: 0.95rem; color: var(--text-main);">
+                ただし、これはあくまで「過去のデータ」に基づく理論です。自身のメンタルが「一時して資産が半分になること」に耐えられない場合は、積立投資による時間分散が最高の選択肢となります。
+            </p>
+        </div>
+    </section>
+
+    <!-- ボトムCTA -->
+    <div style="text-align: center; margin-bottom: 3rem; background-color: white; padding: 2rem; border-radius: 8px; border: 1px solid var(--primary);">
+        <h2 style="font-size: 1.2rem; font-weight: 700; margin-bottom: 1rem; color: var(--text-main);">
+            自分の条件で毎月積立のシミュレーションをする
+        </h2>
+        <p style="font-size: 0.9rem; color: var(--text-muted); margin-bottom: 1.5rem;">
+            ※現在一括投資用のシミュレーションは準備中のため、代わりに高額の毎月積立（月10万円で5年間＝元本600万円）のシミュレーションをご覧ください。
+        </p>
+        <a href="/nisa-tsumitate?monthly=100000&years=5&return=5" class="track-outbound" style="display: inline-block; background-color: var(--primary); color: white; padding: 1rem 2rem; border-radius: 8px; font-weight: bold; text-decoration: none;">
+            月10万円など高額積立での試算
+        </a>
+    </div>
+
+    <!-- FAQ統合と構造化データ出力 -->
+    <div style="max-width: 800px; margin: 0 auto; padding: 0 1rem; margin-bottom: 3rem;">
+        <h2 style="font-size: 1.25rem; font-weight: 700; border-bottom: 2px solid var(--border-color); padding-bottom: 0.5rem; margin-bottom: 1rem;">
+            よくある質問
+        </h2>
+        <FAQSection faqs={faqs} />
+    </div>
+
+    <!-- 関連リンク -->
+    <section>
+        <h2 style="font-size: 1.1rem; font-weight: 700; margin-bottom: 1rem; color: var(--text-main);">関連シミュレーション</h2>
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1rem;">
+            <a href="/lp/nisa-when-to-start" style="display: block; padding: 1rem; background: white; border: 1px solid var(--border-color); border-radius: 8px; text-decoration: none; color: var(--text-main); font-weight: bold; font-size: 0.9rem;">
+                📊 新NISAはいつ始めるべき？
+            </a>
+            <a href="/nisa-tax-compare" style="display: block; padding: 1rem; background: white; border: 1px solid var(--border-color); border-radius: 8px; text-decoration: none; color: var(--text-main); font-weight: bold; font-size: 0.9rem;">
+                📊 非課税と課税口座の比較試算
+            </a>
+            <a href="/lp/monthly-50000" style="display: block; padding: 1rem; background: white; border: 1px solid var(--border-color); border-radius: 8px; text-decoration: none; color: var(--text-main); font-weight: bold; font-size: 0.9rem;">
+                📈 月5万円で将来いくら？試算
+            </a>
+        </div>
+    </section>
+</Layout>

@@ -1,0 +1,115 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import FAQSection from '../../components/FAQSection.astro';
+
+// SEO Settings
+const title = "利回り7%想定なら将来いくら？新NISA試算";
+const description = "年利7%という高めの利回りを想定した場合、新NISAでの積立投資で資産がどこまで増えるかシミュレーション。無料ツールで毎月の積立額や期間を変えて計算し、複利効果の威力を確認できます。";
+
+// FAQ Data
+const faqs = [
+  {
+    q: "年利7%というのは現実的に可能な利回りですか？",
+    a: "世界的な株価指数（全世界株式など）の長期的な過去の実績として7%前後になったケースはありますが、将来の利回りを保証するものではありません。"
+  },
+  {
+    q: "高い利回りを狙うリスクは何ですか？",
+    a: "期待リターンが高い商品は、より大きな価格変動（ボラティリティ）を伴うため、短期的には元本割れするリスクも高まる点に注意が必要です。"
+  },
+  {
+    q: "リバウンドを期待して下落時に一括投資すべきですか？",
+    a: "相場のタイミングを見計らうのは非常に難しいため、毎月一定額を機械的に積み立てる「ドルコスト平均法」が推奨されることが多いです。"
+  }
+];
+---
+
+<Layout title={title} description={description}>
+    <div style="margin-bottom: 2rem;">
+        <h1 style="font-size: 1.5rem; color: var(--text-main); line-height: 1.4; margin-bottom: 1rem;">
+            利回り7%想定なら将来いくら？新NISA試算
+        </h1>
+        <p style="font-size: 0.95rem; color: var(--text-muted); line-height: 1.6; margin-bottom: 1.5rem;">
+            過去の世界的な株式市場の長期平均リターンに近い「年利7%」という少し高めの利回りを想定した場合、長期間の積立で資産がどれほど大きく膨らむのか（複利効果）をシミュレーションします。
+        </p>
+    </div>
+
+    <!-- 結論セクション -->
+    <section class="card" style="margin-bottom: 2rem; background-color: var(--bg-body); border: none;">
+        <h2 style="font-size: 1.2rem; font-weight: 700; margin-bottom: 0.5rem; color: var(--text-main);">
+            この記事の結論
+        </h2>
+        <ul style="list-style-type: disc; padding-left: 1.5rem; color: var(--text-main); line-height: 1.8; font-size: 0.95rem;">
+            <li>年利7%の複利効果は絶大であり、20年〜30年という長期運用ができれば<strong>投資元本の2倍〜数倍</strong>の資産形成も期待できるペースです。</li>
+            <li>ただし、リスク（価格変動）も大きいため、<strong>暴落時にも慌てず積み立てを継続できる精神力</strong>が求められます。</li>
+        </ul>
+    </section>
+
+    <!-- シミュレーション事例 -->
+    <section class="card" style="margin-bottom: 2rem;">
+        <h2 style="font-size: 1.25rem; font-weight: 700; border-bottom: 2px solid var(--border-color); padding-bottom: 0.5rem; margin-bottom: 1rem;">
+            利回り7%の積立シミュレーション例
+        </h2>
+        
+        <div style="margin-bottom: 1.5rem;">
+            <p style="font-size: 0.9rem; color: var(--text-muted); margin-bottom: 0.5rem;">【前提条件】</p>
+            <ul style="font-size: 0.9rem; color: var(--text-muted); padding-left: 1.5rem; margin-bottom: 1rem;">
+                <li>想定利回り：年利7%（株式100%のインデックスファンド等）</li>
+                <li>運用期間：20年間</li>
+            </ul>
+        </div>
+
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1rem; margin-bottom: 1.5rem;">
+            <div style="border: 1px solid var(--border-color); border-radius: 8px; padding: 1.5rem;">
+                <h3 style="font-size: 1.1rem; font-weight: 700; color: var(--primary); margin-bottom: 0.5rem;">毎月3万円の場合</h3>
+                <p style="font-size: 0.95rem; color: var(--text-main); margin-bottom: 0.5rem;">20年後の総資産目安：<strong style="font-size: 1.2rem;">約1,562万円</strong></p>
+                <p style="font-size: 0.85rem; color: var(--text-muted);">（元本720万円＋運用益約842万円）</p>
+            </div>
+            
+            <div style="border: 1px solid var(--border-color); border-radius: 8px; padding: 1.5rem;">
+                <h3 style="font-size: 1.1rem; font-weight: 700; color: var(--primary); margin-bottom: 0.5rem;">毎月5万円の場合</h3>
+                <p style="font-size: 0.95rem; color: var(--text-main); margin-bottom: 0.5rem;">20年後の総資産目安：<strong style="font-size: 1.2rem;">約2,604万円</strong></p>
+                <p style="font-size: 0.85rem; color: var(--text-muted);">（元本1,200万円＋運用益約1,404万円）</p>
+            </div>
+        </div>
+        <p style="margin-top: 1rem; font-size: 0.85rem; color: var(--text-muted);">
+            ※これらはあくまで理想的な複利計算の例であり、実際の相場は直線的ではなく上下に変動します。将来の成果を保証するものではありません。
+        </p>
+    </section>
+
+    <!-- ボトムCTA -->
+    <div style="text-align: center; margin-bottom: 3rem; background-color: white; padding: 2rem; border-radius: 8px; border: 1px solid var(--primary);">
+        <h2 style="font-size: 1.2rem; font-weight: 700; margin-bottom: 1rem; color: var(--text-main);">
+            自分の条件で複利の威力を試してみましょう
+        </h2>
+        <p style="font-size: 0.9rem; color: var(--text-muted); margin-bottom: 1.5rem;">
+            年利7%の設定で、グラフをシミュレーションしてみましょう。
+        </p>
+        <a href="/nisa-tsumitate?return=7&monthly=30000&years=20" class="track-outbound" style="display: inline-block; background-color: var(--primary); color: white; padding: 1rem 2rem; border-radius: 8px; font-weight: bold; text-decoration: none;">
+            利回り7%の条件で試算してみる
+        </a>
+    </div>
+
+    <!-- FAQ統合と構造化データ出力 -->
+    <div style="max-width: 800px; margin: 0 auto; padding: 0 1rem; margin-bottom: 3rem;">
+        <h2 style="font-size: 1.25rem; font-weight: 700; border-bottom: 2px solid var(--border-color); padding-bottom: 0.5rem; margin-bottom: 1rem;">
+            よくある質問
+        </h2>
+        <FAQSection faqs={faqs} />
+    </div>
+
+    <!-- 関連リンク -->
+    <section>
+        <h2 style="font-size: 1.1rem; font-weight: 700; margin-bottom: 1rem; color: var(--text-main);">関連シミュレーション</h2>
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1rem;">
+            <a href="/lp/return-3-percent" style="display: block; padding: 1rem; background: white; border: 1px solid var(--border-color); border-radius: 8px; text-decoration: none; color: var(--text-main); font-weight: bold; font-size: 0.9rem;">
+                📈 利回り3%のシミュレーション例
+            </a>
+            <a href="/nisa-tax-compare" style="display: block; padding: 1rem; background: white; border: 1px solid var(--border-color); border-radius: 8px; text-decoration: none; color: var(--text-main); font-weight: bold; font-size: 0.9rem;">
+                📊 新NISAの非課税メリットを計算
+            </a>
+            <a href="/lp/nisa-lump-sum-vs-monthly" style="display: block; padding: 1rem; background: white; border: 1px solid var(--border-color); border-radius: 8px; text-decoration: none; color: var(--text-main); font-weight: bold; font-size: 0.9rem;">
+                📊 一括投資と積立どっち？比較
+            </a>
+        </div>
+    </section>
+</Layout>

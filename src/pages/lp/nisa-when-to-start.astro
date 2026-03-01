@@ -1,0 +1,115 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import FAQSection from '../../components/FAQSection.astro';
+
+// SEO Settings
+const title = "新NISAはいつ始めるべき？早い方が有利か無料シミュレーション";
+const description = "新NISAを始めるタイミングに迷っている方へ。「早く始めた方が本当にお得なのか？」を、運用期間の差による複利効果の違いからシミュレーション検証します。無料ツールで今すぐ試算。";
+
+// FAQ Data
+const faqs = [
+  {
+    q: "新NISAはいつ始めるのが一番良いですか？",
+    a: "「思い立ったが吉日」と言われるように、複利効果を最大限得るためには少しでも早く長期間運用することが一般的に有利とされます。"
+  },
+  {
+    q: "株価が高値の時に始めても大丈夫ですか？",
+    a: "積立投資（ドルコスト平均法）であれば、株価が高い時は少なく、安い時は多く買えるため、始めるタイミングを過度に気にする必要はないとされます。"
+  },
+  {
+    q: "「暴落が来る」という噂を聞いて迷っています",
+    a: "短期的な暴落リスクは常にありますが、10年〜20年以上の長期投資を前提にするのであれば、早く始めて市場に居続けるメリットの方が大きいとされることが多いです。"
+  }
+];
+---
+
+<Layout title={title} description={description}>
+    <div style="margin-bottom: 2rem;">
+        <h1 style="font-size: 1.5rem; color: var(--text-main); line-height: 1.4; margin-bottom: 1rem;">
+            新NISAはいつ始めるべき？早い方が有利か試算
+        </h1>
+        <p style="font-size: 0.95rem; color: var(--text-muted); line-height: 1.6; margin-bottom: 1.5rem;">
+            「手続きが面倒で後回しにしている」「暴落が来るのが怖くてタイミングを計っている」という方へ。10年スタートが遅れると、将来の受取資産にどれくらいの影響があるのかシミュレーションで明らかにします。
+        </p>
+    </div>
+
+    <!-- 結論セクション -->
+    <section class="card" style="margin-bottom: 2rem; background-color: var(--bg-body); border: none;">
+        <h2 style="font-size: 1.2rem; font-weight: 700; margin-bottom: 0.5rem; color: var(--text-main);">
+            この記事の結論
+        </h2>
+        <ul style="list-style-type: disc; padding-left: 1.5rem; color: var(--text-main); line-height: 1.8; font-size: 0.95rem;">
+            <li>複利効果は運用期間が長ければ長いほど雪だるま式に膨らむため、原則として<strong>「1日でも早く始めること」が最適解</strong>とされています。</li>
+            <li>「タイミングを見極める」ことはプロでも不可能なため、<strong>少額からでもとにかく口座を開設し買付をスタートする</strong>ことが推奨されます。</li>
+        </ul>
+    </section>
+
+    <!-- シミュレーション事例 -->
+    <section class="card" style="margin-bottom: 2rem;">
+        <h2 style="font-size: 1.25rem; font-weight: 700; border-bottom: 2px solid var(--border-color); padding-bottom: 0.5rem; margin-bottom: 1rem;">
+            スタートが「10年遅れた」場合のシミュレーション比較
+        </h2>
+        
+        <div style="margin-bottom: 1.5rem;">
+            <p style="font-size: 0.9rem; color: var(--text-muted); margin-bottom: 0.5rem;">【前提条件】</p>
+            <ul style="font-size: 0.9rem; color: var(--text-muted); padding-left: 1.5rem; margin-bottom: 1rem;">
+                <li>毎月の積立額：3万円</li>
+                <li>想定利回り：年利5%（仮定）</li>
+            </ul>
+        </div>
+
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1rem; margin-bottom: 1.5rem;">
+            <div style="border: 1px solid var(--border-color); border-radius: 8px; padding: 1.5rem;">
+                <h3 style="font-size: 1.1rem; font-weight: 700; color: var(--primary); margin-bottom: 0.5rem;">いますぐ始めて30年運用した場合</h3>
+                <p style="font-size: 0.95rem; color: var(--text-main); margin-bottom: 0.5rem;">30年後の総資産目安：<strong style="font-size: 1.2rem;">約2,496万円</strong></p>
+                <p style="font-size: 0.85rem; color: var(--text-muted);">（元本1,080万円＋運用益約1,416万円）</p>
+            </div>
+            
+            <div style="border: 1px solid var(--border-color); border-radius: 8px; padding: 1.5rem;">
+                <h3 style="font-size: 1.1rem; font-weight: 700; color: var(--primary); margin-bottom: 0.5rem;">10年後回しにして20年しか運用できなかった場合</h3>
+                <p style="font-size: 0.95rem; color: var(--text-main); margin-bottom: 0.5rem;">20年後の総資産目安：<strong style="font-size: 1.2rem;">約1,233万円</strong></p>
+                <p style="font-size: 0.85rem; color: var(--text-muted);">（元本720万円＋運用益約513万円）</p>
+            </div>
+        </div>
+        <p style="margin-top: 1rem; font-size: 0.85rem; color: var(--text-muted);">
+            ※結果的に、積立元本の差（360万円）以上に、複利運用による利益の差が絶大になることがわかります。将来の運用成果を予測・保証するものではありません。
+        </p>
+    </section>
+
+    <!-- ボトムCTA -->
+    <div style="text-align: center; margin-bottom: 3rem; background-color: white; padding: 2rem; border-radius: 8px; border: 1px solid var(--primary);">
+        <h2 style="font-size: 1.2rem; font-weight: 700; margin-bottom: 1rem; color: var(--text-main);">
+            自分の条件で複利の威力を試してみましょう
+        </h2>
+        <p style="font-size: 0.9rem; color: var(--text-muted); margin-bottom: 1.5rem;">
+            シミュレーター画面のグラフを使って「期間が伸びるほど増え方が急勾配になる」ことを実感してください。
+        </p>
+        <a href="/nisa-tsumitate?monthly=30000&years=30&return=5" class="track-outbound" style="display: inline-block; background-color: var(--primary); color: white; padding: 1rem 2rem; border-radius: 8px; font-weight: bold; text-decoration: none;">
+            30年間の長期運用の条件で試算する
+        </a>
+    </div>
+
+    <!-- FAQ統合と構造化データ出力 -->
+    <div style="max-width: 800px; margin: 0 auto; padding: 0 1rem; margin-bottom: 3rem;">
+        <h2 style="font-size: 1.25rem; font-weight: 700; border-bottom: 2px solid var(--border-color); padding-bottom: 0.5rem; margin-bottom: 1rem;">
+            よくある質問
+        </h2>
+        <FAQSection faqs={faqs} />
+    </div>
+
+    <!-- 関連リンク -->
+    <section>
+        <h2 style="font-size: 1.1rem; font-weight: 700; margin-bottom: 1rem; color: var(--text-main);">関連シミュレーション</h2>
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1rem;">
+            <a href="/lp/20s-how-much" style="display: block; padding: 1rem; background: white; border: 1px solid var(--border-color); border-radius: 8px; text-decoration: none; color: var(--text-main); font-weight: bold; font-size: 0.9rem;">
+                📈 20代の新NISAはいくら貯まる？
+            </a>
+            <a href="/lp/nisa-lump-sum-vs-monthly" style="display: block; padding: 1rem; background: white; border: 1px solid var(--border-color); border-radius: 8px; text-decoration: none; color: var(--text-main); font-weight: bold; font-size: 0.9rem;">
+                📊 一括投資と積立どっち？比較
+            </a>
+            <a href="/account-compare" style="display: block; padding: 1rem; background: white; border: 1px solid var(--border-color); border-radius: 8px; text-decoration: none; color: var(--text-main); font-weight: bold; font-size: 0.9rem;">
+                📊 初心者おすすめ証券口座比較
+            </a>
+        </div>
+    </section>
+</Layout>

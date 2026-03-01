@@ -26,7 +26,18 @@ export default function CalculatorForm({ mode }: CalculatorFormProps) {
         if (typeof window !== 'undefined') {
             const params = new URLSearchParams(window.location.search);
             const model = params.get('model');
+            const pMonthly = params.get('monthly');
+            const pYears = params.get('years');
+            const pReturn = params.get('return');
+            const pWithdraw = params.get('withdraw');
 
+            // 任意の数値を直指定するパラメータ
+            if (pMonthly) setAmount(pMonthly);
+            if (pYears) setYears(pYears);
+            if (pReturn) setReturnRate(pReturn);
+            if (pWithdraw) setMonthlyWithdraw(pWithdraw);
+
+            // モデル指定（既存）
             if (model === '20s' && mode === 'tsumitate') {
                 setAmount('30000');
                 setReturnRate('5.0');

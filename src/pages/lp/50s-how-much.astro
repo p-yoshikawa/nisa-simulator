@@ -1,0 +1,115 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import FAQSection from '../../components/FAQSection.astro';
+
+// SEO Settings
+const title = "50代から新NISAはいくら積立？間に合うか無料試算";
+const description = "50代からの新NISAは遅すぎる？老後資金の確保に向けた積立額の目安や、今からでも間に合う資産運用のシミュレーション例を解説します。無料ツールで試算できます。";
+
+// FAQ Data
+const faqs = [
+  {
+    q: "50代からでも新NISAはお得ですか？",
+    a: "非課税の恩恵は年齢に関係なく受けられるため、老後資金準備として有効とされることが多いです。"
+  },
+  {
+    q: "毎月いくら積み立てる人が多いですか？",
+    a: "資金の余裕に合わせて、月5万〜10万円など多めに設定される方もいらっしゃいます。"
+  },
+  {
+    q: "iDeCoとどちらが良いですか？",
+    a: "50代後半になるとiDeCoの非課税メリットを受けられる期間が短いため、引き出し自由な新NISAを優先するケースも多く見られます。"
+  }
+];
+---
+
+<Layout title={title} description={description}>
+    <div style="margin-bottom: 2rem;">
+        <h1 style="font-size: 1.5rem; color: var(--text-main); line-height: 1.4; margin-bottom: 1rem;">
+            50代から新NISAはいくら積立？間に合うか無料試算
+        </h1>
+        <p style="font-size: 0.95rem; color: var(--text-muted); line-height: 1.6; margin-bottom: 1.5rem;">
+            「50代から資産運用を始めても遅いのでは…？」と不安に思う方もいらっしゃいますが、人生100年時代、定年後も運用を続けることを前提にすれば十分に意味があると言われています。
+        </p>
+    </div>
+
+    <!-- 結論セクション -->
+    <section class="card" style="margin-bottom: 2rem; background-color: var(--bg-body); border: none;">
+        <h2 style="font-size: 1.2rem; font-weight: 700; margin-bottom: 0.5rem; color: var(--text-main);">
+            この記事の結論
+        </h2>
+        <ul style="list-style-type: disc; padding-left: 1.5rem; color: var(--text-main); line-height: 1.8; font-size: 0.95rem;">
+            <li>運用期間は65歳の定年までだけでなく、<strong>定年後も運用しながら取り崩す</strong>ことで非課税効果を伸ばせます。</li>
+            <li>住宅ローンや教育費が落ち着いた方の場合、<strong>月5万円〜10万円</strong>といった高額積立でラストスパートをかけるケースが見られます。</li>
+        </ul>
+    </section>
+
+    <!-- シミュレーション事例 -->
+    <section class="card" style="margin-bottom: 2rem;">
+        <h2 style="font-size: 1.25rem; font-weight: 700; border-bottom: 2px solid var(--border-color); padding-bottom: 0.5rem; margin-bottom: 1rem;">
+            50代の積立シミュレーション例
+        </h2>
+        
+        <div style="margin-bottom: 1.5rem;">
+            <p style="font-size: 0.9rem; color: var(--text-muted); margin-bottom: 0.5rem;">【前提条件】</p>
+            <ul style="font-size: 0.9rem; color: var(--text-muted); padding-left: 1.5rem; margin-bottom: 1rem;">
+                <li>運用利回り：年利3%（堅実な運用を想定）</li>
+                <li>運用期間：15年間（50歳から65歳まで）</li>
+            </ul>
+        </div>
+
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1rem; margin-bottom: 1.5rem;">
+            <div style="border: 1px solid var(--border-color); border-radius: 8px; padding: 1.5rem;">
+                <h3 style="font-size: 1.1rem; font-weight: 700; color: var(--primary); margin-bottom: 0.5rem;">毎月5万円の場合</h3>
+                <p style="font-size: 0.95rem; color: var(--text-main); margin-bottom: 0.5rem;">15年後の総資産目安：<strong style="font-size: 1.2rem;">約1,100万円</strong></p>
+                <p style="font-size: 0.85rem; color: var(--text-muted);">（元本900万円＋運用益約200万円）</p>
+            </div>
+            
+            <div style="border: 1px solid var(--border-color); border-radius: 8px; padding: 1.5rem;">
+                <h3 style="font-size: 1.1rem; font-weight: 700; color: var(--primary); margin-bottom: 0.5rem;">毎月10万円の場合</h3>
+                <p style="font-size: 0.95rem; color: var(--text-main); margin-bottom: 0.5rem;">15年後の総資産目安：<strong style="font-size: 1.2rem;">約2,200万円</strong></p>
+                <p style="font-size: 0.85rem; color: var(--text-muted);">（元本1,800万円＋運用益約400万円）</p>
+            </div>
+        </div>
+        <p style="margin-top: 1rem; font-size: 0.85rem; color: var(--text-muted);">
+            ※これらはあくまで傾向としての例であり、将来の運用成果を予測・保証するものではありません。
+        </p>
+    </section>
+
+    <!-- ボトムCTA -->
+    <div style="text-align: center; margin-bottom: 3rem; background-color: white; padding: 2rem; border-radius: 8px; border: 1px solid var(--primary);">
+        <h2 style="font-size: 1.2rem; font-weight: 700; margin-bottom: 1rem; color: var(--text-main);">
+            まずは自分の条件で試してみましょう
+        </h2>
+        <p style="font-size: 0.9rem; color: var(--text-muted); margin-bottom: 1.5rem;">
+            50代のモデルケース（月5万・利回り3%・10年）を読み込んで計算します。
+        </p>
+        <a href="/nisa-tsumitate?model=50s" class="track-outbound" style="display: inline-block; background-color: var(--primary); color: white; padding: 1rem 2rem; border-radius: 8px; font-weight: bold; text-decoration: none;">
+            50代の条件で試算してみる
+        </a>
+    </div>
+
+    <!-- FAQ統合と構造化データ出力 -->
+    <div style="max-width: 800px; margin: 0 auto; padding: 0 1rem; margin-bottom: 3rem;">
+        <h2 style="font-size: 1.25rem; font-weight: 700; border-bottom: 2px solid var(--border-color); padding-bottom: 0.5rem; margin-bottom: 1rem;">
+            50代からの新NISAに関するよくある質問
+        </h2>
+        <FAQSection faqs={faqs} />
+    </div>
+
+    <!-- 関連リンク -->
+    <section>
+        <h2 style="font-size: 1.1rem; font-weight: 700; margin-bottom: 1rem; color: var(--text-main);">関連シミュレーション</h2>
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1rem;">
+            <a href="/lp/40s-is-it-late" style="display: block; padding: 1rem; background: white; border: 1px solid var(--border-color); border-radius: 8px; text-decoration: none; color: var(--text-main); font-weight: bold; font-size: 0.9rem;">
+                📈 40代から新NISAは遅い？
+            </a>
+            <a href="/nisa-withdraw" style="display: block; padding: 1rem; background: white; border: 1px solid var(--border-color); border-radius: 8px; text-decoration: none; color: var(--text-main); font-weight: bold; font-size: 0.9rem;">
+                📉 取り崩しシミュレーター
+            </a>
+            <a href="/lp/nisa-vs-ideco" style="display: block; padding: 1rem; background: white; border: 1px solid var(--border-color); border-radius: 8px; text-decoration: none; color: var(--text-main); font-weight: bold; font-size: 0.9rem;">
+                📊 新NISAとiDeCoどっち？
+            </a>
+        </div>
+    </section>
+</Layout>

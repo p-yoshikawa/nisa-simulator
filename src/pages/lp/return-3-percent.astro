@@ -1,0 +1,115 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import FAQSection from '../../components/FAQSection.astro';
+
+// SEO Settings
+const title = "利回り3%なら新NISAでいくら増える？試算例";
+const description = "年利3%の堅実な運用を想定した場合、新NISAでの積立投資で資産がどれくらい増えるかシミュレーション。無料ツールを使えば、毎月の積立額や期間を変えて簡単に計算できます。";
+
+// FAQ Data
+const faqs = [
+  {
+    q: "利回り3%は現実的な数字ですか？",
+    a: "株式と債券をバランス良く組み合わせたファンド等で、長期投資において目指す堅実なリターンの目安の一つとされることがあります。"
+  },
+  {
+    q: "利回りがマイナスになることはありますか？",
+    a: "投資信託には元本保証がないため、市況によっては一時的にマイナスとなる時期もあります。長期保有でリスクを抑えることが大切です。"
+  },
+  {
+    q: "どうすれば利回り3%を達成できますか？",
+    a: "約束された利回りはありませんが、株式や債券など複数の資産に分散投資することで、価格変動リスクを抑えつつ安定した成長を狙うのがセオリーです。"
+  }
+];
+---
+
+<Layout title={title} description={description}>
+    <div style="margin-bottom: 2rem;">
+        <h1 style="font-size: 1.5rem; color: var(--text-main); line-height: 1.4; margin-bottom: 1rem;">
+            利回り3%なら新NISAでいくら増える？試算例
+        </h1>
+        <p style="font-size: 0.95rem; color: var(--text-muted); line-height: 1.6; margin-bottom: 1.5rem;">
+            「高いリターンは怖いから、少し手堅く運用したい」と考える方へ。年利3%という比較的マイルドな利回りを想定した場合、新NISAで資産がどのように増えていくかをシミュレーションします。
+        </p>
+    </div>
+
+    <!-- 結論セクション -->
+    <section class="card" style="margin-bottom: 2rem; background-color: var(--bg-body); border: none;">
+        <h2 style="font-size: 1.2rem; font-weight: 700; margin-bottom: 0.5rem; color: var(--text-main);">
+            この記事の結論
+        </h2>
+        <ul style="list-style-type: disc; padding-left: 1.5rem; color: var(--text-main); line-height: 1.8; font-size: 0.95rem;">
+            <li>年利3%の堅実な運用であっても、<strong>20年以上続けることでまとまった運用益</strong>が期待できます。</li>
+            <li>預貯金の金利（0%付近）と比較すると、インフレ対策としても<strong>投資の複利効果は非常に大きい</strong>です。</li>
+        </ul>
+    </section>
+
+    <!-- シミュレーション事例 -->
+    <section class="card" style="margin-bottom: 2rem;">
+        <h2 style="font-size: 1.25rem; font-weight: 700; border-bottom: 2px solid var(--border-color); padding-bottom: 0.5rem; margin-bottom: 1rem;">
+            利回り3%の積立シミュレーション例
+        </h2>
+        
+        <div style="margin-bottom: 1.5rem;">
+            <p style="font-size: 0.9rem; color: var(--text-muted); margin-bottom: 0.5rem;">【前提条件】</p>
+            <ul style="font-size: 0.9rem; color: var(--text-muted); padding-left: 1.5rem; margin-bottom: 1rem;">
+                <li>想定利回り：年利3%</li>
+                <li>運用期間：20年間</li>
+            </ul>
+        </div>
+
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1rem; margin-bottom: 1.5rem;">
+            <div style="border: 1px solid var(--border-color); border-radius: 8px; padding: 1.5rem;">
+                <h3 style="font-size: 1.1rem; font-weight: 700; color: var(--primary); margin-bottom: 0.5rem;">毎月3万円の場合</h3>
+                <p style="font-size: 0.95rem; color: var(--text-main); margin-bottom: 0.5rem;">20年後の総資産目安：<strong style="font-size: 1.2rem;">約984万円</strong></p>
+                <p style="font-size: 0.85rem; color: var(--text-muted);">（元本720万円＋運用益約264万円）</p>
+            </div>
+            
+            <div style="border: 1px solid var(--border-color); border-radius: 8px; padding: 1.5rem;">
+                <h3 style="font-size: 1.1rem; font-weight: 700; color: var(--primary); margin-bottom: 0.5rem;">毎月5万円の場合</h3>
+                <p style="font-size: 0.95rem; color: var(--text-main); margin-bottom: 0.5rem;">20年後の総資産目安：<strong style="font-size: 1.2rem;">約1,641万円</strong></p>
+                <p style="font-size: 0.85rem; color: var(--text-muted);">（元本1,200万円＋運用益約441万円）</p>
+            </div>
+        </div>
+        <p style="margin-top: 1rem; font-size: 0.85rem; color: var(--text-muted);">
+            ※これらはあくまで傾向としての例であり、将来の運用成果を予測・保証するものではありません。
+        </p>
+    </section>
+
+    <!-- ボトムCTA -->
+    <div style="text-align: center; margin-bottom: 3rem; background-color: white; padding: 2rem; border-radius: 8px; border: 1px solid var(--primary);">
+        <h2 style="font-size: 1.2rem; font-weight: 700; margin-bottom: 1rem; color: var(--text-main);">
+            まずは自分の条件で試してみましょう
+        </h2>
+        <p style="font-size: 0.9rem; color: var(--text-muted); margin-bottom: 1.5rem;">
+            年利3%の設定で、グラフをシミュレーションしてみましょう。
+        </p>
+        <a href="/nisa-tsumitate?return=3&monthly=30000&years=20" class="track-outbound" style="display: inline-block; background-color: var(--primary); color: white; padding: 1rem 2rem; border-radius: 8px; font-weight: bold; text-decoration: none;">
+            利回り3%の条件で試算してみる
+        </a>
+    </div>
+
+    <!-- FAQ統合と構造化データ出力 -->
+    <div style="max-width: 800px; margin: 0 auto; padding: 0 1rem; margin-bottom: 3rem;">
+        <h2 style="font-size: 1.25rem; font-weight: 700; border-bottom: 2px solid var(--border-color); padding-bottom: 0.5rem; margin-bottom: 1rem;">
+            よくある質問
+        </h2>
+        <FAQSection faqs={faqs} />
+    </div>
+
+    <!-- 関連リンク -->
+    <section>
+        <h2 style="font-size: 1.1rem; font-weight: 700; margin-bottom: 1rem; color: var(--text-main);">関連シミュレーション</h2>
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1rem;">
+            <a href="/lp/return-7-percent" style="display: block; padding: 1rem; background: white; border: 1px solid var(--border-color); border-radius: 8px; text-decoration: none; color: var(--text-main); font-weight: bold; font-size: 0.9rem;">
+                📈 利回り7%のシミュレーション例
+            </a>
+            <a href="/nisa-tax-compare" style="display: block; padding: 1rem; background: white; border: 1px solid var(--border-color); border-radius: 8px; text-decoration: none; color: var(--text-main); font-weight: bold; font-size: 0.9rem;">
+                📊 新NISAの非課税メリットを計算
+            </a>
+            <a href="/lp/nisa-lump-sum-vs-monthly" style="display: block; padding: 1rem; background: white; border: 1px solid var(--border-color); border-radius: 8px; text-decoration: none; color: var(--text-main); font-weight: bold; font-size: 0.9rem;">
+                📊 一括投資と積立どっち？比較
+            </a>
+        </div>
+    </section>
+</Layout>

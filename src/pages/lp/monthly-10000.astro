@@ -1,0 +1,115 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import FAQSection from '../../components/FAQSection.astro';
+
+// SEO Settings
+const title = "新NISA 月1万円で将来いくら？無料シミュレーション";
+const description = "新NISAで毎月1万円ずつ積み立てたら将来いくらになる？年利回りの違いによる資産推移のシミュレーション結果を解説します。少額からでも始めたい方必見の無料試算ツールです。";
+
+// FAQ Data
+const faqs = [
+  {
+    q: "月1万円でも投資の意味はありますか？",
+    a: "はい。長期間続けることで複利効果が働き、将来の資産形成に大きく貢献する可能性があります。"
+  },
+  {
+    q: "月1万ならどの銘柄が良いですか？",
+    a: "一般的には、広く世界に分散投資できるインデックスファンド（全世界株式やS&P500など）が選ばれる傾向にあります。"
+  },
+  {
+    q: "後から月3万円に増やすことは可能ですか？",
+    a: "はい。収入の増加などに合わせて、いつでも積立金額を増やすことが可能です。"
+  }
+];
+---
+
+<Layout title={title} description={description}>
+    <div style="margin-bottom: 2rem;">
+        <h1 style="font-size: 1.5rem; color: var(--text-main); line-height: 1.4; margin-bottom: 1rem;">
+            新NISA 月1万円で将来いくら？無料シミュレーション
+        </h1>
+        <p style="font-size: 0.95rem; color: var(--text-muted); line-height: 1.6; margin-bottom: 1.5rem;">
+            「投資にお金を回す余裕があまりない」という方でも、新NISAはワンコインからでも始められます。毎月1万円を積み立てた場合、将来どれくらいになるのかシミュレーションしてみましょう。
+        </p>
+    </div>
+
+    <!-- 結論セクション -->
+    <section class="card" style="margin-bottom: 2rem; background-color: var(--bg-body); border: none;">
+        <h2 style="font-size: 1.2rem; font-weight: 700; margin-bottom: 0.5rem; color: var(--text-main);">
+            この記事の結論
+        </h2>
+        <ul style="list-style-type: disc; padding-left: 1.5rem; color: var(--text-main); line-height: 1.8; font-size: 0.95rem;">
+            <li>月1万円であっても、20年・30年と<strong>長期で続けることでまとまった資産</strong>になり得ます。</li>
+            <li>投資初心者が相場に慣れるための<strong>第一歩として非常に有効</strong>な金額設定とされています。</li>
+        </ul>
+    </section>
+
+    <!-- シミュレーション事例 -->
+    <section class="card" style="margin-bottom: 2rem;">
+        <h2 style="font-size: 1.25rem; font-weight: 700; border-bottom: 2px solid var(--border-color); padding-bottom: 0.5rem; margin-bottom: 1rem;">
+            月1万円の積立シミュレーション例
+        </h2>
+        
+        <div style="margin-bottom: 1.5rem;">
+            <p style="font-size: 0.9rem; color: var(--text-muted); margin-bottom: 0.5rem;">【前提条件】</p>
+            <ul style="font-size: 0.9rem; color: var(--text-muted); padding-left: 1.5rem; margin-bottom: 1rem;">
+                <li>毎月の積立額：1万円</li>
+                <li>運用期間：20年間</li>
+            </ul>
+        </div>
+
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1rem; margin-bottom: 1.5rem;">
+            <div style="border: 1px solid var(--border-color); border-radius: 8px; padding: 1.5rem;">
+                <h3 style="font-size: 1.1rem; font-weight: 700; color: var(--primary); margin-bottom: 0.5rem;">利回り3%の場合</h3>
+                <p style="font-size: 0.95rem; color: var(--text-main); margin-bottom: 0.5rem;">20年後の総資産目安：<strong style="font-size: 1.2rem;">約328万円</strong></p>
+                <p style="font-size: 0.85rem; color: var(--text-muted);">（元本240万円＋運用益約88万円）</p>
+            </div>
+            
+            <div style="border: 1px solid var(--border-color); border-radius: 8px; padding: 1.5rem;">
+                <h3 style="font-size: 1.1rem; font-weight: 700; color: var(--primary); margin-bottom: 0.5rem;">利回り5%の場合</h3>
+                <p style="font-size: 0.95rem; color: var(--text-main); margin-bottom: 0.5rem;">20年後の総資産目安：<strong style="font-size: 1.2rem;">約411万円</strong></p>
+                <p style="font-size: 0.85rem; color: var(--text-muted);">（元本240万円＋運用益約171万円）</p>
+            </div>
+        </div>
+        <p style="margin-top: 1rem; font-size: 0.85rem; color: var(--text-muted);">
+            ※これらはあくまで傾向としての例であり、将来の運用成果を予測・保証するものではありません。
+        </p>
+    </section>
+
+    <!-- ボトムCTA -->
+    <div style="text-align: center; margin-bottom: 3rem; background-color: white; padding: 2rem; border-radius: 8px; border: 1px solid var(--primary);">
+        <h2 style="font-size: 1.2rem; font-weight: 700; margin-bottom: 1rem; color: var(--text-main);">
+            まずは自分の条件で試してみましょう
+        </h2>
+        <p style="font-size: 0.9rem; color: var(--text-muted); margin-bottom: 1.5rem;">
+            毎月1万円の設定で、グラフをシミュレーションしてみましょう。
+        </p>
+        <a href="/nisa-tsumitate?monthly=10000&years=20&return=5" class="track-outbound" style="display: inline-block; background-color: var(--primary); color: white; padding: 1rem 2rem; border-radius: 8px; font-weight: bold; text-decoration: none;">
+            月1万円の条件で試算してみる
+        </a>
+    </div>
+
+    <!-- FAQ統合と構造化データ出力 -->
+    <div style="max-width: 800px; margin: 0 auto; padding: 0 1rem; margin-bottom: 3rem;">
+        <h2 style="font-size: 1.25rem; font-weight: 700; border-bottom: 2px solid var(--border-color); padding-bottom: 0.5rem; margin-bottom: 1rem;">
+            よくある質問
+        </h2>
+        <FAQSection faqs={faqs} />
+    </div>
+
+    <!-- 関連リンク -->
+    <section>
+        <h2 style="font-size: 1.1rem; font-weight: 700; margin-bottom: 1rem; color: var(--text-main);">関連シミュレーション</h2>
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1rem;">
+            <a href="/lp/monthly-30000-future" style="display: block; padding: 1rem; background: white; border: 1px solid var(--border-color); border-radius: 8px; text-decoration: none; color: var(--text-main); font-weight: bold; font-size: 0.9rem;">
+                📈 月3万円で将来いくら？
+            </a>
+            <a href="/lp/monthly-50000" style="display: block; padding: 1rem; background: white; border: 1px solid var(--border-color); border-radius: 8px; text-decoration: none; color: var(--text-main); font-weight: bold; font-size: 0.9rem;">
+                📈 月5万円で将来いくら？
+            </a>
+            <a href="/lp/return-5-percent" style="display: block; padding: 1rem; background: white; border: 1px solid var(--border-color); border-radius: 8px; text-decoration: none; color: var(--text-main); font-weight: bold; font-size: 0.9rem;">
+                📈 利回り5%のシミュレーション例
+            </a>
+        </div>
+    </section>
+</Layout>

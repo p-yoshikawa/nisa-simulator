@@ -1,0 +1,116 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import FAQSection from '../../components/FAQSection.astro';
+
+// SEO Settings
+const title = "20代の新NISAはいくら積み立てる？将来いくらになるか試算";
+const description = "20代から新NISAを始めるなら毎月いくら積み立てるべき？時間を味方につける20代ならではのメリットや、将来の資産シミュレーション例を解説します。無料ツールで自分の条件に合わせて試算可能です。";
+
+// FAQ Data
+const faqs = [
+  {
+    q: "20代の積立額の目安はどれくらいですか？",
+    a: "無理のない範囲で月1万〜3万円程度から始める方が多いです。少額でも早く始めることで時間を味方につけられます。"
+  },
+  {
+    q: "途中で金額変更は可能ですか？",
+    a: "はい。多くの金融機関において、Web上でいつでも積立金額の増減や一時停止を行えます。"
+  },
+  {
+    q: "貯蓄と投資のバランスはどうすべきですか？",
+    a: "まずは生活防衛資金（生活費の数ヶ月分）を現金で確保した上で、当面使う予定のない余剰資金を投資に回すのが一般的です。"
+  }
+];
+---
+
+<Layout title={title} description={description}>
+    <div style="margin-bottom: 2rem;">
+        <h1 style="font-size: 1.5rem; color: var(--text-main); line-height: 1.4; margin-bottom: 1rem;">
+            20代の新NISAはいくら積み立てる？将来いくらになるか試算
+        </h1>
+        <p style="font-size: 0.95rem; color: var(--text-muted); line-height: 1.6; margin-bottom: 1.5rem;">
+            新NISA（少額投資非課税制度）は、運用期間を長く確保できる20代にとって非常にメリットの大きい制度と言われています。この記事では、20代向けのシミュレーション例や考え方をご紹介します。
+        </p>
+    </div>
+
+    <!-- 結論セクション -->
+    <section class="card" style="margin-bottom: 2rem; background-color: var(--bg-body); border: none;">
+        <h2 style="font-size: 1.2rem; font-weight: 700; margin-bottom: 0.5rem; color: var(--text-main);">
+            この記事の結論
+        </h2>
+        <ul style="list-style-type: disc; padding-left: 1.5rem; color: var(--text-main); line-height: 1.8; font-size: 0.95rem;">
+            <li>20代は月1万円〜3万円などの<strong>少額から無理なく始める</strong>ケースが王道とされています。</li>
+            <li>最大の武器である<strong>「時間」</strong>を活かし、30年〜40年といった長期の複利効果を狙うのがセオリーです。</li>
+            <li>投資額は後からでも変更可能なため、まずは少額からスタートしてみるのも一つの選択肢です。</li>
+        </ul>
+    </section>
+
+    <!-- シミュレーション事例 -->
+    <section class="card" style="margin-bottom: 2rem;">
+        <h2 style="font-size: 1.25rem; font-weight: 700; border-bottom: 2px solid var(--border-color); padding-bottom: 0.5rem; margin-bottom: 1rem;">
+            20代の積立シミュレーション例
+        </h2>
+        
+        <div style="margin-bottom: 1.5rem;">
+            <p style="font-size: 0.9rem; color: var(--text-muted); margin-bottom: 0.5rem;">【前提条件】</p>
+            <ul style="font-size: 0.9rem; color: var(--text-muted); padding-left: 1.5rem; margin-bottom: 1rem;">
+                <li>運用利回り：年利5%（仮定）</li>
+                <li>運用期間：40年間（25歳から65歳を想定）</li>
+            </ul>
+        </div>
+
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1rem; margin-bottom: 1.5rem;">
+            <div style="border: 1px solid var(--border-color); border-radius: 8px; padding: 1.5rem;">
+                <h3 style="font-size: 1.1rem; font-weight: 700; color: var(--primary); margin-bottom: 0.5rem;">毎月1万円の場合</h3>
+                <p style="font-size: 0.95rem; color: var(--text-main); margin-bottom: 0.5rem;">40年後の総資産目安：<strong style="font-size: 1.2rem;">約1,500万円</strong></p>
+                <p style="font-size: 0.85rem; color: var(--text-muted);">（元本480万円＋運用益約1020万円）</p>
+            </div>
+            
+            <div style="border: 1px solid var(--border-color); border-radius: 8px; padding: 1.5rem;">
+                <h3 style="font-size: 1.1rem; font-weight: 700; color: var(--primary); margin-bottom: 0.5rem;">毎月3万円の場合</h3>
+                <p style="font-size: 0.95rem; color: var(--text-main); margin-bottom: 0.5rem;">40年後の総資産目安：<strong style="font-size: 1.2rem;">約4,500万円</strong></p>
+                <p style="font-size: 0.85rem; color: var(--text-muted);">（元本1,440万円＋運用益約3,060万円）</p>
+            </div>
+        </div>
+        <p style="margin-top: 1rem; font-size: 0.85rem; color: var(--text-muted);">
+            ※これらはあくまで傾向としての例であり、将来の運用成果を予測・保証するものではありません。
+        </p>
+    </section>
+
+    <!-- ボトムCTA -->
+    <div style="text-align: center; margin-bottom: 3rem; background-color: white; padding: 2rem; border-radius: 8px; border: 1px solid var(--primary);">
+        <h2 style="font-size: 1.2rem; font-weight: 700; margin-bottom: 1rem; color: var(--text-main);">
+            まずは自分の条件で試してみましょう
+        </h2>
+        <p style="font-size: 0.9rem; color: var(--text-muted); margin-bottom: 1.5rem;">
+            20代のモデルケース（月3万・利回り5%・40年）を読み込んで計算します。
+        </p>
+        <a href="/nisa-tsumitate?model=20s" class="track-outbound" style="display: inline-block; background-color: var(--primary); color: white; padding: 1rem 2rem; border-radius: 8px; font-weight: bold; text-decoration: none;">
+            20代の条件で試算してみる
+        </a>
+    </div>
+
+    <!-- FAQ統合と構造化データ出力 -->
+    <div style="max-width: 800px; margin: 0 auto; padding: 0 1rem; margin-bottom: 3rem;">
+        <h2 style="font-size: 1.25rem; font-weight: 700; border-bottom: 2px solid var(--border-color); padding-bottom: 0.5rem; margin-bottom: 1rem;">
+            20代の新NISAに関するよくある質問
+        </h2>
+        <FAQSection faqs={faqs} />
+    </div>
+
+    <!-- 関連リンク -->
+    <section>
+        <h2 style="font-size: 1.1rem; font-weight: 700; margin-bottom: 1rem; color: var(--text-main);">関連シミュレーション</h2>
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1rem;">
+            <a href="/lp/30s-how-much" style="display: block; padding: 1rem; background: white; border: 1px solid var(--border-color); border-radius: 8px; text-decoration: none; color: var(--text-main); font-weight: bold; font-size: 0.9rem;">
+                📈 30代の新NISAはいくら？
+            </a>
+            <a href="/lp/monthly-30000-future" style="display: block; padding: 1rem; background: white; border: 1px solid var(--border-color); border-radius: 8px; text-decoration: none; color: var(--text-main); font-weight: bold; font-size: 0.9rem;">
+                📈 月3万円で将来いくら？
+            </a>
+            <a href="/lp/monthly-10000" style="display: block; padding: 1rem; background: white; border: 1px solid var(--border-color); border-radius: 8px; text-decoration: none; color: var(--text-main); font-weight: bold; font-size: 0.9rem;">
+                📈 月1万円で将来いくら？
+            </a>
+        </div>
+    </section>
+</Layout>

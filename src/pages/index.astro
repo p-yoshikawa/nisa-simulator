@@ -80,16 +80,26 @@ const buildDate = new Date().toLocaleDateString('ja-JP', { timeZone: 'Asia/Tokyo
         </div>
     </div>
 
-    <!-- 新設： 目的別・詳細解説へのリンク集 -->
+    <!-- 新設： 条件別シミュレーション一覧 -->
     <section style="margin-bottom: 2.5rem; background-color: white; padding: 1.5rem; border-radius: 8px; border: 1px solid var(--border-color);">
         <h2 style="font-size: 1.25rem; font-weight: 700; margin-bottom: 1rem; color: var(--text-main); border-bottom: 2px solid var(--border-color); padding-bottom: 0.5rem;">
-            目的別シミュレーション
+            条件別シミュレーション一覧
         </h2>
-        <ul style="list-style-type: none; padding: 0; display: flex; flex-direction: column; gap: 0.8rem;">
+        <ul style="list-style-type: none; padding: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 0.8rem;">
+            <li><a href="/lp/20s-how-much" style="color: var(--primary); text-decoration: none; font-weight: 600; display: flex; align-items: center; gap: 0.5rem;"><span>▶</span> 20代の新NISAはいくら？</a></li>
             <li><a href="/lp/30s-how-much" style="color: var(--primary); text-decoration: none; font-weight: 600; display: flex; align-items: center; gap: 0.5rem;"><span>▶</span> 30代はいくら積立？</a></li>
-            <li><a href="/lp/monthly-30000-future" style="color: var(--primary); text-decoration: none; font-weight: 600; display: flex; align-items: center; gap: 0.5rem;"><span>▶</span> 月3万円で将来いくら？</a></li>
             <li><a href="/lp/40s-is-it-late" style="color: var(--primary); text-decoration: none; font-weight: 600; display: flex; align-items: center; gap: 0.5rem;"><span>▶</span> 40代から間に合う？</a></li>
-            <li><a href="/lp/nisa-vs-ideco" style="color: var(--primary); text-decoration: none; font-weight: 600; display: flex; align-items: center; gap: 0.5rem;"><span>▶</span> NISAとiDeCoどっち？</a></li>
+            <li><a href="/lp/50s-how-much" style="color: var(--primary); text-decoration: none; font-weight: 600; display: flex; align-items: center; gap: 0.5rem;"><span>▶</span> 50代はいくら積立？</a></li>
+            <li><a href="/lp/monthly-10000" style="color: var(--primary); text-decoration: none; font-weight: 600; display: flex; align-items: center; gap: 0.5rem;"><span>▶</span> 月1万円で将来いくら？</a></li>
+            <li><a href="/lp/monthly-30000-future" style="color: var(--primary); text-decoration: none; font-weight: 600; display: flex; align-items: center; gap: 0.5rem;"><span>▶</span> 月3万円で将来いくら？</a></li>
+            <li><a href="/lp/monthly-50000" style="color: var(--primary); text-decoration: none; font-weight: 600; display: flex; align-items: center; gap: 0.5rem;"><span>▶</span> 月5万円で将来いくら？</a></li>
+            <li><a href="/lp/return-3-percent" style="color: var(--primary); text-decoration: none; font-weight: 600; display: flex; align-items: center; gap: 0.5rem;"><span>▶</span> 利回り3%ならいくら増える？</a></li>
+            <li><a href="/lp/return-7-percent" style="color: var(--primary); text-decoration: none; font-weight: 600; display: flex; align-items: center; gap: 0.5rem;"><span>▶</span> 利回り7%ならいくら増える？</a></li>
+            <li><a href="/lp/education-fund" style="color: var(--primary); text-decoration: none; font-weight: 600; display: flex; align-items: center; gap: 0.5rem;"><span>▶</span> 教育資金は新NISAで貯まる？</a></li>
+            <li><a href="/lp/retirement-2000m" style="color: var(--primary); text-decoration: none; font-weight: 600; display: flex; align-items: center; gap: 0.5rem;"><span>▶</span> 老後2000万円問題は足りる？</a></li>
+            <li><a href="/lp/nisa-when-to-start" style="color: var(--primary); text-decoration: none; font-weight: 600; display: flex; align-items: center; gap: 0.5rem;"><span>▶</span> 新NISAはいつ始めるべき？</a></li>
+            <li><a href="/lp/nisa-lump-sum-vs-monthly" style="color: var(--primary); text-decoration: none; font-weight: 600; display: flex; align-items: center; gap: 0.5rem;"><span>▶</span> 一括投資vs毎月積立 比較</a></li>
+            <li><a href="/lp/nisa-vs-ideco" style="color: var(--primary); text-decoration: none; font-weight: 600; display: flex; align-items: center; gap: 0.5rem;"><span>▶</span> 新NISAとiDeCoどっち？</a></li>
             <li><a href="/lp/nisa-vs-taxable" style="color: var(--primary); text-decoration: none; font-weight: 600; display: flex; align-items: center; gap: 0.5rem;"><span>▶</span> NISAと課税口座の違い</a></li>
         </ul>
     </section>
