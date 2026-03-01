@@ -42,40 +42,69 @@ const buildDate = new Date().toLocaleDateString('ja-JP', { timeZone: 'Asia/Tokyo
 		</p>
 	</div>
 
-    <!-- Comparison Table -->
-    <div style="margin-bottom: 2.5rem; overflow-x: auto; background: white; border: 1px solid var(--border-color); border-radius: 12px; padding: 1rem;">
-      <h3 style="font-size: 1.25rem; margin-bottom: 1rem; color: var(--text-main);">新NISA おすすめ証券口座 比較表</h3>
-      <table style="width: 100%; min-width: 600px; border-collapse: collapse; text-align: left; font-size: 0.95rem;">
-        <thead>
-          <tr style="background-color: var(--bg-body); border-bottom: 2px solid var(--border-color);">
-            <th style="padding: 1rem; color: var(--text-main);">証券会社</th>
-            <th style="padding: 1rem; color: var(--text-main);">取引手数料</th>
-            <th style="padding: 1rem; color: var(--text-main);">NISA投信取扱数</th>
-            <th style="padding: 1rem; color: var(--text-main);">サポート体制</th>
-            <th style="padding: 1rem; color: var(--text-main);">公式サイト</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr style="border-bottom: 1px solid var(--border-color);">
-            <td style="padding: 1rem; font-weight: bold; color: var(--primary);">SBIネオトレード証券</td>
-            <td style="padding: 1rem; color: var(--text-main);">0円<br/><span style="font-size:0.8rem;color:var(--text-muted);">（完全無料）</span></td>
-            <td style="padding: 1rem; color: var(--text-main);">厳選された優良銘柄</td>
-            <td style="padding: 1rem; color: var(--text-main);">オンライン/電話対応</td>
-            <td style="padding: 1rem;">
-              <a href={sbiUrl} target="_blank" rel="nofollow noopener noreferrer" class="track-affiliate" data-broker="sbi-neotrade_table" style="display: block; text-align: center; padding: 0.6rem 1rem; background-color: var(--primary); color: white; border-radius: 6px; text-decoration: none; font-weight: bold; font-size: 0.85rem; box-shadow: 0 2px 4px rgba(0,0,0,0.1); transition: transform 0.2s;" onmouseover="this.style.transform='scale(1.02)'" onmouseout="this.style.transform='scale(1)'">詳細を見る<br/><span style="font-size:0.75rem;font-weight:normal;">(PR)</span></a>
-            </td>
-          </tr>
-          <tr>
-            <td style="padding: 1rem; font-weight: bold; color: var(--primary);">松井証券</td>
-            <td style="padding: 1rem; color: var(--text-main);">0円<br/><span style="font-size:0.8rem;color:var(--text-muted);">（完全無料）</span></td>
-            <td style="padding: 1rem; color: var(--text-main);">約2,000本以上</td>
-            <td style="padding: 1rem; color: var(--text-main);">充実（有人チャット等対応）</td>
-            <td style="padding: 1rem;">
-              <a href={matsuiUrl} target="_blank" rel="nofollow noopener noreferrer" class="track-affiliate" data-broker="matsui_table" style="display: block; text-align: center; padding: 0.6rem 1rem; background-color: var(--primary); color: white; border-radius: 6px; text-decoration: none; font-weight: bold; font-size: 0.85rem; box-shadow: 0 2px 4px rgba(0,0,0,0.1); transition: transform 0.2s;" onmouseover="this.style.transform='scale(1.02)'" onmouseout="this.style.transform='scale(1)'">詳細を見る<br/><span style="font-size:0.75rem;font-weight:normal;">(PR)</span></a>
-            </td>
-          </tr>
-        </tbody>
-      </table>
+    <!-- Comparison Cards -->
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem; margin-bottom: 2.5rem;">
+        
+        <!-- SBIネオトレード証券 -->
+        <div style="background: white; border: 1px solid var(--border-color); border-radius: 12px; padding: 1.5rem; display: flex; flex-direction: column;">
+            <h3 style="font-size: 1.3rem; margin-bottom: 1rem; color: var(--primary); text-align: center;">SBIネオトレード証券</h3>
+            <table style="width: 100%; border-collapse: collapse; text-align: left; font-size: 0.95rem; margin-bottom: 1.5rem;">
+                <tbody>
+                    <tr style="border-bottom: 1px solid var(--border-color);">
+                        <th style="padding: 0.75rem 0; color: var(--text-muted); font-weight: normal; width: 40%;">取引手数料</th>
+                        <td style="padding: 0.75rem 0; color: var(--text-main); font-weight: bold; text-align: right;">0円（完全無料）</td>
+                    </tr>
+                    <tr style="border-bottom: 1px solid var(--border-color);">
+                        <th style="padding: 0.75rem 0; color: var(--text-muted); font-weight: normal;">取扱商品</th>
+                        <td style="padding: 0.75rem 0; color: var(--text-main); font-weight: bold; text-align: right;">厳選された投資信託</td>
+                    </tr>
+                    <tr style="border-bottom: 1px solid var(--border-color);">
+                        <th style="padding: 0.75rem 0; color: var(--text-muted); font-weight: normal;">最低積立額</th>
+                        <td style="padding: 0.75rem 0; color: var(--text-main); font-weight: bold; text-align: right;">100円</td>
+                    </tr>
+                    <tr>
+                        <th style="padding: 0.75rem 0; color: var(--text-muted); font-weight: normal;">サポート体制</th>
+                        <td style="padding: 0.75rem 0; color: var(--text-main); font-weight: bold; text-align: right;">オンライン/電話</td>
+                    </tr>
+                </tbody>
+            </table>
+            <div style="margin-top: auto;">
+                <a href={sbiUrl} target="_blank" rel="nofollow noopener noreferrer" class="track-affiliate" data-broker="sbi-neotrade_card" style="display: block; text-align: center; padding: 1rem; background-color: var(--primary); color: white; border-radius: 8px; text-decoration: none; font-weight: bold; font-size: 1rem; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1);">
+                    公式サイトで詳細を見る（PR）
+                </a>
+            </div>
+        </div>
+
+        <!-- 松井証券 -->
+        <div style="background: white; border: 1px solid var(--border-color); border-radius: 12px; padding: 1.5rem; display: flex; flex-direction: column;">
+            <h3 style="font-size: 1.3rem; margin-bottom: 1rem; color: var(--primary); text-align: center;">松井証券</h3>
+            <table style="width: 100%; border-collapse: collapse; text-align: left; font-size: 0.95rem; margin-bottom: 1.5rem;">
+                <tbody>
+                    <tr style="border-bottom: 1px solid var(--border-color);">
+                        <th style="padding: 0.75rem 0; color: var(--text-muted); font-weight: normal; width: 40%;">取引手数料</th>
+                        <td style="padding: 0.75rem 0; color: var(--text-main); font-weight: bold; text-align: right;">0円（完全無料）</td>
+                    </tr>
+                    <tr style="border-bottom: 1px solid var(--border-color);">
+                        <th style="padding: 0.75rem 0; color: var(--text-muted); font-weight: normal;">取扱商品</th>
+                        <td style="padding: 0.75rem 0; color: var(--text-main); font-weight: bold; text-align: right;">投資信託 約2,000本超</td>
+                    </tr>
+                    <tr style="border-bottom: 1px solid var(--border-color);">
+                        <th style="padding: 0.75rem 0; color: var(--text-muted); font-weight: normal;">最低積立額</th>
+                        <td style="padding: 0.75rem 0; color: var(--text-main); font-weight: bold; text-align: right;">100円</td>
+                    </tr>
+                    <tr>
+                        <th style="padding: 0.75rem 0; color: var(--text-muted); font-weight: normal;">サポート体制</th>
+                        <td style="padding: 0.75rem 0; color: var(--text-main); font-weight: bold; text-align: right;">充実（有人チャット等）</td>
+                    </tr>
+                </tbody>
+            </table>
+            <div style="margin-top: auto;">
+                <a href={matsuiUrl} target="_blank" rel="nofollow noopener noreferrer" class="track-affiliate" data-broker="matsui_card" style="display: block; text-align: center; padding: 1rem; background-color: var(--primary); color: white; border-radius: 8px; text-decoration: none; font-weight: bold; font-size: 1rem; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1);">
+                    公式サイトで詳細を見る（PR）
+                </a>
+            </div>
+        </div>
+
     </div>
 
     <!-- Recommendation Engine -->
@@ -175,7 +204,7 @@ const buildDate = new Date().toLocaleDateString('ja-JP', { timeZone: 'Asia/Tokyo
 
         <div style="text-align: center;">
             <a href="https://px.a8.net/svt/ejp?a8mat=4AXL46+2ZRH9U+1WP2+15R4NM" target="_blank" rel="nofollow noopener noreferrer" class="track-outbound" data-target="dmm_stock" style="display: inline-block; background-color: var(--primary); color: white; padding: 1rem 2.5rem; border-radius: 8px; font-weight: bold; text-decoration: none; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);">
-                DMM株の詳細を確認する（公式サイト・PR）
+                公式サイトで詳細を見る（PR）
             </a>
             <p style="margin-top: 0.5rem; font-size: 0.8rem; color: var(--text-muted);">※DMM.com証券のページへ遷移します。</p>
         </div>

@@ -440,9 +440,8 @@ export default function CalculatorForm({ mode }: CalculatorFormProps) {
                         )}
 
                         <p style={{ color: 'var(--text-muted)', marginBottom: '1.5rem', lineHeight: '1.6' }}>
-                            シミュレーション結果を踏まえ、<br />
-                            実際に新NISAを始めるには証券口座の開設が必要です。<br />
-                            手数料や特徴を比較して、自分に合った証券会社を選びましょう。
+                            今回の試算はあくまで目安です。<br />
+                            実際の運用では、証券会社ごとの手数料や商品ラインナップも重要になります。
                         </p>
 
                         <a
@@ -452,7 +451,7 @@ export default function CalculatorForm({ mode }: CalculatorFormProps) {
                             rel={affiliateUrl ? "noopener noreferrer" : undefined}
                             onClick={() => trackEvent('cta_primary_click', { page: mode, target: 'account-compare' })}
                         >
-                            今すぐ新NISAを始める
+                            新NISA対応の証券口座を比較する（PR）
                         </a>
                     </div>
                 );
