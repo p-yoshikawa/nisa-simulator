@@ -27,6 +27,14 @@ export const affiliates: Affiliate[] = [
         affiliateUrl: "https://px.a8.net/svt/ejp?a8mat=4AXI0D+EEKKOI+3XCC+BXQOI",
         officialUrl: "https://px.a8.net/svt/ejp?a8mat=4AXI0D+EEKKOI+3XCC+BXQOI", // 常にA8リンクを経由させる
         customCtaLabel: "松井証券で新NISAを始める",
+    },
+    {
+        id: "monex",
+        name: "マネックス証券",
+        features: ["情報収集や分析機能が充実", "総合力が高い"],
+        recommendedFor: ["選択肢の幅を広く持ちたい方", "投資信託ラインナップを重視したい方"],
+        affiliateUrl: "https://h.accesstrade.net/sp/cc?rk=010072vk00oowk",
+        officialUrl: "https://h.accesstrade.net/sp/cc?rk=010072vk00oowk", // Accesstrade経由
     }
 ];
 

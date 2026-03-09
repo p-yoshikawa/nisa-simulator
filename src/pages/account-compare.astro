@@ -8,6 +8,7 @@ import { getBrokerUrl } from '../lib/affiliates';
 const isAffiliateMode = import.meta.env.PUBLIC_AFFILIATE_MODE === 'on';
 const sbiUrl = getBrokerUrl('sbi-neotrade');
 const matsuiUrl = getBrokerUrl('matsui');
+const monexUrl = getBrokerUrl('monex');
 
 const faqs = [
   { q: "証券口座の開設に費用はかかりますか？", a: "主要なネット証券など、多くの金融機関では口座開設費用や維持手数料は無料に設定されています。" },
@@ -105,6 +106,36 @@ const buildDate = new Date().toLocaleDateString('ja-JP', { timeZone: 'Asia/Tokyo
             </div>
         </div>
 
+        <!-- マネックス証券 -->
+        <div style="background: white; border: 1px solid var(--border-color); border-radius: 12px; padding: 1.5rem; display: flex; flex-direction: column;">
+            <h3 style="font-size: 1.3rem; margin-bottom: 1rem; color: var(--primary); text-align: center;">マネックス証券</h3>
+            <table style="width: 100%; border-collapse: collapse; text-align: left; font-size: 0.95rem; margin-bottom: 1.5rem;">
+                <tbody>
+                    <tr style="border-bottom: 1px solid var(--border-color);">
+                        <th style="padding: 0.75rem 0; color: var(--text-muted); font-weight: normal; width: 40%;">取引手数料</th>
+                        <td style="padding: 0.75rem 0; color: var(--text-main); font-weight: bold; text-align: right;">0円（完全無料）</td>
+                    </tr>
+                    <tr style="border-bottom: 1px solid var(--border-color);">
+                        <th style="padding: 0.75rem 0; color: var(--text-muted); font-weight: normal;">取扱商品</th>
+                        <td style="padding: 0.75rem 0; color: var(--text-main); font-weight: bold; text-align: right;">投資信託だけでなく内外株等も</td>
+                    </tr>
+                    <tr style="border-bottom: 1px solid var(--border-color);">
+                        <th style="padding: 0.75rem 0; color: var(--text-muted); font-weight: normal;">最低積立額</th>
+                        <td style="padding: 0.75rem 0; color: var(--text-main); font-weight: bold; text-align: right;">100円</td>
+                    </tr>
+                    <tr>
+                        <th style="padding: 0.75rem 0; color: var(--text-muted); font-weight: normal;">サポート体制</th>
+                        <td style="padding: 0.75rem 0; color: var(--text-main); font-weight: bold; text-align: right;">情報収集・分析機能</td>
+                    </tr>
+                </tbody>
+            </table>
+            <div style="margin-top: auto;">
+                <a href={monexUrl} target="_blank" rel="nofollow noopener noreferrer" class="track-affiliate" data-broker="monex_card" style="display: block; text-align: center; padding: 1rem; background-color: var(--primary); color: white; border-radius: 8px; text-decoration: none; font-weight: bold; font-size: 1rem; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1);">
+                    公式サイトで詳細を見る（PR）<img src="https://h.accesstrade.net/sp/rr?rk=010072vk00oowk" width="1" height="1" border="0" alt="" style="display:none;" />
+                </a>
+            </div>
+        </div>
+
     </div>
 
     <!-- Recommendation Engine -->
@@ -114,8 +145,9 @@ const buildDate = new Date().toLocaleDateString('ja-JP', { timeZone: 'Asia/Tokyo
         <div id="quiz-q1" class="quiz-question" style="text-align: center;">
             <p style="font-weight: bold; margin-bottom: 1rem;">Q1. あなたの投資経験は？</p>
             <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
-                <button type="button" class="quiz-btn" data-target="q2" data-score="sbi" style="padding: 0.75rem 1.5rem; border-radius: 8px; border: 1px solid var(--primary); background: white; cursor: pointer; color: var(--primary); font-weight: bold;">初心者</button>
+                <button type="button" class="quiz-btn" data-target="q2" data-score="sbi" style="padding: 0.75rem 1.5rem; border-radius: 8px; border: 1px solid var(--primary); background: white; cursor: pointer; color: var(--primary); font-weight: bold;">全くの初心者</button>
                 <button type="button" class="quiz-btn" data-target="q2" data-score="matsui" style="padding: 0.75rem 1.5rem; border-radius: 8px; border: 1px solid var(--primary); background: white; cursor: pointer; color: var(--primary); font-weight: bold;">ある程度経験あり</button>
+                <button type="button" class="quiz-btn" data-target="q2" data-score="monex" style="padding: 0.75rem 1.5rem; border-radius: 8px; border: 1px solid var(--primary); background: white; cursor: pointer; color: var(--primary); font-weight: bold;">自分で情報収集したい</button>
             </div>
         </div>
 
@@ -123,7 +155,8 @@ const buildDate = new Date().toLocaleDateString('ja-JP', { timeZone: 'Asia/Tokyo
             <p style="font-weight: bold; margin-bottom: 1rem;">Q2. メインで考えている投資対象は？</p>
             <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
                 <button type="button" class="quiz-btn" data-target="q3" data-score="matsui" style="padding: 0.75rem 1.5rem; border-radius: 8px; border: 1px solid var(--primary); background: white; cursor: pointer; color: var(--primary); font-weight: bold;">つみたて中心</button>
-                <button type="button" class="quiz-btn" data-target="q3" data-score="sbi" style="padding: 0.75rem 1.5rem; border-radius: 8px; border: 1px solid var(--primary); background: white; cursor: pointer; color: var(--primary); font-weight: bold;">個別株等も積極的に</button>
+                <button type="button" class="quiz-btn" data-target="q3" data-score="monex" style="padding: 0.75rem 1.5rem; border-radius: 8px; border: 1px solid var(--primary); background: white; cursor: pointer; color: var(--primary); font-weight: bold;">幅広く色々な商品を</button>
+                <button type="button" class="quiz-btn" data-target="q3" data-score="sbi" style="padding: 0.75rem 1.5rem; border-radius: 8px; border: 1px solid var(--primary); background: white; cursor: pointer; color: var(--primary); font-weight: bold;">王道に絞って投資</button>
             </div>
         </div>
 
@@ -132,6 +165,7 @@ const buildDate = new Date().toLocaleDateString('ja-JP', { timeZone: 'Asia/Tokyo
             <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
                 <button type="button" class="quiz-btn" data-target="result" data-score="sbi" style="padding: 0.75rem 1.5rem; border-radius: 8px; border: 1px solid var(--primary); background: white; cursor: pointer; color: var(--primary); font-weight: bold;">とにかく手数料の安さ</button>
                 <button type="button" class="quiz-btn" data-target="result" data-score="matsui" style="padding: 0.75rem 1.5rem; border-radius: 8px; border: 1px solid var(--primary); background: white; cursor: pointer; color: var(--primary); font-weight: bold;">使いやすさ・サポート</button>
+                <button type="button" class="quiz-btn" data-target="result" data-score="monex" style="padding: 0.75rem 1.5rem; border-radius: 8px; border: 1px solid var(--primary); background: white; cursor: pointer; color: var(--primary); font-weight: bold;">総合的な情報力と分析</button>
             </div>
         </div>
 
@@ -155,6 +189,7 @@ const buildDate = new Date().toLocaleDateString('ja-JP', { timeZone: 'Asia/Tokyo
         <ul style="list-style-type: disc; padding-left: 1.5rem; color: var(--text-muted); line-height: 1.8;">
             <li><strong style="color: var(--text-main);">SBIネオトレード証券</strong>：手数料の安さが魅力。これから投資を始める初心者におすすめです。</li>
             <li><strong style="color: var(--text-main);">松井証券</strong>：新NISAに対応しており、初心者でも始めやすいサポート体制が魅力です。</li>
+            <li><strong style="color: var(--text-main);">マネックス証券</strong>：情報収集や各種情報の提供が整理されており、選択肢の幅を広く比較したい方に向いています。</li>
         </ul>
         <p style="margin-top: 1rem; font-size: 0.85rem; color: var(--text-muted);">
             ※当サイトの比較情報は参考情報であり、投資助言を目的としたものではありません。投資に関する最終決定は、ご自身のご判断にてお願いいたします。
@@ -214,7 +249,7 @@ const buildDate = new Date().toLocaleDateString('ja-JP', { timeZone: 'Asia/Tokyo
     <RelatedLinks />
     <FAQSection faqs={faqs} />
 
-    <script is:inline define:vars={{ sbiUrl, matsuiUrl, isAffiliateMode }}>
+    <script is:inline define:vars={{ sbiUrl, matsuiUrl, monexUrl, isAffiliateMode }}>
         function trackEvent(name, params = {}) {
             try {
                 const gtag = window.gtag;
@@ -240,10 +275,17 @@ const buildDate = new Date().toLocaleDateString('ja-JP', { timeZone: 'Asia/Tokyo
                     reason: '初心者に優しいサポート体制があり、新NISAで安心して長期運用したい方に最適です。',
                     active: isAffiliateMode,
                     url: matsuiUrl
+                },
+                'monex': {
+                    id: 'monex',
+                    name: 'マネックス証券',
+                    reason: '各種ツールを活用しながら、自身で幅広く情報収集や分析を行いたい方に向いています。',
+                    active: isAffiliateMode,
+                    url: monexUrl
                 }
             };
 
-            let scores = { sbi: 0, matsui: 0 };
+            let scores = { sbi: 0, matsui: 0, monex: 0 };
             const quizContainer = document.getElementById('reco-quiz');
             
             if (!quizContainer) return;
@@ -257,6 +299,7 @@ const buildDate = new Date().toLocaleDateString('ja-JP', { timeZone: 'Asia/Tokyo
                 
                 if (scoreKey === 'sbi') scores.sbi++;
                 if (scoreKey === 'matsui') scores.matsui++;
+                if (scoreKey === 'monex') scores.monex++;
 
                 btn.classList.add('is-active');
 
@@ -276,8 +319,17 @@ const buildDate = new Date().toLocaleDateString('ja-JP', { timeZone: 'Asia/Tokyo
             });
 
             function showResult() {
-                const recoKey = scores.sbi >= scores.matsui ? 'sbi' : 'matsui';
-                const altKey = scores.sbi >= scores.matsui ? 'matsui' : 'sbi';
+                // Find top 2 using stable deterministic tie breaking
+                const sorted = Object.entries(scores).sort((a, b) => {
+                    if (b[1] !== a[1]) {
+                        return b[1] - a[1];
+                    }
+                    const order = { sbi: 3, matsui: 2, monex: 1 };
+                    return order[b[0]] - order[a[0]];
+                });
+
+                const recoKey = sorted[0][0];
+                const altKey = sorted[1][0];
                 const recoBroker = brokers[recoKey];
                 const altBroker = brokers[altKey];
 
